@@ -1,0 +1,46 @@
+.wrapper .main_content{
+  width: 100%;
+  margin-left: 200px;
+}
+
+.wrapper .main_content .header{
+  height: 50px;
+  padding: 20px;
+  background: #fff;
+  color: #717171;
+  border-bottom: 1px solid #e0e4e8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wrapper .main_content .header .btn_menu{
+  width: 50px;
+  height: 50px;
+  margin-left: -20px;
+  border: none;
+  outline: none;
+  background-color: #170d47;
+  color: white;
+}
+
+.wrapper .main_content .header .sign_in{
+ color: royalblue;
+}
+
+.wrapper .main_content .header .sign_in:hover{
+  color: #170d47;
+ }
+
+/* .wrapper .main_content .info{
+  margin: 20px;
+  color: #717171;
+  line-height: 25px;
+}
+
+.wrapper .main_content .info div{
+  margin-bottom: 20px;
+} */
+.wrapper .main_content .info{
+  margin-left: 60px;
+}

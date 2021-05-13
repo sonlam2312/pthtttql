@@ -1,0 +1,181 @@
+.wrapper .main_content .info .t1{
+    display: flex;
+    align-items: baseline;
+}
+.wrapper .main_content .info .t1 h2{
+    margin-right:10px;
+}
+.wrapper .main_content .info input[name=sodonmua]{
+	outline:none;
+	border:none;
+	background-color: inherit;
+	border: 1px solid gray;
+	border-radius:10px;
+	padding:0 5px;
+}
+.wrapper .main_content .info input[name=sodonmua]:hover, input[name=sodonmua]:active{
+	border: 1.5px solid #2196f3;
+}
+.wrapper .main_content .info .btn-download{
+	position:relative;
+	width:25px;
+	height:25px;
+	outline:none;
+	border:none;
+	background-color:inherit;
+	border:1px solid gray;
+	border-radius:50%;
+}
+.wrapper .main_content .info .btn:hover, .btn:active{
+	background-color: #2196f3;
+	color:white;
+}
+.wrapper .main_content .info .btn .fa-download{
+	position:absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size:14px;
+}
+.wrapper .main_content .info .t1 .loai_mua{
+    margin-left: 30px;
+}
+.wrapper .main_content .info .t1 .loai_mua #loaimuahang:hover{
+    border: 1.5px solid royalblue;
+}
+.wrapper .main_content .info .t2{
+   margin-top: 10px;
+}
+.wrapper .main_content .info .t2 #phuongthuc{
+    margin-left: 30px;
+    margin-right: 30px;
+ }
+ .wrapper .main_content .info .t2 #select_hoadon:hover{
+    border: 1.5px solid royalblue;
+ }
+ .wrapper .main_content .info .t3{
+    margin-top: 10px;
+ }
+ .wrapper .main_content .info .t3 .nav-tabs li:first-child{
+    display: none;
+ }
+ 
+ .wrapper .main_content .info .t3 .tab-content div{
+ 	margin-top:20px;
+ }
+ 
+ .wrapper .main_content .info .t3 .tab-content table td{
+ 	padding: 10px 0;
+ }
+ 
+ .wrapper .main_content .info .t3 .tab-content input{
+ 	width:350px;
+ 	outline:none;
+ 	border:none;
+ 	background-color:inherit;
+ 	border-bottom:1px solid gray;
+ }
+ .wrapper .main_content .info .t3 .tab-content input:hover, input:active{
+ 	border-bottom:1.5px solid #2196f3;
+ }
+ 
+ .wrapper .main_content .info .t3 #form_chungtu input{
+   border: none;
+   outline: none;
+   background-color: inherit;
+   border-bottom: 1px solid black;
+   width: 200px;
+ }
+ .wrapper .main_content .info .t3 #form_chungtu  input:hover, input:hover,
+ .wrapper .main_content .info .t3 #form_chungtu  input:focus, input:focus{
+  border-bottom: 1.5px solid royalblue;
+}
+.wrapper .main_content .info .t3 #form_chungtu td{
+  height: 50px;
+}
+.wrapper .main_content .info .t4{
+  display: flex;
+  flex-direction: row-reverse;
+}
+.wrapper .main_content .info .t4 input{
+  border:none;
+  outline: none;
+  background-color: inherit;
+  width: 50px;
+  border-bottom: 1px solid rgb(202, 200, 200);
+}
+.wrapper .main_content .info .t4 #dongia{
+  margin-right: 120px;
+  margin-left: 95px;
+}
+.wrapper .main_content .info .t5{
+  margin-top: 10px;
+}
+.wrapper .main_content .info .t5 #chitiet{
+  border-collapse: collapse;
+}
+.wrapper .main_content .info .t5 #chitiet tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+.wrapper .main_content .info .t5 #chitiet tr:hover{
+  background-color: #ddd;
+}
+.wrapper .main_content .info .t5 #chitiet th{
+  padding-top: 12px 0;
+  text-align: center;
+  background-color: #2196f3;
+  border: 1px solid #fff;
+  color: white;
+}
+.wrapper .main_content .info .t5 #chitiet input{
+  width: 120px;
+}
+
+.wrapper .main_content .info .t6{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: 100px;
+}
+.wrapper .main_content .info .t6 #tinhtong td{
+  padding:8px 0;
+}
+.wrapper .main_content .info .t6 #tinhtong td:nth-child(old){
+	width:100px;
+}
+.wrapper .main_content .info .t6 #tinhtong td:nth-child(even){
+	width:300px;
+}
+.wrapper .main_content .info .t6 input{
+  border: none;
+  outline: none;
+  background-color: inherit;
+  border-bottom: 1px solid black;
+  width: 75%;
+}
+.wrapper .main_content .info .t7{
+	display:flex;
+	flex-direction:row-reverse;
+	margin-right:150px;
+}
+.wrapper .main_content .info .t7 .btn-save{
+	right:50px;
+	margin-right:10px;
+	outline: none;
+	border: 1px solid rgb(33, 150, 243);
+	background-color: #fff;
+}
+.wrapper .main_content .info .t7 .btn-save:hover, .btn-save:active{
+	background-color: #2196f3;
+	color:white;
+}
+.wrapper .main_content .info .t7 .btn-cancel{
+	right:30px;
+	outline: none;
+	border: 1px solid red;
+	background-color: #fff;
+}
+.wrapper .main_content .info .t7 .btn-cancel:hover, .btn-cancel:active{
+	background-color: red;
+	color:white;
+}

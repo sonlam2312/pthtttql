@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý kế toán</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/fragment.css}">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/muahang/form_chungtumua.css}">
+    <script th:src="@{/js/muahang.js}"></script>
+    <script th:src="@{/js/fragment.js}"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div th:replace="fragments::sidebar"></div>
+	    <div class="main_content">
+	        <div th:replace="fragments::header_notSignin"></div>
+	        <div class="info">
+	        	<div class="row t1">
+                    <h2>Chứng từ mua hàng</h2>
+                    <form>
+		        		<label for="sodonhang">Số đơn hàng:</label>
+		        		<input type="text" name="sodonmua" placeholder="Số đơn mua hàng"/>
+		        		<button class="btn btn-download">
+		        			<i class="fa fa-download"></i>
+		        		</button>
+		        	</form>
+                    <div class="loai_mua">
+                        <label for="loaimuahang">Loại hàng:</label>
+                        <select id="loaimuahang">
+                            <option value="muahangnhapkho">Mua hàng nhập kho</option>
+                            <option value="muahangkhongquakho">Mua hàng không qua kho</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row t2">
+                    <input type="radio" id="chuathanhtoan" name="thanhtoan" value="chuathanhtoan">
+                    <label for="chuathanhtoan">Chưa thanh toán</label>
+                    <input type="radio" id="thanhtoanngay" name="thanhtoan" value="thanhtoanngay" checked>
+                    <label for="thanhtoanngay">Thanh toán ngay</label>
+                    <input type="text" id="phuongthuc" value="Tiền mặt" disabled>
+                    <label for="hoadon">Hóa đơn:</label>
+                    <select id="select_hoadon">                       
+                        <option value="nhankem">Nhận kèm hóa đơn</option>
+                        <option value="khongkem">Không nhận kèm</option>
+                    </select>
+                </div>
+                <div class="row t3">
+                    <div class="col-sm-7">
+                      <ul class="nav nav-tabs">
+                        <li><a data-toggle="tab" href="#tab_chungtughino">Chứng từ ghi nợ</a></li>
+                        <li class="active"><a data-toggle="tab" href="#tab_phieunhap">Phiếu nhập</a></li>
+                        <li><a data-toggle="tab" href="#tab_phieuchi">Phiếu chi</a></li>
+                        <li><a data-toggle="tab" href="#tab_hoadon">Hóa Đơn</a></li>
+                     </ul>
+                      <div class="tab-content">
+                        <div id="tab_chungtughino" class="tab-pane fade">
+                          <table>
+                          	<tr>
+                          		<td>
+                          			<label for="mancc">Mã nhà cung cấp:</label>
+                          		</td>
+                          		<td>
+                          			<input type="text" name="mancc"/>
+                          		</td>
+                          	</tr>
+                          	<tr>
+                          		<td>
+                          			<label for="tenncc">Tên nhà cung cấp:</label>
+                          		</td>
+                          		<td>
+                          			<input type="text" name="tenncc"/>
+                          		</td>
+                          	</tr>
+                          		<td>
+                          			<label for="diengiai">Diễn giải:</label>
+                          		</td>
+                          		<td>
+                          			<input type="text" name="diengiai"/>
+                          		</td>
+                          	<tr>
+                          		<td>
+                          			<label for="mancc">Người phụ trách:</label>
+                          		</td>     
+                          		<td>
+                          			<input type="text" name="nguoiphutrach"/>
+                          		</td>
+                          	</tr>
+                          </table>
+                        </div>
+                        <div id="tab_phieunhap" class="tab-pane fade">
+                        	<table>
+                        		<tr>
+                        			<td>
+                        				<label for="mancc">Mã nhà cung cấp:</label>
+                        			</td>
+                        			<td>
+                        				<input type="text" name="mancc"/>
+                        			</td>
+                        		</tr>
+                        		<tr>
+                        			<td>
+                        				<label for="tenncc">Tên nhà cung cấp:</label>
+                        			</td>
+                        			<td>
+                        				<input type="text" name="tenncc"/>
+                        			</td>
+                        		</tr>
+                        		<tr>
+                        			<td>
+                        				<label for="nguoigiao">Người giao hàng:</label>
+                        			</td>
+                        			<td>
+                        				<input type="text" name="nguoigiao"/>
+                        			</td>
+                        		</tr>
+                        		<tr>
+                        			<td>
+                        				<label for="diengiai">Diễn giải:</label>
+                        			</td>
+                        			<td>
+                        				<input type="text" name="nguoigiao"/>
+                        			</td>
+                        		</tr>
+                        		<tr>
+                        			<td>
+                        				<label for="mancc">Người phụ trách:</label>
+                        			</td>
+                        			<td>
+                        				 <input type="text" name="nguoiphutrach"/>
+                        			</td>
+                        		</tr>
+                        	</table>
+                        </div>
+                        <div id="tab_phieuchi" class="tab-pane fade">   
+                        	<table>
+                        		<tr>
+                        			<td>  
+                        				<label for="mancc">Mã nhà cung cấp:</label>                   				
+                        			</td>
+                        			<td>
+                        				<input type="text" name="mancc"/>
+                        			</td>
+                        		</tr>
+                        		<tr>
+                        			<td>    
+                        				<label for="tenncc">Tên nhà cung cấp:</label>                  				
+                        			</td>
+                        			<td>
+                        				 <input type="text" name="tenncc"/> 
+                        			</td>
+                        		</tr>
+                        		<tr>
+                        			<td>  
+                        				<label for="nguoinhan">Người nhận:</label>                   				
+                        			</td>
+                        			<td>
+                        				<input type="text" name="nguoinhan"/>
+                        			</td>
+                        		</tr>
+                        		<tr>
+                        			<td>   
+                        				<label for="diachi">Địa chỉ:</label>                  				
+                        			</td>
+                        			<td>
+                        				<input type="text" name="diachi"/>
+                        			</td>
+                        		</tr>
+                        		<tr>
+                        			<td>   
+                        				<label for="lido">Lí do chi:</label>                  				
+                        			</td>
+                        			<td>
+                        				<input type="text" name="lido"/>
+                        			</td>
+                        		</tr>
+                        	</table>
+                        </div>
+                        <div id="tab_hoadon" class="tab-pane fade">    
+                        	<table>
+                        		<tr>
+                        			<td>
+                        				<label for="mancc">Mã nhà cung cấp:</label>
+                        			</td>
+                        			<td>
+                        				<input type="text" name="mancc"/>
+                        			</td>
+                        		</tr>
+                        		<tr>
+                        			<td>
+                        				<label for="tenncc">Tên nhà cung cấp:</label>
+                        			</td>
+                        			<td>
+                        				<input type="text" name="tenncc"/>
+                        			</td>
+                        		</tr>
+                        		<tr>
+                        			<td>  
+                        				<label for="diachi">Địa chỉ:</label>                   				
+                        			</td>
+                        			<td>
+                        				<input type="text" name="diachi"/>
+                        			</td>
+                        		</tr>
+                        		<tr>
+                        			<td>  
+                        				<label for="masothue">Mã số thuế:</label>                   				
+                        			</td>
+                        			<td>
+                        				<input type="text" name="masothue"/> 
+                        			</td>
+                        		</tr>
+                        	</table>                 
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-5" id="form_chungtu" style="margin-top: 40px;">
+                        <div id="f_chungtu">
+                          <h3>Chứng từ</h3>
+                          <table>
+                            <tr>
+                              <td>
+                                <label for="ngayhachtoan">Ngày hạch toán:</label>
+                              </td>
+                              <td><input type="date" name="ngayhachtoan"> </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <label for="ngaychungtu">Ngày chứng từ:</label>
+                              </td>
+                              <td><input type="date" name="ngaychungtu"> </td>
+                            </tr>
+                              <td>
+                                <label for="sochungtu">Số chứng từ:</label>
+                              </td>
+                              <td><input type="text" name="sochungtu"> </td>
+                            </tr>
+                          </table>          
+                        </div>
+                        <div id="f_phieuchi" style="display: none;">
+                          <h3>Chứng từ</h3>
+                          <table>
+                            <tr>
+                              <td>
+                                <label for="ngayhachtoan">Ngày hạch toán:</label>
+                              </td>
+                              <td><input type="date" name="ngayhachtoan"> </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <label for="ngaychungtu">Ngày chứng từ:</label>
+                              </td>
+                              <td><input type="date" name="ngaychungtu"> </td>
+                            </tr>
+                              <td>
+                                <label for="sophieuchi">Số phiếu chi:</label>
+                              </td>
+                              <td><input type="text" name="sophieuchi"> </td>
+                            </tr>
+                          </table>          
+                        </div>
+                        <div id="f_phieunhap" style="display: none;">
+                          <h3>Chứng từ</h3>
+                          <table>
+                            <tr>
+                              <td>
+                                <label for="ngayhachtoan">Ngày hạch toán:</label>
+                              </td>
+                              <td><input type="date" name="ngayhachtoan"> </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <label for="ngaychungtu">Ngày chứng từ:</label>
+                              </td>
+                              <td><input type="date" name="ngaychungtu"> </td>
+                            </tr>
+                              <td>
+                                <label for="sophieunhap">Số phiếu nhập:</label>
+                              </td>
+                              <td><input type="text" name="sophieunhap"> </td>
+                            </tr>
+                          </table>          
+                        </div>
+                        <div id="f_hoadon" style="display: none;">
+                          <h3>Hóa đơn</h3>
+                          <table>
+                            <tr>
+                              <td>
+                                <label for="masoHD">Mẫu số HĐ:</label>
+                              </td>
+                              <td><input type="text" name="mausoHD"> </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <label for="kihieuHD">Kí hiệu HĐ:</label>
+                              </td>
+                              <td><input type="text" name="kihieuHD"> </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <label for="sohoadon">Số hóa đơn:</label>
+                              </td>
+                              <td><input type="text" name="sohoadon"> </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <label for="ngayhoadon">Ngày hóa đơn:</label>
+                              </td>
+                              <td><input type="date" name="ngayhoadon"> </td>
+                            </tr>                         
+                          </table> 
+                        </div>
+                      </div>
+                  </div>
+                <div class="row t4">
+                    <div id="dongia">
+                      <label for="dongia">Đơn giá:</label>
+                      <input type="text" name="dongia" value="1000" disabled/>
+                    </div>
+                    <div id="tygia">
+                      <label for="tygia">Tỷ giá:</label>
+                      <input type="text" name="tygia" value="VND" disabled/>
+                    </div>
+                </div>
+                <div class="row t5">
+                  <h3>Chi tiết</h3>
+                  <table id="chitiet">
+                    <tr>
+                      <th>Mã hàng</th>
+                      <th>Tên hàng</th>
+                      <th>Số lượng</th>
+                      <th>Đơn vị tính</th>
+                      <th>Đơn giá</th>
+                      <th>Chiết khấu(%)</th>
+                      <th>Thuế GTGT(%)</th>
+                      <th>Thành tiền</th>
+                    </tr>
+                    <tr>
+                      <td>
+                        <input type="text" name="mahang"/>                     
+                      </td>  
+                      <td>
+                        <input type="text" name="tenhang"/>                     
+                      </td> 
+                      <td>
+                        <input type="number" name="soluong" id="soluong"/>                     
+                      </td> 
+                      <td>
+                        <input type="text" name="DVT"/>                     
+                      </td> 
+                      <td>
+                        <input type="text" name="gia" id="gia"/>                     
+                      </td> 
+                      <td>
+                        <input type="text" name="chietkhau" id="chietkhau"/>                     
+                      </td> 
+                      <td>
+                        <input type="text" name="GTGT" id="GTGT"/>                     
+                      </td> 
+                      <td>
+                        <input type="text" name="thanhtien" id="thanhtien"/>                     
+                      </td>                
+                    </tr>                                      
+                  </table>
+                </div>
+                <div class="row t6">
+                  <table id="tinhtong">
+                  	<tr>
+                      <td> <label for="tienhang">Tiền hàng:</label></td>
+                      <td><input type="text" name="tienhang"/></td>
+                      <td> <label for="GTGT">Tổng thuế GTGT:</label></td>
+                      <td><input type="text" name="GTGT"/></td>
+                    </tr>
+                    <tr>
+                      <td> <label for="chietkhau">Tổng chiết khấu:</label></td>
+                      <td><input type="text" name="chietkhau"/></td>
+                      <td> <label for="tienship">Tiền vận chuyển:</label></td>
+                      <td><input type="text" name="tienship"/></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td> <label for="tongtien">Tổng tiền:</label></td>
+                      <td><input type="text" name="tongtien"/></td>
+                    </tr>
+                  </table>                
+                </div>
+                <div class="row t7">      
+                    <button class="btn btn-cancel">Hủy bỏ</button> 
+                	<button class="btn btn-save">Lưu lại</button>
+                </div>
+	        </div>
+	    </div>
+	</div>
+</body>
+</html>

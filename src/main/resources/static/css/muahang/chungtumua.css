@@ -1,0 +1,101 @@
+.wrapper .main_content .info h3{
+	display:block;
+}
+.wrapper .main_content .info .header_chungtumua{
+	margin-top:20px;
+	display:flex;
+}
+.wrapper .main_content .info .header_chungtumua .taochungtumua .btn{
+	outline: none;
+	border: 1px solid rgb(33, 150, 243);
+	background-color: #fff;
+}
+.wrapper .main_content .info .header_chungtumua .taochungtumua .btn:hover, .btn:active{
+	background-color: #2196f3;
+	color:white;
+}
+.wrapper .main_content .info .header_chungtumua .search_chungtumua{
+	position:absolute;
+	margin-left:700px;
+}
+.wrapper .main_content .info .header_chungtumua .search_chungtumua input{
+	border:none;
+	outline:none;
+	width:250px;
+	height:36px;
+	font-size:14px;
+	background-color:#fff;
+	border:1px solid gray;
+	border-radius:20px;
+	padding:0 10px;
+}
+.wrapper .main_content .info .header_chungtumua .search_chungtumua input:hover, input:active{
+	border: 1px solid #2196f3;
+}
+.wrapper .main_content .info .header_chungtumua .search_chungtumua .btn{
+	position:absolute;
+	top:3px;
+	left:215px;
+	width:30px;
+	height:30px;
+	outline:none;
+	border:none;
+	background:#fff;
+	border:1px solid gray;
+	padding: 5px 5px;
+	border-radius:50%;
+	cursor:pointer;
+}
+.wrapper .main_content .info .header_chungtumua .search_chungtumua .btn:hover, .btn:active{
+	background-color: #2196f3;
+	color:white;
+}
+
+.wrapper .main_content .info .content_chungtumua{
+	margin-top:20px;
+	width:950px;
+	overflow-x:auto;
+}
+.wrapper .main_content .info .content_chungtumua #table_chungtumua{
+ 	border-collapse: collapse;
+}
+.wrapper .main_content .info .content_chungtumua #table_chungtumua tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+.wrapper .main_content .info .content_chungtumua #table_chungtumua tr:hover{
+  background-color: #ddd;
+}
+.wrapper .main_content .info .content_chungtumua #table_chungtumua th{
+  padding: 10px 1px;
+  text-align: center;
+  background-color: #2196f3;
+  border: 1px solid #fff;
+  color: white;
+}
+.wrapper .main_content .info .content_chungtumua #table_chungtumua th:nth-child(9), th:last-child{
+	width:200px;
+}
+.wrapper .main_content .info .content_chungtumua #table_chungtumua th:last-child{
+	width: 130px;
+}
+.wrapper .main_content .info .content_chungtumua #table_chungtumua td{
+	padding:5px;
+}
+.wrapper .main_content .info .content_chungtumua #table_chungtumua .btn-primary{
+	border:1px solid #2196f3;
+	background-color:white;
+	color:black;
+}
+.wrapper .main_content .info .content_chungtumua #table_chungtumua .btn-primary:hover, .btn-primary:active{
+	color:white;
+	background-color:#2196f3;
+}
+.wrapper .main_content .info .content_chungtumua #table_chungtumua .btn-danger{
+	border:1px solid red;
+	background-color:white;
+	color:black;
+}
+.wrapper .main_content .info .content_chungtumua #table_chungtumua .btn-danger:hover, .btn-danger:active{
+	color:white;
+	background-color:red;
+}
