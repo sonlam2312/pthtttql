@@ -11,7 +11,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" th:href="@{/css/fragment.css}">
     <link rel="stylesheet" th:href="@{/css/index.css}">
-    <link rel="stylesheet" th:href="@{/css/muahang/form_baogia.css}">
+    <link rel="stylesheet" th:href="@{/css/kho/form_nhapkho.css}">
     <script th:src="@{/js/fragment.js}"></script>
 </head>
 <body>
@@ -20,42 +20,51 @@
 	    <div class="main_content">
 	        <div th:replace="fragments::header_notSignin"></div>
 	        <div class="info">
-	        	<h3>Báo giá bán hàng</h3>
+	        	<h3>Phiếu xuất kho</h3>
+	        	<div class="header_phieukho">
+	        		<form>
+		        		<label for="sochungtu">Số chứng từ:</label>
+		        		<input type="text" name="sochungtu" placeholder="Số chứng từ"/>
+		        		<button class="btn btn-download">
+		        			<i class="fa fa-download"></i>
+		        		</button>
+		        	</form>
+	        	</div>
 	        	<div class="row t1">
 	        		<div class="col-sm-7" id="nhapphieu">
 	        			<h4>Thông tin chung</h4>
-	        			<lable for="makh">Mã khách hàng:</lable>
+	        			<lable for="mancc">Mã khách hàng:</lable>
 	        			<input type="text" name="mancc"/>
-	        			<lable for="tenkh">Tên khách hàng:</lable>
+	        			<lable for="tenncc">Tên khách hàng:</lable>
 	        			<input type="text" name="tenncc"/><br><br>
-	        			<lable for="diachi">Địa chỉ:</lable>
-	        			<input type="text" name="diachi"/><br><br>
-	        			<lable for="masothue">Mã số thuế:</lable>
-	        			<input type="text" name="mathue"/><br><br>
-	        			<lable for="nguoimua">Người phụ trách:</lable>
-	        			<input type="text" name="nguoimua"/><br>
+	        			<lable for="nguoigiaohang">Người giao hàng:</lable>
+	        			<input type="text" name="nguoigiaohang"/><br><br>
+	        			<lable for="diengiai">Diễn giải:</lable>
+	        			<input type="text" name="diengiai"/><br><br>
+	        			<lable for="nguoiphutrach">Người phụ trách:</lable>
+	        			<input type="text" name="nguoiphutrach"/><br>
 	        		</div>
 	        		<div class="col-sum-5" id="kihieu">
-	        			<h4>Báo giá bán hàng</h4>
-                          <table>
+	        			<h4>Chứng từ</h4>
+                          <table>                      
                             <tr>
                               <td>
-                                <label for="sobaogia">Số báo giá:</label>
+                                <label for="ngayhachtoan">Ngày hạch toán:</label>
                               </td>
-                              <td><input type="text" name="sobaogia"> </td>
+                              <td><input type="date" name="ngayhachtoan"> </td>
                             </tr>
                             <tr>
                               <td>
-                                <label for="ngaybaogia">Ngày báo giá:</label>
+                                <label for="ngaychungtu">Ngày chứng từ:</label>
                               </td>
-                              <td><input type="date" name="ngaybaogia"> </td>
-                            </tr>
+                              <td><input type="date" name="ngaychungtu"> </td>
+                            </tr> 
                             <tr>
                               <td>
-                                <label for="ngayhethan">Hiệu lực đến:</label>
+                                <label for="sophieunhap">Số phiếu nhập:</label>
                               </td>
-                              <td><input type="date" name="ngayhethan"> </td>
-                            </tr>                       
+                              <td><input type="text" name="sophieunhap"> </td>
+                            </tr>                      
                           </table> 
 	        		</div>
 	        	</div>
@@ -90,39 +99,39 @@
                         <input type="text" name="tenhang"/>                     
                       </td> 
                       <td>
-                        <input type="number" name="soluong" id="soluong" oninput="tongtien()"/>                     
+                        <input type="number" name="soluong" id="soluong"/>                     
                       </td> 
                       <td>
                         <input type="text" name="DVT"/>                     
                       </td> 
                       <td>
-                        <input type="text" name="gia" id="gia" oninput="tongtien()"/>                     
+                        <input type="text" name="gia" id="gia"/>                     
                       </td> 
                       <td>
-                        <input type="text" name="chietkhau" id="chietkhau" oninput="tongtien()"/>                     
+                        <input type="text" name="chietkhau" id="chietkhau"/>                     
                       </td> 
                       <td>
-                        <input type="text" name="GTGT" id="GTGT" oninput="tongtien()"/>                     
+                        <input type="text" name="GTGT" id="GTGT"/>                     
                       </td> 
                       <td>
-                        <input type="text" name="thanhtien" id="thanhtien" oninput="tongtien()"/>                     
+                        <input type="text" name="thanhtien" id="thanhtien"/>                     
                       </td>                
-                    </tr>                                                      
+                    </tr>                                      
                   </table>
                 </div>
                 <div class="row t4">
                   <table id="tinhtong">
                   	<tr>
                       <td> <label for="tienhang">Tiền hàng:</label></td>
-                      <td><input type="text" name="tienhang" id="tienhang" oninput="tongtien()"/></td>
+                      <td><input type="text" name="tienhang"/></td>
                       <td> <label for="GTGT">Tổng thuế GTGT:</label></td>
-                      <td><input type="text" name="GTGT" id="tongGTGT" oninput="tongtien()"/></td>
+                      <td><input type="text" name="GTGT"/></td>
                     </tr>
                     <tr>
                       <td> <label for="chietkhau">Tổng chiết khấu:</label></td>
-                      <td><input type="text" name="chietkhau" id="tongchietkhau" oninput="tongtien()"/></td>
+                      <td><input type="text" name="chietkhau"/></td>
                       <td> <label for="tongtien">Tổng tiền:</label></td>
-                      <td><input type="text" name="tongtien" id="tongtien" oninput="tongtien()"/></td>
+                      <td><input type="text" name="tongtien"/></td>
                     </tr>
                   </table>                
                 </div>

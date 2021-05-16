@@ -11,7 +11,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" th:href="@{/css/fragment.css}">
     <link rel="stylesheet" th:href="@{/css/index.css}">
-    <link rel="stylesheet" th:href="@{/css/muahang/donmuahang.css}">
+    <link rel="stylesheet" th:href="@{/css/muahang/ncc.css}">
     <script th:src="@{/js/fragment.js}"></script>
 </head>
 <body>
@@ -20,69 +20,52 @@
 	    <div class="main_content">
 	        <div th:replace="fragments::header_notSignin"></div>
 	        <div class="info">
-	        	<h3>Đơn bán hàng</h3>
-	        	<div class="header_donmua">	        		
-	        		<div class="taodonmua">
-	        			<form th:action="@{/form_donban}">
+	        	<h3>Danh mục nhà cung cấp</h3>
+	        	<div class="header_ncc">	        		
+	        		<div class="taoncc">
+	        			<form th:action="@{/form_ncc}">
 	        				<button class="btn btn-save">Tạo mới</button>
 	        			</form>
 	        		</div>   
-	        		<div class="search_donmua">
+	        		<div class="search_ncc">
 	        			<form th:action="@{#}" method="get">
-	        				<input type="text" name="txt_donmua" placeholder="Số đơn hàng"/>
+	        				<input type="text" name="txt_ncc" placeholder="Mã nhà cung cấp"/>
 	        				<button class="btn btn-search">
 	        					<i class="fa fa-search"></i>
 	        				</button>
 	        			</form>
 	        		</div>  	        		   		
 	        	</div>
-	        	<div class="content_donmua">
-	        		<h3>Danh sách đơn bán hàng</h3>
-	        		<table id="table_donmua">
+	        	<div class="content_ncc">
+	        		<h3>Danh sách nhà cung cấp</h3>
+	        		<table id="table_ncc">
 	        			<tr>
 	        				<th>No</th>
-	        				<th>Ngày đơn hàng</th>
-	        				<th>Số đơn hàng</th>
-	        				<th>Ngày giao hàng</th>
-	        				<th>Người phụ trách</th>
-	        				<th>Khách hàng</th>
+	        				<th>Mã nhà cung cấp</th>
+	        				<th>Tên nhà cung cấp</th>
 	        				<th>Địa chỉ</th>
+	        				<th>Số điện thoại</th>
 	        				<th>Mã số thuế</th>
-	        				<th>Tình trạng</th>
+	        				<th>Số tài khoản</th>
 	        				<th></th>
-	        			</tr>
+	        			</tr>     
 	        			<tr>
 	        				<td>1</td>
-	        				<td>23/5/2021</td>
-	        				<td>BGM1001</td>
-	        				<td>23/6/2021</td>
-	        				<td>Nguyễn Văn A</td>
-	        				<td>Công ty TNHH Bình An</td>        				
-	        				<td>Thanh xuân, Hà nội</td>
-	        				<td>MTr54312</td>
-	        				<td>Chưa xử lý</td>
+	        				<td>NCC1001</td>
+	        				<td>Công ty TNHH Bình An</td>
+	        				<td>Thanh Xuân, Hà Nội</td>
+	        				<td>091234567</td>
+	        				<td>MS01234</td>
+	        				<td>1200546753123</td>
 	        				<td>
-	        					<button class="btn btn-primary">Xem</button>
+	        					<button class="btn btn-primary">Sửa</button>
 	        					<button class="btn btn-danger">Xóa</button>
 	        				</td>
-	        			</tr>
-	        			<tr>
-	        				<td>2</td>
-	        				<td>23/5/2021</td>
-	        				<td>BGM1001</td>
-	        				<td>23/6/2021</td>
-	        				<td>Nguyễn Văn A</td>
-	        				<td>Công ty TNHH Bình An</td>        				
-	        				<td>Thanh xuân, Hà nội</td>
-	        				<td>MTr54312</td>
-	        				<td>Hoàn thành</td>
-	        				<td>
-	        					<button class="btn btn-primary">Xem</button>
-	        					<button class="btn btn-danger">Xóa</button>
-	        				</td>
-	        			</tr>
+	        			</tr>     			
 	        		</table>
 	        	</div>
 	        </div>
 	    </div>
-	</div>
+	  </div>
+	</body>
+</html>

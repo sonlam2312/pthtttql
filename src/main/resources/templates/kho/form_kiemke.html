@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Quản lý kế toán</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" th:href="@{/css/fragment.css}">
+<link rel="stylesheet" th:href="@{/css/index.css}">
+<link rel="stylesheet" th:href="@{/css/kho/form_kiemke.css}">
+<script th:src="@{/js/fragment.js}"></script>
+<script th:src="@{/js/kiemke.js}"></script>
+</head>
+<body>
+	<div class="wrapper">
+		<div th:replace="fragments::sidebar"></div>
+		<div class="main_content">
+			<div th:replace="fragments::header_notSignin"></div>
+			<div class="info">
+				<h3>Kiểm kê hàng hóa, vật tư</h3>
+				<div class="row t1">
+					<div class="col-sm-6" id="nhapphieu">
+						<h4>Thông tin chung</h4>
+						<table id="thongtinchung">
+							<tr>
+								<td><label for="mucdich">Mục đích:</label></td>
+								<td><input type="text" name="mucdich" /></td>
+							</tr>
+							<tr>
+								<td><label for="kho">Kho:</label></td>
+								<td><input type="text" name="kho" /></td>
+							</tr>
+							<tr>
+								<td><label for="denngay">Đến ngày:</label></td>
+								<td><input type="text" name="denngay" /></td>
+							</tr>
+						</table>
+					</div>
+					<div class="col-sum-6" id="kihieu">
+						<h4>Chứng từ</h4>
+						<table id="mau">
+							<tr>
+								<td><label for="so">Số:</label></td>
+								<td><input type="text" name="so"></td>
+							</tr>
+							<tr>
+								<td><label for="ngay">Ngày:</label></td>
+								<td><input type="date" name="ngay"></td>
+							</tr>
+							<tr>
+								<td><label for="gio">Giờ:</label></td>
+								<td><input type="time" name="gio"></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div class="row t2">
+					<h3>Chi tiết</h3>
+					<table id="chitiet">
+						<tr>
+							<th rowspan="2">Mã hàng</th>
+							<th rowspan="2">Tên hàng</th>
+							<th rowspan="2">Tên kho</th>
+							<th rowspan="2">Đơn vị tính</th>
+							<th colspan="3">Số lượng</th>
+							<th rowspan="2">Xử lý</th>
+						</tr>
+						<tr>
+							<td>Theo sổ</td>
+							<td>Kiểm định</td>
+							<td>Chênh lệch</td>
+						</tr>
+						<tr>	
+							<td>
+								<input type="text" name="mahang"/>
+							</td>
+							<td>
+								<input type="text" name="tenhang"/>
+							</td>
+							<td>
+								<input type="text" name="kho"/>
+							</td>
+							<td>
+								<input type="text" name="donvitinh"/>
+							</td>
+							<td>
+								<input type="text" name="theoso" id="theoso" oninput="xuly()"/>
+							</td>
+							<td>
+								<input type="text" name="kiemdinh" id="kiemdinh" oninput="xuly()"/>
+							</td>
+							<td>
+								<input type="text" name="chenhlech" id="chenhlech" oninput="xuly()"/>
+							</td>
+							<td>
+								<input type="text" name="xuly" id="xuly" oninput="xuly()"/>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="row t3">
+					<button class="btn btn-out">Xuất</button> 
+                	<button class="btn btn-save">Lưu lại</button>
+				</div>
+			</div>
+		</div>
+	</div>

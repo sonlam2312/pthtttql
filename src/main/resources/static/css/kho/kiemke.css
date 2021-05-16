@@ -1,0 +1,33 @@
+.wrapper .main_content .info .content_kiemke{
+	margin-left:250px;
+	margin-top:100px;
+	border:1px solid #2196f3;
+	border-radius:10px;
+	width:350px;
+	padding:20px;
+}
+.wrapper .main_content .info .content_kiemke h3{
+	margin-bottom:15px;
+}
+.wrapper .main_content .info .content_kiemke table tr{
+	height:45px;
+}
+.wrapper .main_content .info .content_kiemke table .btn{
+	background:white;
+	border:1px solid #2196f3;
+	color:black;
+}
+.wrapper .main_content .info .content_kiemke table .btn:hover, .btn:active{
+	color:white;
+	background:#2196f3;
+}
+.wrapper .main_content .info .content_kiemke input{
+	width:200px;
+	outline:none;
+	border:none;
+	background:inherit;
+	border-bottom:1px solid gray;
+}
+.wrapper .main_content .info .content_kiemke input:hover, input:active{
+	border-bottom:1.5px solid #2196f3;
+}

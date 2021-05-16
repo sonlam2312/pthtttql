@@ -1,0 +1,59 @@
+.wrapper .main_content .info .t1 input{
+	border:none;
+	outline:none;
+	background:inherit;
+	border-bottom:1px solid gray;
+}
+.wrapper .main_content .info .t1 input:hover, input:active{
+	border-bottom:1.5px solid #2196f3;
+}
+.wrapper .main_content .info .t1 #thongtinchung input{
+	width:300px;
+}
+.wrapper .main_content .info .t1 #mau input{
+	width:250px;
+}
+.wrapper .main_content .info .t2 #chitiet{
+	width:950px;
+}
+.wrapper .main_content .info .t2 #chitiet td, th{
+	border: 1px solid black;
+  	border-collapse: collapse;
+}
+.wrapper .main_content .info .t2 #chitiet th, td{
+	padding:5px;
+}
+.wrapper .main_content .info .t2 #chitiet th{
+	text-align: center;
+	background:#2196f3;
+	color:white;
+}
+.wrapper .main_content .info .t2 #chitiet tr:nth-child(2) td{
+	text-align: center;
+	background:#2196f3;
+	color:white;
+}
+.wrapper .main_content .info .t2 #chitiet input{
+	width:100%;
+	border:none;
+	outline:none;
+	background:inherit;
+	font-size:15px;
+}
+.wrapper .main_content .info .t3{
+	display:flex;
+	flex-direction:row-reverse;
+	margin-right:150px;
+	margin-top:20px;
+}
+.wrapper .main_content .info .t3 .btn{
+	right:50px;
+	margin-right:10px;
+	outline: none;
+	border: 1px solid rgb(33, 150, 243);
+	background-color: #fff;
+}
+.wrapper .main_content .info .t3 .btn:hover, .btn:active{
+	background-color: #2196f3;
+	color:white;
+}

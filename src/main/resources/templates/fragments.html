@@ -42,7 +42,7 @@
 	                    </a>
 	                </li>
 	                <li>
-	                    <a href="#" class="nav-link">
+	                    <a th:href="@{/nhacungcap}" class="nav-link">
 	                        Danh mục nhà cung cấp
 	                    </a>
 	                </li>
@@ -76,7 +76,7 @@
 	                    </a>
 	                </li>
 	                <li>
-	                    <a href="#" class="nav-link">
+	                    <a th:href="@{/khachhang}" class="nav-link">
 	                        Danh mục Khách hàng
 	                    </a>
 	                </li>
@@ -90,22 +90,22 @@
 	            </a>
 	            <ul class="sub-menu">
 	                <li>
-	                    <a href="#" class="nav-link">
+	                    <a th:href="@{/nhapkho}" class="nav-link">
 	                        Nhập kho
 	                    </a>
 	                </li>
 	                <li>
-	                    <a href="#" class="nav-link">
+	                    <a th:href="@{/xuatkho}" class="nav-link">
 	                        Xuất kho
 	                    </a>
 	                </li>
 	                <li>
-	                    <a href="#" class="nav-link">
+	                    <a th:href="@{/kiemke}" class="nav-link">
 	                        Kiểm kê kho
 	                    </a>
 	                </li>
 	                <li>
-	                    <a href="#" class="nav-link">
+	                    <a th:href="@{/kho}" class="nav-link">
 	                        Danh mục kho
 	                    </a>
 	                </li>
@@ -113,19 +113,19 @@
 	        </li>
 	        <li>
 	            <a href="#" class="sub-btn">
-	                <i class="fas fa-money-bill"></i>
+	                <i class="fas fa-money-check-alt"></i>
 	                Quỹ
 	                <i class="glyphicon glyphicon-menu-right dropdown"></i>
 	            </a>
 	            <ul class="sub-menu">
 	                <li>
-	                    <a href="#" class="nav-link">
-	                        Thu tiền mặt
+	                    <a th:href="@{/thutien}" class="nav-link">
+	                        Thu tiền
 	                    </a>
 	                </li>
 	                <li>
-	                    <a href="#" class="nav-link">
-	                        Chi tiền mặt
+	                    <a th:href="@{/chitien}" class="nav-link">
+	                        Chi tiền
 	                    </a>
 	                </li>
 	            </ul>
@@ -138,18 +138,47 @@
 	            </a>
 	            <ul class="sub-menu">
 	                <li>
+	                    <a th:href="@{/form_phieuchi}" class="nav-link">
+	                        Chi tạm ứng cho nhân viên
+	                    </a>
+	                </li>
+	                <li>
+	                    <a th:href="@{/form_phieuthu}" class="nav-link">
+	                        Thu tạm ứng cho nhân viên
+	                    </a>
+	                </li>
+	                <li>
+	                    <a th:href="@{/hachtoan}" class="nav-link">
+	                        Trả lương cho nhân viên
+	                    </a>
+	                </li>
+	                <li>
+	                    <a th:href="@{/nhanvien}" class="nav-link">
+	                        Danh mục nhân viên
+	                    </a>
+	                </li>
+	            </ul>
+	        </li>
+	        <li>
+	            <a href="#" class="sub-btn">
+	                <i class="fas fa-money-bill"></i>
+	                Thuế
+	                <i class="glyphicon glyphicon-menu-right dropdown"></i>
+	            </a>
+	            <ul class="sub-menu">
+	                <li>
 	                    <a href="#" class="nav-link">
-	                        Tạm ứng cho nhân viên
+	                        Khai thuế GTGT
 	                    </a>
 	                </li>
 	                <li>
 	                    <a href="#" class="nav-link">
-	                        Hạch toán tiền lương
+	                        Khấu trừ thuế
 	                    </a>
 	                </li>
 	                <li>
-	                    <a href="#" class="nav-link">
-	                        Danh mục Nhân viên
+	                    <a th:href="@{form_phieuchi}" class="nav-link">
+	                        Nộp thuế
 	                    </a>
 	                </li>
 	            </ul>
@@ -163,17 +192,7 @@
 	            <ul class="sub-menu">
 	                <li>
 	                    <a href="#" class="nav-link">
-	                        Báo cáo mua hàng
-	                    </a>
-	                </li>
-	                <li>
-	                    <a href="#" class="nav-link">
-	                        Báo cáo bán hàng
-	                    </a>
-	                </li>
-	                <li>
-	                    <a href="#" class="nav-link">
-	                        Báo cáo kho
+	                        Báo cáo doanh số
 	                    </a>
 	                </li>
 	                <li>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý kế toán</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/fragment.css}">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/quy/phieuchi.css}">
+    <script th:src="@{/js/fragment.js}"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div th:replace="fragments::sidebar"></div>
+	    <div class="main_content">
+	        <div th:replace="fragments::header_notSignin"></div>
+	        <div class="info">
+	        	<h3>Phiếu chi</h3>
+	        	<div class="header_phieuchi">	        		
+	        		<div class="taophieuchi">
+	        			<form th:action="@{/form_phieuchi}">
+	        				<button class="btn btn-save">Tạo mới</button>
+	        			</form>
+	        		</div>   
+	        		<div class="search_phieuchi">
+	        			<form th:action="@{#}" method="get">
+	        				<input type="text" name="txt_phieuchi" placeholder="Số phiếu chi"/>
+	        				<button class="btn btn-search">
+	        					<i class="fa fa-search"></i>
+	        				</button>
+	        			</form>
+	        		</div>  	        		   		
+	        	</div>
+	        	<div class="content_phieuchi">
+	        		<h3>Danh sách phiếu chi</h3>
+	        		<table id="table_phieuchi">
+	        			<tr>
+	        				<th>No</th>
+	        				<th>Ngày hạch toán</th>
+	        				<th>Ngày chứng từ</th>
+	        				<th>Số chứng từ</th>        		
+	        				<th>Diễn giải</th>
+	        				<th>Số tiền</th>
+	        				<th>Mã đối tượng</th>
+	        				<th>Đối tượng</th>
+	        				<th></th>
+	        			</tr>
+	        			<tr>
+	        				<td>1</td>
+	        				<td>23/5/2021</td>
+	        				<td>23/5/2021</td>
+	        				<td>PT1001</td>
+	        				<td>Thuê xe đưa đón</td>       
+	        				<td>5.000.000</td>
+	        				<td>NDT1200</td>
+	        				<td>Công ty TNHH Bình An</td>
+	        				<td>
+	        					<button type="button" class="btn btn-primary">Sửa</button>
+	        					<button type="button" class="btn btn-danger">Xóa</button>
+	        				</td>
+	        			</tr>
+	        		</table>
+	        	</div>
+	        </div>
+	    </div>
+	</div>
+</body>
+</html>

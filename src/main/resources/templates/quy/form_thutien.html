@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý kế toán</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/fragment.css}">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/quy/form_phieuthu.css}">
+    <script th:src="@{/js/fragment.js}"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div th:replace="fragments::sidebar"></div>
+	    <div class="main_content">
+	        <div th:replace="fragments::header_notSignin"></div>
+	        <div class="info">
+	        	<h3>Phiếu thu tiền</h3>	 
+	        	<div class="row t0">
+	        		<div class="loaithu">
+	        			<label for="loaithu">Loại thu:</label>
+						<select name="loaithu" id="loaithu">
+						  <option value="tamung">Thu tạm ứng</option>
+						  <option value="thukhac">Thu khác</option>
+						</select>
+	        		</div>
+	        		<div class="phuongthucthanhtoan">
+	        			<label for="phuongthuc">Phương thức thanh toán:</label>
+	        			<select name="phuongthuc" id="phuongthuc">
+	        				<option value="tienmat">Tiền mặt</option>
+	        				<option value="nganhang">Ngân hàng</option>
+	        			</select>
+	        		</div>
+	        	</div>        	
+	        	<div class="row t1">
+	        		<div class="col-sm-6" id="thongtinchung">
+	        			<h4>Thông tin chung</h4>
+	        			<table>        		
+		        			<tr>
+			        			<td>
+			        				<label for="makh">Mã khách hàng:</label>
+			        			</td>
+			        			<td>
+			        				<input type="text" name="makh"/>
+			        			</td>
+		        			</tr>
+		        			<tr>
+			        			<td>
+			        				<label for="tenkh">Tên khách hàng:</label>
+			        			</td>
+			        			<td>
+			        				<input type="text" name="tenkh"/>
+			        			</td>
+		        			</tr>
+		        			<tr>
+				        		<td>
+			        				<label for="nguoinop">Người nộp:</label>
+			        			</td>
+			        			<td>
+			        				<input type="text" name="nguoinop"/>
+			        			</td>
+		        			</tr>
+		        			<tr>
+			        			<td>
+			        				<label for="diachi">Đia chỉ:</label>
+			        			</td>
+			        			<td>
+			        				<input type="text" name="diachi"/>
+			        			</td>
+		        			</tr>
+		        			<tr>
+			        			<td>
+			        				<label for="diengiai">Diễn giải:</label>
+			        			</td>
+			        			<td>
+			        				<input type="text" name="diengiai"/>
+			        			</td>
+		        			</tr>
+		        			<tr>
+			        			<td>
+		        					<label for="sotien">Số tiền:</label>
+		        				</td>
+		        				<td>
+	        						<input type="text" name="sotien"/>
+	        					</td>
+	        				</tr>
+	        			</table>
+	        		</div>
+	        		<div class="col-sum-6" id="kihieu">
+	        			<h4>Chứng từ</h4>
+                          <table>                      
+                            <tr>
+                              <td>
+                                <label for="ngayhachtoan">Ngày hạch toán:</label>
+                              </td>
+                              <td><input type="date" name="ngayhachtoan"> </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <label for="ngaychungtu">Ngày chứng từ:</label>
+                              </td>
+                              <td><input type="date" name="ngaychungtu"> </td>
+                            </tr> 
+                            <tr>
+                              <td>
+                                <label for="sochungtu">Số chứng từ:</label>
+                              </td>
+                              <td><input type="text" name="sochungtu"> </td>
+                            </tr>                      
+                          </table> 
+	        		</div>
+	        	</div>
+	       		<div class="row t2">
+                    <div id="dongia">
+                      <label for="dongia">Đơn giá:</label>
+                      <input type="text" name="dongia" value="1000" disabled/>
+                    </div>
+                    <div id="tygia">
+                      <label for="tygia">Tỷ giá:</label>
+                      <input type="text" name="tygia" value="VND" disabled/>
+                    </div>
+                </div>  
+                <div class="row t3">      
+                    <button class="btn btn-cancel">Hủy bỏ</button> 
+                	<button class="btn btn-save">Lưu lại</button>
+                </div> 
+	    	</div>
+	    </div>
+	</div>
+</body>
+</html>

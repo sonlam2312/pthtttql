@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý kế toán</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/fragment.css}">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/banhang/form_khachhang.css}">
+    <script th:src="@{/js/fragment.js}"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div th:replace="fragments::sidebar"></div>
+	    <div class="main_content">
+	        <div th:replace="fragments::header_notSignin"></div>
+	        <div class="info">
+	        	<form>
+	        		<h3>Tạo thông tin khách hàng</h3>
+	        		<table>
+	        			<tr>
+	        				<td>
+	        					<lable for="makhachhang">Mã khách hàng:</lable>
+	        				</td>
+	        				<td>
+	        					<input type="text" name="makhachhang"/>
+	        				</td>
+	        			</tr>
+	        			<tr>
+	        				<td>
+	        					<lable for="tenkhachhang">Tên khách hàng:</lable>
+	        				</td>
+	        				<td>
+	        					<input type="text" name="tenkhachhang"/>
+	        				</td>
+	        			</tr>
+	        			<tr>
+	        				<td>
+	        					<lable for="diachi">Địa chỉ:</lable>
+	        				</td>
+	        				<td>
+	        					<input type="text" name="diachi"/>
+	        				</td>
+	        			</tr>
+	        			<tr>
+	        				<td>
+	        					<lable for="sdt">Số điện thoại:</lable>
+	        				</td>
+	        				<td>
+	        					<input type="text" name="sdt"/>
+	        				</td>
+	        			</tr>
+	        			<tr>
+	        				<td>
+	        					<lable for="masothue">Mã số thuế:</lable>
+	        				</td>
+	        				<td>
+	        					<input type="text" name="masothue"/>
+	        				</td>
+	        			</tr>
+	        			<tr>
+	        				<td>
+	        					<lable for="sotaikhoan">Số tài khoản:</lable>
+	        				</td>
+	        				<td>
+	        					<input type="text" name="sotaikhoan"/>
+	        				</td>
+	        			</tr>
+	        			<tr>
+	        				<td></td>
+	        				<td>
+	        					<button class="btn btn-primary">Lưu lại</button>
+	        					<button class="btn btn-danger">Hủy bỏ</button>
+	        				</td>
+	        			</tr>
+	        		</table>
+	        	</form>
+	        </div>
+	    </div>
+	</div>
+</body>
+</html>

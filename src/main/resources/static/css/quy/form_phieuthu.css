@@ -1,0 +1,94 @@
+.wrapper .main_content .info .t1 input, .t2 input{
+	border:none;
+	outline:none;
+	background-color:inherit;
+	border-bottom:1px solid gray;
+}
+.wrapper .main_content .info .row h4{
+	margin-bottom: 15px;
+}
+.wrapper .main_content .info .t0{
+	display:flex;
+}
+.wrapper .main_content .info .t0 select:hover, select:active{
+	border:1.5px solid #2196f3;
+}
+.wrapper .main_content .info .t0 div{
+	margin-left:20px;
+}
+.wrapper .main_content .info .t1 input:hover, input:active{
+	border-bottom:1.5px solid #2196f3;
+}
+
+.wrapper .main_content .info .t2 input:hover, input:active{
+	border-bottom:1.5px solid #2196f3;
+}
+
+.wrapper .main_content .info .t1 #thongtinchung table{
+	width:100%;
+	margin-left:10px;
+}
+
+.wrapper .main_content .info .t1 #thongtinchung table tr{
+	height:35px;
+}
+.wrapper .main_content .info .t1 #thongtinchung table td:first-child{
+	width:120px;
+}
+.wrapper .main_content .info .t1 #thongtinchung input{
+	width:300px;
+}
+
+.wrapper .main_content .info .t1 #kihieu{
+	margin-top:50px;
+}
+
+.wrapper .main_content .info .t1 #kihieu input{
+	width:300px;
+}
+.wrapper .main_content .info .t1 #kihieu table tr{
+	height:50px;
+}
+.wrapper .main_content .info .t2{
+  margin-top:20px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.wrapper .main_content .info .t2 input{
+  border:none;
+  outline: none;
+  background-color: inherit;
+  width: 50px;
+  border-bottom: 1px solid rgb(202, 200, 200);
+}
+.wrapper .main_content .info .t2 #dongia{
+  margin-right: 120px;
+  margin-left: 95px;
+}
+.wrapper .main_content .info .t3{
+	display:flex;
+	flex-direction:row-reverse;
+	margin-right:150px;
+	margin-top:20px;
+}
+.wrapper .main_content .info .t3 .btn-save{
+	right:50px;
+	margin-right:10px;
+	outline: none;
+	border: 1px solid rgb(33, 150, 243);
+	background-color: #fff;
+}
+.wrapper .main_content .info .t3 .btn-save:hover, .btn-save:active{
+	background-color: #2196f3;
+	color:white;
+}
+.wrapper .main_content .info .t3 .btn-cancel{
+	right:30px;
+	outline: none;
+	border: 1px solid red;
+	background-color: #fff;
+}
+.wrapper .main_content .info .t3 .btn-cancel:hover, .btn-cancel:active{
+	background-color: red;
+	color:white;
+}
