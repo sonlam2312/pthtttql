@@ -1,0 +1,67 @@
+body{
+	background-image:url("/images/anhketoan.jpg");
+	background-repeat: no-repeat, repeat;
+	background-size: cover;
+	object-fit:cover;
+}
+.form_dangnhap{
+	position:relative;
+	width:300px;
+	height: 300px;
+	border:1.5px solid yellow;
+	border-radius:20px;
+	margin: 150px auto;
+	background: rgba(0,0,0,0.8);
+	box-shadow: 2px 2px 15px rgba(0,0,0,0.5);
+	color:white;
+	padding:15px;
+}
+.form_dangnhap h2{
+	color:yellow;
+	text-align: center;;
+}
+.form_dangnhap table td:first-child{
+	width:45px;
+}
+.form_dangnhap table tr{
+	height:50px;
+}
+.form_dangnhap .fas{
+	font-size:25px;
+}
+.form_dangnhap input{
+	outline:none;
+	border:none;
+	background:inherit;
+	border-bottom:1.2px solid white;
+	width:200px;
+	font-size:18px;
+	color:white;
+}
+.form_dangnhap input:hover, input:active{
+	border-bottom:1.2px solid yellow;
+}
+.form_dangnhap input:placeholder{
+	font-size:15px;
+}
+.form_dangnhap input::-webkit-input-placeholder{
+	font-size:15px;
+}
+.form_dangnhap table tr:hover{
+	color:yellow;
+}
+.form_dangnhap .btn{
+	border:none;
+	outline:none;
+	background:inherit;
+	border: 1.2px solid white;
+	border-radius:20px;
+	color:white;
+	font-size:16px;
+	padding:10px;
+}
+.form_dangnhap .btn:hover, .btn:active{
+	color:yellow;
+	border:1.2px solid yellow;
+	cursor:pointer;
+}

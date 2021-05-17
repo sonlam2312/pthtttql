@@ -1,0 +1,80 @@
+.wrapper .main_content .info h3{
+	display:block;
+}
+.wrapper .main_content .info .header_congno{
+	margin-top:20px;
+	display:flex;
+}
+.wrapper .main_content .info .header_congno .search_congno{
+	position:absolute;
+	margin-left:700px;
+}
+.wrapper .main_content .info .header_congno .search_congno input{
+	border:none;
+	outline:none;
+	width:250px;
+	height:36px;
+	font-size:14px;
+	background-color:#fff;
+	border:1px solid gray;
+	border-radius:20px;
+	padding:0 10px;
+}
+.wrapper .main_content .info .header_congno .search_congno input:hover, input:active{
+	border: 1px solid #2196f3;
+}
+.wrapper .main_content .info .header_congno .search_congno .btn{
+	position:absolute;
+	top:3px;
+	left:215px;
+	width:30px;
+	height:30px;
+	outline:none;
+	border:none;
+	background:#fff;
+	border:1px solid gray;
+	padding: 5px 5px;
+	border-radius:50%;
+	cursor:pointer;
+}
+.wrapper .main_content .info .header_congno .search_congno .btn:hover, .btn:active{
+	background-color: #2196f3;
+	color:white;
+}
+
+.wrapper .main_content .info .content_congno{
+	margin-top:40px;
+}
+.wrapper .main_content .info .content_congno #table_congno{
+	margin-top:10px;
+ 	border-collapse: collapse;
+ 	width:950px;
+}
+.wrapper .main_content .info .content_congno #table_congno tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+.wrapper .main_content .info .content_congno #table_congno tr:hover{
+  background-color: #ddd;
+}
+.wrapper .main_content .info .content_congno #table_congno th{
+  padding: 1px 1px;
+  text-align: center;
+  background-color: #2196f3;
+  border: 1px solid #fff;
+  color: white;
+}
+.wrapper .main_content .info .content_congno #table_congno td{
+	padding: 0 2px;
+}
+.wrapper .main_content .info .content_congno #table_congno td:last-child{
+	width:120px;
+}
+.wrapper .main_content .info .content_congno #table_congno .btn-primary{
+	border:1px solid #2196f3;
+	background-color:white;
+	color:black;
+}
+.wrapper .main_content .info .content_congno #table_congno .btn-primary:hover, .btn-primary:active{
+	color:white;
+	background-color:#2196f3;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý kế toán</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/fragment.css}">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/baocao/quy.css}">
+    <script th:src="@{/js/fragment.js}"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div th:replace="fragments::sidebar"></div>
+	    <div class="main_content">
+	        <div th:replace="fragments::header_Signined"></div>
+	        <div class="info">	    
+	        	<div class="baocaoquy">
+	        		<h3>Báo cáo quỹ</h3>
+	        		<form>
+	        			<table>
+	        				<tr>
+	        					<td>
+	        						<label>Tháng:</label>
+	        					</td>
+	        					<td>
+	        						<input type="month" name="month"/>
+	        					</td>
+	        				</tr>
+		        			<tr>
+		        				<td></td>
+		        				<td>
+		        					<button class="btn btn-xem">Xem</button>
+		        				</td>
+		        			</tr>
+		        		</table>
+	        		</form>
+	        	</div>
+	        </div>
+	    </div>
+	</div>
+</body>
+</html>

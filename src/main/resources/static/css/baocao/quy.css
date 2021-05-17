@@ -1,0 +1,30 @@
+.wrapper .main_content .info .baocaoquy{
+	border:1px solid #2196f3;
+	padding:20px;
+	width:320px;
+	border-radius:20px;
+	margin: 30px auto 0;
+}
+.wrapper .main_content .info .baocaoquy h3{
+	text-align: center;
+}
+.wrapper .main_content .info .baocaoquy table tr{
+	height:50px;
+}
+.wrapper .main_content .info .baocaoquy input{
+	border:none;
+	outline:none;
+	border-bottom:1px solid gray;
+	background:inherit;
+}
+.wrapper .main_content .info .baocaoquy input:hover{
+	border-bottom:1.5px solid #2196f3;
+}
+.wrapper .main_content .info .baocaoquy .btn{
+	border:1px solid #2196f3;
+	background:white;
+}
+.wrapper .main_content .info .baocaoquy .btn:hover{
+	background:#2196f3;
+	color:white;
+}
