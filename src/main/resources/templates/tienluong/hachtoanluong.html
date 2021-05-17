@@ -18,7 +18,7 @@
     <div class="wrapper">
         <div th:replace="fragments::sidebar"></div>
 	    <div class="main_content">
-	        <div th:replace="fragments::header_notSignin"></div>
+	        <div th:replace="fragments::header_Signined"></div>
 	        <div class="info">
 	        	<h3>Thông tin trả lương</h3>
 	        	<div class="content_hachtoan">
@@ -30,6 +30,8 @@
 		        				<th>Tên nhân viên</th>	             		
 		        				<th>Phòng ban</th>
 		        				<th>Lương</th>
+		        				<th>Thưởng</th>
+		        				<th>Phạt</th>
 		        				<th>Tạm ứng</th>
 		        				<th>Hoàn tạm ứng</th>
 		        				<th>Số đã trả</th>
@@ -41,11 +43,13 @@
 		        				<td>NV001</td>
 		        				<td>Nguyễn Văn A</td>
 		        				<td>Phòng nhân sự</td>
-		        				<td>16000000</td>       
+		        				<td>16000000</td>   
+		        				<td>400000</td>
+		        				<td>0</td>    
 		        				<td>0</td>
 		        				<td>0</td>
 		        				<td>0</td>
-		        				<td>16000000</td>
+		        				<td>16400000</td>
 		        				<td>
 		        					<button class="btn btn-primary">Giao dịch</button>
 		        					<button class="btn btn-primary">Trả</button>
@@ -56,7 +60,9 @@
 		        				<td>NV002</td>
 		        				<td>Nguyễn Văn B</td>
 		        				<td>Phòng kế toán</td>
-		        				<td>16000000</td>       
+		        				<td>16000000</td> 
+		        				<td>0</td>
+		        				<td>0</td>      
 		        				<td>3000000</td>
 		        				<td>0</td>
 		        				<td>1000000</td>

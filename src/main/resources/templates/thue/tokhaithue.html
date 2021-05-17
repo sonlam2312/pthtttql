@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý kế toán</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/fragment.css}">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/thue/tokhaithue.css}">
+    <script th:src="@{/js/fragment.js}"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div th:replace="fragments::sidebar"></div>
+	    <div class="main_content">
+	        <div th:replace="fragments::header_Signined"></div>
+	        <div class="info">
+	        	<div class="content_tokhaithue">
+	        		<ul class="nav nav-tabs">
+                        <li  class="active"><a data-toggle="tab" href="#tab_tokhaithue">Tờ khai thuế</a></li>
+                        <li><a data-toggle="tab" href="#tab_GTGTmuavao">GTGT mua vào</a></li>
+                        <li><a data-toggle="tab" href="#tab_GTGTbanra">GTGT bán ra</a></li>
+                     </ul>
+                      <div class="tab-content">
+                        <div id="tab_tokhaithue" class="tab-pane fade in active"> 
+                        	<h3>Tờ khai thuế giá trị gia tăng</h3>
+                        	<h4>(Dành cho người nộp thuế khai thuế GTGT theo phương pháp khấu trừ)</h4>
+                        	<h5>Mẫu số: MS1231</h5>
+                        	<h5>Kỳ tính thuế: Tháng 5 năm 2021</h5>   
+                        	<label>Tên người nộp thuế:</label>
+                        	<span>Công ty TNHH ABC</span><br><br> 
+                        	<label>Mã số thuế thuế:</label>
+                        	<span class="mathue">
+                        		<span>0</span>
+	                        	<span>1</span> 
+	                        	<span>0</span>
+	                        	<span>2</span>
+	                        	<span>5</span>
+	                        	<span>8</span>
+	                        	<span>3</span> 
+                        	</span><br><br>
+                        	<label>Đại lý thuế:</label>
+                        	<span>Đại lý thuế trường gian</span><br><br> 
+                        	<label>Mã số thuế đại lý:</label>
+                        	<span class="mathue">
+                        		<span>0</span>
+	                        	<span>1</span> 
+	                        	<span>1</span>
+	                        	<span>6</span>
+	                        	<span>2</span>
+	                        	<span>9</span>
+	                        	<span>1</span> 
+                        	</span> <br><br>
+                        	<table id="table_tokhai">
+                        		<tr>
+	                        		<th>No</th>
+	                        		<th>Chi tiết</th>
+	                        		<th>Giá trị hàng hóa, dịch vụ</th>
+	                        		<th>Thuế GTGT</th>
+                        		</tr>
+                        		<tr>
+                        			<td>I</td>
+                        			<td colspan="3">Hàng hóa, dịch vụ mua vào trong kì</td>
+                        		</tr>
+                        		<tr>
+                        			<td>1</td>
+                        			<td>Hàng hóa, dịch vụ mua vào không chị thuế GTGT</td>
+                        			<td>0</td>
+                        			<td>0</td>
+                        		</tr>
+                        		<tr>
+                        			<td>2</td>
+                        			<td>Hàng hóa, dịch vụ mua vào trong kì chịu thuế GTGT</td>
+                        			<td>32000000</td>
+                        			<td>3200000</td>
+                        		</tr>
+                        		<tr>
+                        			<td>II</td>
+                        			<td colspan="3">Hàng hóa, dịch vụ bán ra trong kì</td>
+                        		</tr>
+                        		<tr>
+                        			<td>1</td>
+                        			<td>Hàng hóa, dịch vụ bán ra không chị thuế GTGT</td>
+                        			<td>0</td>
+                        			<td>0</td>
+                        		</tr>
+                        		<tr>
+                        			<td>2</td>
+                        			<td>Hàng hóa, dịch vụ bán ra trong kì chịu thuế GTGT</td>
+                        			<td>64000000</td>
+                        			<td>6400000</td>
+                        		</tr>
+                        		<tr>
+                        			<td>a</td>
+                        			<td>Hàng hóa, dịch vụ bán ra trong kì chịu thuế 5%</td>
+                        			<td>32000000</td>
+                        			<td>3200000</td>
+                        		</tr>
+                        		<tr>
+                        			<td>b</td>
+                        			<td>Hàng hóa, dịch vụ bán ra trong kì chịu thuế 10%</td>
+                        			<td>32000000</td>
+                        			<td>3200000</td>
+                        		</tr>
+                        	</table>  
+                        	<div class="kiten">
+                        		<h4>Kí tên</h4>
+                        		<table>
+                        			<tr>
+                        				<td colspan="2">Nhân viên đại lý</td>
+                        				<td colspan="2">Người lập đơn</td>
+                        			</tr>
+                        			<tr>
+                        				<td>Người đại diện:</td>
+                        				<td><input type="text" name="daily"/></td>
+                        				<td>Người lập đơn:</td>
+                        				<td><input type="text" name="doanhnghiep"/></td>
+                        			</tr>
+                        			<tr>
+                        				<td>Ngày ghi sổ:</td>
+                        				<td><input type="date" name="ngayghiso"/></td>
+                        				<td>Ngày ký:</td>
+                        				<td><input type="date" name="ngayki"/></td>
+                        			</tr>
+                        		</table>
+                        	</div>
+                        	<div class ="group-btn">
+                        		<button class="btn btn-save">Lưu lại</button>
+                        		<button class="btn btn-cancel">Hủy bỏ</button>
+                        	</div>       
+                        </div>
+                        <div id="tab_GTGTmuavao" class="tab-pane fade"> 
+                        	<h3>Bảng kê khai hóa đơn, chứng từ mua hàng hóa, dịch vụ</h3>
+                        	<table id="GTGTmua">
+                        		<tr>            
+                        			<th rowspan="2">No</th>
+                        			<th colspan="2">Hóa đơn, chứng từ mua vào</th>
+                        			<th rowspan="2"> Tên nhà cung cấp</th>
+                        			<th rowspan="2">Mã số thuế</th>
+                        			<th rowspan="2">Doanh thu chưa có thuế GTGT</th>
+                        			<th rowspan="2">Thuế GTGT</th>
+                        			<th rowspan="2">Ghi chú</th>
+                        		</tr>
+                        		<tr>
+                        			<td>Số hóa đơn</td>
+                        			<td>Ngày lập</td>	
+                        		</tr>
+                        		<tr>
+                        			<td>1</td>
+                        			<td>CTM1001</td>
+                        			<td>26/5/2021</td>
+                        			<td>Công ty TNHH Bình An</td>
+                        			<td>MST001</td>
+                        			<td>900000000</td>
+                        			<td>90000000</td>
+                        			<td></td>
+                        		</tr>
+                        	</table>                   
+                        </div>
+                        <div id="tab_GTGTbanra" class="tab-pane fade"> 
+                        	<h3>Bảng kê khai hóa đơn, chứng từ bán hàng hóa, dịch vụ</h3>
+                        	<table id="GTGTban">
+                        		<tr>            
+                        			<th rowspan="2">No</th>
+                        			<th colspan="2">Hóa đơn, chứng từ bán ra</th>
+                        			<th rowspan="2"> Tên khách hàng</th>
+                        			<th rowspan="2">Mã số thuế</th>
+                        			<th rowspan="2">Doanh thu chưa có thuế GTGT</th>
+                        			<th rowspan="2">Thuế GTGT</th>
+                        			<th rowspan="2">Ghi chú</th>
+                        		</tr>
+                        		<tr>
+                        			<td>Số hóa đơn</td>
+                        			<td>Ngày lập</td>	
+                        		</tr>
+                        		<tr>
+                        			<td>1</td>
+                        			<td>CTB1001</td>
+                        			<td>26/5/2021</td>
+                        			<td>Công ty TNHH Bình An</td>
+                        			<td>MST001</td>
+                        			<td>920000000</td>
+                        			<td>92000000</td>
+                        			<td></td>
+                        		</tr>
+                        	</table>                      
+                        </div>
+                      </div>
+	        	</div>
+	        </div>
+	    </div>
+	</div>
+</body>
+</html>

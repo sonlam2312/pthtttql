@@ -1,0 +1,19 @@
+.wrapper .main_content .info .form{
+	width:250px;
+	border:1px solid #2196f3;
+	border-radius:20px;
+	margin: 50px auto 0;
+	padding:30px;
+}
+.wrapper .main_content .info table tr{
+	height:50px;
+}
+.wrapper .main_content .info .form .btn-primary{
+	border:1px solid #2196f3;
+	background-color:white;
+	color:black;
+}
+.wrapper .main_content .info .form .btn-primary:hover, .btn-primary:active{
+	color:white;
+	background-color:#2196f3;
+}

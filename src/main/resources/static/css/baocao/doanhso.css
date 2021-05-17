@@ -1,0 +1,30 @@
+.wrapper .main_content .info .baocaodoanhso{
+	border:1px solid #2196f3;
+	padding:20px;
+	width:320px;
+	border-radius:20px;
+	margin: 30px auto 0;
+}
+.wrapper .main_content .info .baocaodoanhso h3{
+	text-align: center;
+}
+.wrapper .main_content .info .baocaodoanhso table tr{
+	height:50px;
+}
+.wrapper .main_content .info .baocaodoanhso input,select{
+	border:none;
+	outline:none;
+	border-bottom:1px solid gray;
+	background:inherit;
+}
+.wrapper .main_content .info .baocaodoanhso input:hover,select:hover{
+	border-bottom:1.5px solid #2196f3;
+}
+.wrapper .main_content .info .baocaodoanhso .btn{
+	border:1px solid #2196f3;
+	background:white;
+}
+.wrapper .main_content .info .baocaodoanhso .btn:hover{
+	background:#2196f3;
+	color:white;
+}

@@ -23,24 +23,18 @@
   background-color: #170d47;
   color: white;
 }
-
 .wrapper .main_content .header .sign_in{
+	margin-left:800px;
+}
+.wrapper .main_content .header .sign_in:hover, .log_out:hover{
  color: royalblue;
 }
 
-.wrapper .main_content .header .sign_in:hover{
+.wrapper .main_content .header .sign_in, .log_out{
   color: #170d47;
+  font-size:14px;
  }
 
-/* .wrapper .main_content .info{
-  margin: 20px;
-  color: #717171;
-  line-height: 25px;
-}
-
-.wrapper .main_content .info div{
-  margin-bottom: 20px;
-} */
 .wrapper .main_content .info{
   margin-left: 60px;
 }

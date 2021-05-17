@@ -11,7 +11,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" th:href="@{/css/fragment.css}">
     <link rel="stylesheet" th:href="@{/css/index.css}">
-    <link rel="stylesheet" th:href="@{/css/kho/kiemke.css}">
+    <link rel="stylesheet" th:href="@{/css/baocao/doanhso.css}">
     <script th:src="@{/js/fragment.js}"></script>
 </head>
 <body>
@@ -19,35 +19,40 @@
         <div th:replace="fragments::sidebar"></div>
 	    <div class="main_content">
 	        <div th:replace="fragments::header_Signined"></div>
-	        <div class="info">
-	        	<div class="content_kiemke">
-	        		<h3>Kiểm kê hàng hóa, vật tư</h3>
-	        		<form th:action="@{/form_kiemke}" method="get">
-		        		<table>
-		        			<tr>
+	        <div class="info">	    
+	        	<div class="baocaodoanhso">
+	        		<h3>Báo cáo doanh số</h3>
+	        		<form>
+	        			<table>
+	        				<tr>
+	        					<td>
+	        						<label>Tháng:</label>
+	        					</td>
+	        					<td>
+	        						<input type="month" name="month"/>
+	        					</td>
+	        				</tr>
+	        				<tr>
 		        				<td>
-		        					<label for="makho">Kiểm kê kho:</label>
+		        					<label for="theo">Báo cáo theo:</label>
 		        				</td>
 		        				<td>
-		        					<input type="text" name="makho"/>
-		        				</td>        				
-		        			</tr>
-		        			<tr>
-		        				<td>
-		        					<label for="ngay">Đến ngày:</label>
-		        				</td>
-		        				<td>
-		        					<input type="date" name="ngay"/>
-		        				</td>        				
+				        			<select name="theo" id="theo">
+				        				<option value="mua_nhacungcap">Mua theo nhà cung cấp</option>
+				        				<option value="mua_hanghoa">Mua theo hàng hóa</option>
+				        				<option value="ban_khachhang">Bán theo khách hàng</option>
+				        				<option value="ban_hanghoa">Bán theo hàng hóa</option>
+				        			</select>
+			        			</td>
 		        			</tr>
 		        			<tr>
 		        				<td></td>
 		        				<td>
-		        					<button class="btn btn-primary">Đồng ý</button>
+		        					<button class="btn btn-xem">Xem</button>
 		        				</td>
 		        			</tr>
 		        		</table>
-		        	</form>
+	        		</form>
 	        	</div>
 	        </div>
 	    </div>

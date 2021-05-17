@@ -167,17 +167,12 @@
 	            </a>
 	            <ul class="sub-menu">
 	                <li>
-	                    <a href="#" class="nav-link">
+	                    <a th:href="@{/khaibaothue}" class="nav-link">
 	                        Khai thuế GTGT
 	                    </a>
 	                </li>
 	                <li>
-	                    <a href="#" class="nav-link">
-	                        Khấu trừ thuế
-	                    </a>
-	                </li>
-	                <li>
-	                    <a th:href="@{form_phieuchi}" class="nav-link">
+	                    <a th:href="@{/form_phieuchi}" class="nav-link">
 	                        Nộp thuế
 	                    </a>
 	                </li>
@@ -191,7 +186,7 @@
 	            </a>
 	            <ul class="sub-menu">
 	                <li>
-	                    <a href="#" class="nav-link">
+	                    <a th:href="@{/baocaodoanhso}" class="nav-link">
 	                        Báo cáo doanh số
 	                    </a>
 	                </li>
@@ -202,20 +197,24 @@
 	                </li>
 	                <li>
 	                    <a href="#" class="nav-link">
-	                        Báo cáo thu chi khác
+	                        Báo cáo quỹ
 	                    </a>
 	                </li>
 	            </ul>
 	        </li>
 	    </ul>
 	</div>
-    <div class="header" th:fragment="header_notSignin">
+    <div class="header" th:fragment="header_Signined">
         <button class="btn_menu" onclick="slide_menu()">
             <i class="glyphicon glyphicon-align-justify"></i>
         </button>
         <a href="#" class="sign_in">
-            <i class="fas fa-sign-in-alt"></i>
-            Đăng nhập
+        	<i class="fas fa-user-circle"></i>
+            Username
+        </a>
+        <a href="#" class="log_out">
+        	<i class="fa fa-power-off"></i>
+            Đăng xuất
         </a>
     </div>
 </body>

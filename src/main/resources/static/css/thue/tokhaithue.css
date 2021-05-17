@@ -1,0 +1,100 @@
+.wrapper .main_content .info .content_tokhaithue .tab-content{
+	margin-top:20px;
+}
+.wrapper .main_content .info .content_tokhaithue h3,h4,h5{
+	text-align: center;
+	margin-bottom:20px;
+}
+.wrapper .main_content .info .content_tokhaithue .kiten h4{
+	text-align: left;
+}
+.wrapper .main_content .info .content_tokhaithue .kiten table{
+	border:none;
+	width:950px;
+}
+.wrapper .main_content .info .content_tokhaithue .kiten table td{
+	border:none;
+}
+.wrapper .main_content .info .content_tokhaithue .kiten table tr:first-child{
+	font-weight:bold;
+	border:none;
+}
+.wrapper .main_content .info .content_tokhaithue .kiten input{
+	width:70%;
+	border:none;
+	outline:none;
+	background:inherit;
+	border-bottom:1px solid gray;
+}
+.wrapper .main_content .info .content_tokhaithue .kiten input:hover, input:active{
+	border-bottom:1.5px solid #2196f3;
+}
+.wrapper .main_content .info .content_tokhaithue #table_tokhai{
+	width:950px;
+}
+.wrapper .main_content .info .content_tokhaithue #table_tokhai th{
+	background:#2196f3;
+	color:white;
+}
+.wrapper .main_content .info .content_tokhaithue #table_tokhai th, td{
+	border: 1px solid black;
+  	border-collapse: collapse;
+  	padding:5px 5px;
+}
+.wrapper .main_content .info .content_tokhaithue .group-btn{
+	margin-top:20px;
+	margin-bottom:20px;
+	margin-left:750px;
+}
+.wrapper .main_content .info .content_tokhaithue .group-btn .btn{
+	border:1px solid #2196f3;
+	background:white;
+}
+.wrapper .main_content .info .content_tokhaithue .group-btn .btn:last-child{
+	border:1px solid red;
+}
+.wrapper .main_content .info .content_tokhaithue .group-btn .btn-save:hover, .btn-save:active{
+	background:#2196f3;
+	color:white;
+}
+.wrapper .main_content .info .content_tokhaithue .group-btn .btn-cancel:hover, .btn-cancel:active{
+	background:red;
+	color:white;
+}
+.wrapper .main_content .info .content_tokhaithue #table_tokhai tr{
+	font-weight: bold;
+}
+.wrapper .main_content .info .content_tokhaithue #table_tokhai td:nth-child(3), td:nth-child(4){
+	text-align: right;
+}
+.wrapper .main_content .info .content_tokhaithue span.mathue{
+	display:inline-block;
+}
+.wrapper .main_content .info .content_tokhaithue span.mathue span{
+	display:inline-block;
+	border:1px solid black;
+	padding:5px;
+}
+.wrapper .main_content .info .content_tokhaithue #GTGTmua, #GTGTban{
+	width:950px;
+}
+.wrapper .main_content .info .content_tokhaithue #GTGTmua th,  #GTGTmua td{
+	border: 1px solid black;
+  	border-collapse: collapse;
+  	padding:5px 5px;
+}
+.wrapper .main_content .info .content_tokhaithue #GTGTban th, #GTGTban td{
+	border: 1px solid black;
+  	border-collapse: collapse;
+  	padding:5px 5px;
+}
+.wrapper .main_content .info .content_tokhaithue #GTGTmua th, #GTGTmua tr:nth-child(2) td{
+	text-align: center;
+	background:#2196f3;
+	color:white;
+}
+.wrapper .main_content .info .content_tokhaithue #GTGTban th, #GTGTban tr:nth-child(2) td{
+	text-align: center;
+	background:#2196f3;
+	color:white;
+}
