@@ -12,10 +12,14 @@ public class HomeController {
 	}
 	@PostMapping("/login")
 	public String checkLogin() {
-		return "redirect:/home";
+		return "redirect:/admin_home";
 	}
 	@GetMapping("/home")
 	public String home() {
 		return "index";
+	}
+	@GetMapping("/admin_home")
+	public String AdminHome() {
+		return "admin/admin_index";
 	}
 }

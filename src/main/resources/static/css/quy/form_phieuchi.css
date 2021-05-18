@@ -1,4 +1,3 @@
-
 .wrapper .main_content .info .t1 input, .t2 input{
 	border:none;
 	outline:none;
@@ -33,6 +32,9 @@
 
 .wrapper .main_content .info .t1 #thongtinchung table tr{
 	height:35px;
+}
+.wrapper .main_content .info .t1 #thongtinchung table tr#taikhoan{
+	display:none;
 }
 .wrapper .main_content .info .t1 #thongtinchung table td:first-child{
 	width:120px;

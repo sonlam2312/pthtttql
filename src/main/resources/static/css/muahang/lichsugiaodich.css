@@ -1,0 +1,74 @@
+.wrapper .main_content .info h3{
+	display:block;
+}
+.wrapper .main_content .info .header_phieuchi{
+	margin-top:20px;
+	display:flex;
+}
+
+.wrapper .main_content .info .header_phieuchi .search_phieuchi{
+	position:absolute;
+	margin-left:700px;
+}
+.wrapper .main_content .info .header_phieuchi .search_phieuchi input{
+	border:none;
+	outline:none;
+	width:250px;
+	height:36px;
+	font-size:14px;
+	background-color:#fff;
+	border:1px solid gray;
+	border-radius:20px;
+	padding:0 10px;
+}
+.wrapper .main_content .info .header_phieuchi .search_phieuchi input:hover, input:active{
+	border: 1px solid #2196f3;
+}
+.wrapper .main_content .info .header_phieuchi .search_phieuchi .btn{
+	position:absolute;
+	top:3px;
+	left:215px;
+	width:30px;
+	height:30px;
+	outline:none;
+	border:none;
+	background:#fff;
+	border:1px solid gray;
+	padding: 5px 5px;
+	border-radius:50%;
+	cursor:pointer;
+}
+.wrapper .main_content .info .header_phieuchi .search_phieuchi .btn:hover, .btn:active{
+	background-color: #2196f3;
+	color:white;
+}
+
+.wrapper .main_content .info .content_phieuchi{
+	margin-top:20px;
+	width:1000px;
+	overflow-x:auto;
+}
+.wrapper .main_content .info .content_phieuchi #table_phieuchi{
+	margin-top:10px;
+ 	border-collapse: collapse;
+ 	width:950px;
+}
+.wrapper .main_content .info .content_phieuchi #table_phieuchi tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+.wrapper .main_content .info .content_phieuchi #table_phieuchi tr:hover{
+  background-color: #ddd;
+}
+.wrapper .main_content .info .content_phieuchi #table_phieuchi th{
+  padding: 5px 5px;
+  text-align: center;
+  background-color: #2196f3;
+  border: 1px solid #fff;
+  color: white;
+}
+.wrapper .main_content .info .content_phieuchi #table_phieuchi th:last-child{
+	width:120px;
+}
+.wrapper .main_content .info .content_phieuchi #table_phieuchi td{
+	padding:5px;
+}

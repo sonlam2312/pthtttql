@@ -11,7 +11,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" th:href="@{/css/fragment.css}">
     <link rel="stylesheet" th:href="@{/css/index.css}">
-    <link rel="stylesheet" th:href="@{/css/baocao/quy.css}">
+    <link rel="stylesheet" th:href="@{/css/baocao/baocaoquy.css}">
     <script th:src="@{/js/fragment.js}"></script>
 </head>
 <body>
@@ -19,27 +19,75 @@
         <div th:replace="fragments::sidebar"></div>
 	    <div class="main_content">
 	        <div th:replace="fragments::header_Signined"></div>
-	        <div class="info">	    
-	        	<div class="baocaoquy">
-	        		<h3>Báo cáo quỹ</h3>
-	        		<form>
-	        			<table>
-	        				<tr>
-	        					<td>
-	        						<label>Tháng:</label>
-	        					</td>
-	        					<td>
-	        						<input type="month" name="month"/>
-	        					</td>
-	        				</tr>
+	        <div class="info">	
+	        	<h3>Báo cáo quỹ</h3>
+	        	<div class="content_baocao">
+		        	<div class="khoanthu">
+		        		<table class="table_thu">
 		        			<tr>
-		        				<td></td>
-		        				<td>
-		        					<button class="btn btn-xem">Xem</button>
-		        				</td>
+		        				<th>No</th>
+		        				<th>Ngày hạch toán</th>
+		        				<th>Số chứng từ</th>
+		        				<th>Đối tượng</th>
+		        				<th>Diễn giải</th>
+		        				<th>Số tiền</th>
+		        			</tr>
+		        			<tr>
+		        				<td>1</td>
+		        				<td>23/5/2021</td>
+		        				<td>PT1001</td>
+		        				<td>Công ty TNHH Bình An</td>
+		        				<td>Trả tiền hàng</td>
+		        				<td>3000000</td>
+		        			</tr>
+		        			<tr>
+		        				<td>2</td>
+		        				<td>24/5/2021</td>
+		        				<td>PT1002</td>
+		        				<td>Công ty TNHH Tân Bình</td>
+		        				<td>Trả tiền hàng</td>
+		        				<td>2000000</td>
 		        			</tr>
 		        		</table>
-	        		</form>
+		        		<h4>
+		        			Tổng thu: 
+		        			<span id="tongthu">5000000</span>
+		        			VNĐ
+		        		</h4>
+		        	</div>
+		        	<div class="khoanchi">
+	        		<table class="table_chi">
+	        			<tr>
+	        				<th>No</th>
+	        				<th>Ngày hạch toán</th>
+	        				<th>Số chứng từ</th>
+	        				<th>Đối tượng</th>
+	        				<th>Diễn giải</th>
+	        				<th>Số tiền</th>
+	        			</tr>
+	        			<tr>
+		        			<td>1</td>
+		        			<td>23/5/2021</td>
+		        			<td>PC1001</td>
+		        			<td>Công ty TNHH Bình An</td>
+		       				<td>Trả tiền hàng</td>
+		       				<td>3000000</td>
+		       			</tr>
+		       			<tr>
+		        			<td>2</td>
+		        			<td>12/5/2021</td>
+		        			<td>PC1002</td>
+		        			<td>Công ty TNHH Bình An</td>
+		        			<td>Trả tiền hàng</td>
+		        			<td>8000000</td>
+		        		</tr>
+	        		</table>
+	        		<h4>	
+	        			Tổng chi:
+	        			<span id="tongchi">11000000</span>
+	        			VNĐ
+	        		</h4>
+	        	</div>
 	        	</div>
 	        </div>
 	    </div>

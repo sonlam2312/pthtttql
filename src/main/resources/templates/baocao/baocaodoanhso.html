@@ -11,7 +11,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" th:href="@{/css/fragment.css}">
     <link rel="stylesheet" th:href="@{/css/index.css}">
-    <link rel="stylesheet" th:href="@{/css/baocao/doanhso.css}">
+    <link rel="stylesheet" th:href="@{/css/baocao/baocaoquy.css}">
     <script th:src="@{/js/fragment.js}"></script>
 </head>
 <body>
@@ -19,40 +19,69 @@
         <div th:replace="fragments::sidebar"></div>
 	    <div class="main_content">
 	        <div th:replace="fragments::header_Signined"></div>
-	        <div class="info">	    
-	        	<div class="baocaodoanhso">
-	        		<h3>Báo cáo doanh số</h3>
-	        		<form>
-	        			<table>
-	        				<tr>
-	        					<td>
-	        						<label>Tháng:</label>
-	        					</td>
-	        					<td>
-	        						<input type="month" name="month"/>
-	        					</td>
-	        				</tr>
-	        				<tr>
-		        				<td>
-		        					<label for="theo">Báo cáo theo:</label>
-		        				</td>
-		        				<td>
-				        			<select name="theo" id="theo">
-				        				<option value="mua_nhacungcap">Mua theo nhà cung cấp</option>
-				        				<option value="mua_hanghoa">Mua theo hàng hóa</option>
-				        				<option value="ban_khachhang">Bán theo khách hàng</option>
-				        				<option value="ban_hanghoa">Bán theo hàng hóa</option>
-				        			</select>
-			        			</td>
+	        <div class="info">	
+	        	<h3>Báo cáo doanh số theo sản phẩm</h3>
+	        	<div class="content_baocao">
+		        	<div class="khoanmua">
+		        		<table class="table_mua">
+		        			<tr>
+		        				<th>No</th>
+		        				<th>Hàng hóa</th>
+		        				<th>Số lượng</th>
+		        				<th>Giá</th>
+		        				<th>Số tiền</th>
 		        			</tr>
 		        			<tr>
-		        				<td></td>
-		        				<td>
-		        					<button class="btn btn-xem">Xem</button>
-		        				</td>
+		        				<td>1</td>
+		        				<td>Laptop</td>
+		        				<td>100</td>
+		        				<td>2000000</td>
+		        				<td>200000000</td>
+		        			</tr>
+		        			<tr>
+		        				<td>2</td>
+		        				<td>Bàn phím</td>
+		        				<td>10</td>
+		        				<td>200000</td>
+		        				<td>2000000</td>
 		        			</tr>
 		        		</table>
-	        		</form>
+		        		<h4>
+		        			Tổng mua: 
+		        			<span id="tongmua">22000000</span>
+		        			VNĐ
+		        		</h4>
+		        	</div>
+		        	<div class="khoanban">
+	        		<table class="table_ban">
+	        			<tr>
+		        			<th>No</th>
+		        			<th>Hàng hóa</th>
+		        			<th>Số lượng</th>
+		        			<th>Giá</th>
+		       				<th>Số tiền</th>
+		       			</tr>
+		       			<tr>
+		       				<td>1</td>
+		       				<td>Laptop</td>
+		       				<td>100</td>
+		       				<td>2000000</td>
+		       				<td>200000000</td>
+	        			</tr>
+	        			<tr>
+		        			<td>2</td>
+		        			<td>Bàn phím</td>
+		        			<td>10</td>
+		       				<td>200000</td>
+		       				<td>2000000</td>
+		       			</tr>
+	        		</table>
+	        		<h4>	
+	        			Tổng bán:
+	        			<span id="tongban">11000000</span>
+	        			VNĐ
+	        		</h4>
+	        	</div>
 	        	</div>
 	        </div>
 	    </div>

@@ -1,0 +1,53 @@
+.wrapper .main_content .info{
+	display: flex;
+	justify-content:center;
+	align-items: center;
+}
+.wrapper .main_content .info form{
+	margin-top:100px;
+}
+.wrapper .main_content .info form{
+	border:1px solid #2196f3;
+	padding:25px;
+	border-radius:50px;
+}
+.wrapper .main_content .info form h3{
+	margin-bottom:20px;
+	text-align: center;
+}
+.wrapper .main_content .info form tr td:first-child{
+	width:150px;
+}
+.wrapper .main_content .info form tr{
+	height:30px;
+}
+.wrapper .main_content .info form tr:last-child{
+	height:50px;
+}
+.wrapper .main_content .info form input{
+	outline:none;
+	border:none;
+	background-color:inherit;
+	border-bottom:1px solid gray;
+}
+.wrapper .main_content .info form input:hover, input:active{
+	border-bottom:1.5px solid #2196f3;
+}
+.wrapper .main_content .info form .btn-primary{
+	border:1px solid #2196f3;
+	background-color:white;
+	color:black;
+}
+.wrapper .main_content .info form .btn-primary:hover, .btn-primary:active{
+	color:white;
+	background-color:#2196f3;
+}
+.wrapper .main_content .info form .btn-danger{
+	border:1px solid red;
+	background-color:white;
+	color:black;
+}
+.wrapper .main_content .info form .btn-danger:hover, .btn-danger:active{
+	color:white;
+	background-color:red;
+}

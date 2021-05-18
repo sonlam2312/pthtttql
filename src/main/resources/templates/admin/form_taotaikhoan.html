@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý kế toán</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/fragment.css}">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/admin/form_taotaikhoan.css}">
+    <script th:src="@{/js/fragment.js}"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div th:replace="admin/fragment::sidebar"></div>
+	    <div class="main_content">
+	        <div th:replace="admin/fragment::header_Signined"></div>
+	        <div class="info">
+	        	<form>
+	        		<h3>Tạo tài khoản</h3>
+	        		<table>
+	        			<tr>
+	        				<td>
+	        					<lable for="username">Username:</lable>
+	        				</td>
+	        				<td>
+	        					<input type="text" name="username"/>
+	        				</td>
+	        			</tr>
+	        			<tr>
+	        				<td>
+	        					<lable for="password">Password:</lable>
+	        				</td>
+	        				<td>
+	        					<input type="text" name="password"/>
+	        				</td>
+	        			</tr>
+	        			<tr>
+	        				<td>
+	        					<lable for="manv">Mã nhân viên:</lable>
+	        				</td>
+	        				<td>
+	        					<input type="text" name="manv"/>
+	        				</td>
+	        			</tr>
+	        			<tr>
+	        				<td></td>
+	        				<td>
+	        					<button class="btn btn-primary">Lưu lại</button>
+	        					<button class="btn btn-danger">Hủy bỏ</button>
+	        				</td>
+	        			</tr>
+	        		</table>
+	        	</form>
+	        </div>
+	    </div>
+	</div>
+</body>
+</html>

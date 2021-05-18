@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý kế toán</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/fragment.css}">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/admin/qlnhanvien.css}">
+    <script th:src="@{/js/fragment.js}"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div th:replace="admin/fragment::sidebar"></div>
+	    <div class="main_content">
+	        <div th:replace="admin/fragment::header_Signined"></div>
+	        <div class="info">
+	        	<h3>Danh mục nhân viên</h3>
+	        	<div class="header_nhanvien">	        		        	  
+	        		<div class="search_nhanvien">
+	        			<form th:action="@{#}" method="get">
+	        				<input type="text" name="txt_nhanvien" placeholder="Mã nhân viên"/>
+	        				<button class="btn btn-search">
+	        					<i class="fa fa-search"></i>
+	        				</button>
+	        			</form>
+	        		</div>  	        		   		
+	        	</div>
+	        	<div class="content_nhanvien">
+	        		<h3>Danh sách nhân viên</h3>
+	        		<table id="table_nhanvien">
+	        			<tr>
+	        				<th>No</th>
+	        				<th>Mã nhân viên</th>
+	        				<th>Tên nhân viên</th>
+	        				<th>Địa chỉ</th>
+	        				<th>Số điện thoại</th>
+	        				<th>Chức vụ</th>
+	        				<th>Phòng ban</th>
+	        				<th>Số tài khoản</th>
+	        			</tr>     
+	        			<tr>
+	        				<td>1</td>
+	        				<td>NV1001</td>
+	        				<td>Nguyễn Văn An</td>
+	        				<td>Thanh Xuân, Hà Nội</td>
+	        				<td>091234567</td>
+	        				<td>Nhân viên</td>
+	        				<td>Phòng bảo vệ</td>
+	        				<td>1200546753123</td>	 
+	        			</tr>     			
+	        		</table>
+	        	</div>
+	        </div>
+	    </div>
+	  </div>
+	</body>
+</html>

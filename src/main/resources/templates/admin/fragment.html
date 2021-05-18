@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lí kế toán</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="sidebar" th:fragment="sidebar">
+	    <h3>Quản trị viên</h3>
+	    <ul>
+	        <li>
+	            <a th:href="@{/admin_qlnv}" class="sub-btn">
+	                <i class="fas fa-address-book"></i>
+	                Quản lí thông tin nhân viên
+	        	</a>
+	        </li>
+	        <li>
+	            <a th:href="@{/admin_qltk}" class="sub-btn">
+	                <i class="fas fa-address-book"></i>
+	                Quản lí tài khoản
+	        	</a>
+	        </li>
+	     </ul>
+	</div>
+    <div class="header" th:fragment="header_Signined">
+        <button class="btn_menu" onclick="slide_menu()">
+            <i class="glyphicon glyphicon-align-justify"></i>
+        </button>
+        <a href="#" class="sign_in">
+        	<i class="fas fa-user-circle"></i>
+            Username
+        </a>
+        <a href="#" class="log_out">
+        	<i class="fa fa-power-off"></i>
+            Đăng xuất
+        </a>
+    </div>
+</body>
+</html>

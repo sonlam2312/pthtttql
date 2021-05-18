@@ -48,36 +48,40 @@
 	        				<th></th>
 	        			</tr>
 	        			<tr>
-	        				<td>1</td>
-	        				<td>23/5/2021</td>
-	        				<td>23/5/2021</td>
-	        				<td>BGM1001</td>
-	        				<td>HD1001</td>
-	        				<td>Công ty TNHH Bình An</td>        				
-	        				<td>18000000</td>
-	        				<td>2000000</td>
-	        				<td>16000000</td>
-	        				<td>Chưa thanh toán xong</td>
-	        				<td>
-	        					<button class="btn btn-primary">Xem</button>
-	        					<button class="btn btn-primary">Trả</button>
-	        				</td>
+	        				<form th:action="@{/lichsugiaodichtra}" method="get">
+		        				<td>1</td>
+		        				<td>23/5/2021</td>
+		        				<td>23/5/2021</td>
+		        				<td>BGM1001</td>
+		        				<td>HD1001</td>
+		        				<td>Công ty TNHH Bình An</td>        				
+		        				<td>18000000</td>
+		        				<td>2000000</td>
+		        				<td>16000000</td>
+		        				<td>Chưa thanh toán xong</td>
+		        				<td>
+		        					<input type="submit" name="action" class="btn btn-primary" value="Xem"/>
+			        				<input type="submit" name="action" class="btn btn-primary" value="Trả"/>
+		        				</td>
+		        			</form>
 	        			</tr>
 	        			<tr>
-	        				<td>2</td>
-	        				<td>23/6/2021</td>
-	        				<td>23/6/2021</td>
-	        				<td>BGM1002</td>
-	        				<td>HD1002</td>
-	        				<td>Công ty TNHH Tân Bình</td>        				
-	        				<td>12000000</td>
-	        				<td>4000000</td>
-	        				<td>8000000</td>
-	        				<td>Chưa thanh toán xong</td>
-	        				<td>
-	        					<button class="btn btn-primary">Xem</button>
-	        					<button class="btn btn-primary">Trả</button>
-	        				</td>
+	        				<form th:action="@{lichsucongnotra}" method="get">
+		        				<td>2</td>
+		        				<td>23/6/2021</td>
+		        				<td>23/6/2021</td>
+		        				<td>BGM1002</td>
+		        				<td>HD1002</td>
+		        				<td>Công ty TNHH Tân Bình</td>        				
+		        				<td>12000000</td>
+		        				<td>4000000</td>
+		        				<td>8000000</td>
+		        				<td>Chưa thanh toán xong</td>
+		        				<td>
+		        					<input type="submit" name="action" class="btn btn-primary" value="Xem"/>
+			        				<input type="submit" name="action" class="btn btn-primary" value="Trả"/>
+		        				</td>
+		        			</form>
 	        			</tr>
 	        		</table>
 	        	</div>

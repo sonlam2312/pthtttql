@@ -11,7 +11,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" th:href="@{/css/fragment.css}">
     <link rel="stylesheet" th:href="@{/css/index.css}">
-    <link rel="stylesheet" th:href="@{/css/muahang/baogia.css}">
+    <link rel="stylesheet" th:href="@{/css/quy/phieuthu.css}">
     <script th:src="@{/js/fragment.js}"></script>
 </head>
 <body>
@@ -20,65 +20,48 @@
 	    <div class="main_content">
 	        <div th:replace="fragments::header_Signined"></div>
 	        <div class="info">
-	        	<h3>Báo giá mua hàng</h3>
-	        	<div class="header_baogia">	        		
-	        		<div class="taobaogia">
-	        			<form th:action="@{/form_baogia}">
+	        	<h3>Phiếu thu tạm ứng</h3>
+	        	<div class="header_phieuthu">	        		
+	        		<div class="taophieuthu">
+	        			<form th:action="@{/form_phieuthu}">
 	        				<button class="btn btn-save">Tạo mới</button>
 	        			</form>
 	        		</div>   
-	        		<div class="search_baogia">
+	        		<div class="search_phieuthu">
 	        			<form th:action="@{#}" method="get">
-	        				<input type="text" name="txt_baogia" placeholder="Số báo giá"/>
+	        				<input type="text" name="txt_phieuthu" placeholder="Số phiếu thu"/>
 	        				<button class="btn btn-search">
 	        					<i class="fa fa-search"></i>
 	        				</button>
 	        			</form>
 	        		</div>  	        		   		
 	        	</div>
-	        	<div class="content_baogia">
-	        		<h3>Danh sách báo giá mua hàng</h3>
-	        		<table id="table_baogia">
+	        	<div class="content_phieuthu">
+	        		<h3>Danh sách phiếu thu tạm ứng nhân viên</h3>
+	        		<table id="table_phieuthu">
 	        			<tr>
 	        				<th>No</th>
-	        				<th>Ngày báo giá</th>
-	        				<th>Số báo giá</th>
-	        				<th>Hiệu lực đến</th>
-	        				<th>Người phụ trách</th>
-	        				<th>Nhà cung cấp</th>
-	        				<th>Địa chỉ</th>
-	        				<th>Mã số thuế</th>
-	        				<th>Tình trạng</th>
+	        				<th>Ngày hạch toán</th>
+	        				<th>Ngày chứng từ</th>
+	        				<th>Số chứng từ</th>        		
+	        				<th>Diễn giải</th>
+	        				<th>Số tiền</th>
+	        				<th>Mã đối tượng</th>
+	        				<th>Đối tượng</th>
 	        				<th></th>
 	        			</tr>
 	        			<tr>
 	        				<td>1</td>
 	        				<td>23/5/2021</td>
-	        				<td>BGM1001</td>
-	        				<td>23/6/2021</td>
-	        				<td>Nguyễn Văn A</td>
-	        				<td>Công ty TNHH Bình An</td>        				
-	        				<td>Thanh xuân, Hà nội</td>
-	        				<td>MTr54312</td>
-	        				<td>Chưa xử lý</td>
-	        				<td>
-	        					<button class="btn btn-primary">Xem</button>
-	        					<button class="btn btn-danger">Xóa</button>
-	        				</td>
-	        			</tr>
-	        			<tr>
-	        				<td>2</td>
 	        				<td>23/5/2021</td>
-	        				<td>BGM1001</td>
-	        				<td>23/6/2021</td>
+	        				<td>PT1001</td>
+	        				<td>Thu tạm ứng cho nhân viên</td>       
+	        				<td>18.000.000</td>
+	        				<td>NV1001</td>
 	        				<td>Nguyễn Văn A</td>
-	        				<td>Công ty TNHH Bình An</td>        				
-	        				<td>Thanh xuân, Hà nội</td>
-	        				<td>MTr54312</td>
-	        				<td>Hoàn thành</td>
 	        				<td>
-	        					<button class="btn btn-primary">Xem</button>
-	        					<button class="btn btn-danger">Xóa</button>
+	        					<button type="button" class="btn btn-primary">Sửa</button>
+	        					<button type="button" class="btn btn-danger">Xóa</button>
 	        				</td>
 	        			</tr>
 	        		</table>

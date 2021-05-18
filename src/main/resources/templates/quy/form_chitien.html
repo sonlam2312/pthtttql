@@ -13,6 +13,7 @@
     <link rel="stylesheet" th:href="@{/css/index.css}">
     <link rel="stylesheet" th:href="@{/css/quy/form_phieuchi.css}">
     <script th:src="@{/js/fragment.js}"></script>
+    <script th:src="@{js/thuchi.js}"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -68,9 +69,17 @@
 			        				<input type="text" name="nguoinhan"/>
 			        			</td>
 		        			</tr>
+		        			<tr id="taikhoan">
+				        		<td>
+			        				<label for="sotk">Tài khoản nhận:</label>
+			        			</td>
+			        			<td>
+			        				<input type="text" name="sotk"/>
+			        			</td>
+		        			</tr>
 		        			<tr>
 			        			<td>
-			        				<label for="diachi">Đia chỉ:</label>
+			        				<label for="diachi">Địa chỉ:</label>
 			        			</td>
 			        			<td>
 			        				<input type="text" name="diachi"/>
@@ -90,6 +99,14 @@
 		        				</td>
 		        				<td>
 	        						<input type="text" name="sotien"/>
+	        					</td>
+	        				</tr>
+	        				<tr>
+			        			<td>
+		        					<label for="chungtugoc">Kèm theo:</label>
+		        				</td>
+		        				<td>
+	        						<input type="text" name="chungtugoc"/>
 	        					</td>
 	        				</tr>
 	        			</table>
