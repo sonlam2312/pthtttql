@@ -24,16 +24,47 @@
 	        	<div class="row t1">
 	        		<div class="col-sm-7" id="nhapphieu">
 	        			<h4>Thông tin chung</h4>
-	        			<lable for="makh">Mã khách hàng:</lable>
-	        			<input type="text" name="mancc"/>
-	        			<lable for="tenkh">Tên khách hàng:</lable>
-	        			<input type="text" name="tenncc"/><br><br>
-	        			<lable for="diachi">Địa chỉ:</lable>
-	        			<input type="text" name="diachi"/><br><br>
-	        			<lable for="masothue">Mã số thuế:</lable>
-	        			<input type="text" name="mathue"/><br><br>
-	        			<lable for="nguoimua">Người phụ trách:</lable>
-	        			<input type="text" name="nguoimua"/><br>
+	        			<table>
+		        			<tr>
+			        			<td>
+			        				<label for="makh">Mã khách hàng:</label>
+			        			</td>
+			        			<td>
+			        				<input type="text" name="mancc"/>
+			        			</td>
+		        			</tr>
+		        			<tr>
+			        			<td>
+			        				<label for="tenkh">Tên khách hàng:</label>
+			        			</td>
+			        			<td>
+			        				<input type="text" name="tenncc"/>
+			        			</td>
+		        			<tr>
+			        			<td>
+			        				<label for="diachi">Địa chỉ:</label>
+			        			</td>
+			        			<td>
+			        				<input type="text" name="diachi"/>
+			        			</td>
+		        			</tr>
+		        			<tr>
+			        			<td>
+			        				<label for="masothue">Mã số thuế:</label>
+			        			</td>
+			        			<td>
+			        				<input type="text" name="mathue"/>
+			        			</td>
+		        			</tr>
+		        			<tr>
+			        			<td>
+			        				<label for="nguoimua">Người phụ trách:</label>
+			        			</td>
+			        			<td>     			
+			        				<input type="text" name="nguoimua"/>
+			        			</td>
+		        			</tr>
+	        			</table>
 	        		</div>
 	        		<div class="col-sum-5" id="kihieu">
 	        			<h4>Báo giá bán hàng</h4>
@@ -90,22 +121,22 @@
                         <input type="text" name="tenhang"/>                     
                       </td> 
                       <td>
-                        <input type="number" name="soluong" id="soluong" oninput="tongtien()"/>                     
+                        <input type="number" name="soluong" id="soluong" oninput="tongtien1()"/>                     
                       </td> 
                       <td>
                         <input type="text" name="DVT"/>                     
                       </td> 
                       <td>
-                        <input type="text" name="gia" id="gia" oninput="tongtien()"/>                     
+                        <input type="text" name="gia" id="gia" oninput="tongtien1()"/>                     
                       </td> 
                       <td>
-                        <input type="text" name="chietkhau" id="chietkhau" oninput="tongtien()"/>                     
+                        <input type="text" name="chietkhau" id="chietkhau" oninput="tongtien1()"/>                     
                       </td> 
                       <td>
-                        <input type="text" name="GTGT" id="GTGT" oninput="tongtien()"/>                     
+                        <input type="text" name="GTGT" id="GTGT" oninput="tongtien1()"/>                     
                       </td> 
                       <td>
-                        <input type="text" name="thanhtien" id="thanhtien" oninput="tongtien()"/>                     
+                        <input type="text" name="thanhtien" id="thanhtien" oninput="tongtien1()"/>                     
                       </td>                
                     </tr>                                                      
                   </table>
@@ -114,15 +145,15 @@
                   <table id="tinhtong">
                   	<tr>
                       <td> <label for="tienhang">Tiền hàng:</label></td>
-                      <td><input type="text" name="tienhang" id="tienhang" oninput="tongtien()"/></td>
+                      <td><input type="text" name="tienhang" id="tienhang" oninput="tongtien1()"/></td>
                       <td> <label for="GTGT">Tổng thuế GTGT:</label></td>
-                      <td><input type="text" name="GTGT" id="tongGTGT" oninput="tongtien()"/></td>
+                      <td><input type="text" name="GTGT" id="tongGTGT" oninput="tongtien1()"/></td>
                     </tr>
                     <tr>
                       <td> <label for="chietkhau">Tổng chiết khấu:</label></td>
-                      <td><input type="text" name="chietkhau" id="tongchietkhau" oninput="tongtien()"/></td>
+                      <td><input type="text" name="chietkhau" id="tongchietkhau" oninput="tongtien1()"/></td>
                       <td> <label for="tongtien">Tổng tiền:</label></td>
-                      <td><input type="text" name="tongtien" id="tongtien" oninput="tongtien()"/></td>
+                      <td><input type="text" name="tongtien" id="tongtien" oninput="tongtien1()"/></td>
                     </tr>
                   </table>                
                 </div>

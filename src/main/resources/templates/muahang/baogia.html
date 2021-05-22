@@ -28,7 +28,7 @@
 	        			</form>
 	        		</div>   
 	        		<div class="search_baogia">
-	        			<form th:action="@{#}" method="get">
+	        			<form th:action="@{/search_baogiamua}" method="get">
 	        				<input type="text" name="txt_baogia" placeholder="Số báo giá"/>
 	        				<button class="btn btn-search">
 	        					<i class="fa fa-search"></i>
@@ -51,36 +51,21 @@
 	        				<th>Tình trạng</th>
 	        				<th></th>
 	        			</tr>
-	        			<tr>
-	        				<td>1</td>
-	        				<td>23/5/2021</td>
-	        				<td>BGM1001</td>
-	        				<td>23/6/2021</td>
-	        				<td>Nguyễn Văn A</td>
-	        				<td>Công ty TNHH Bình An</td>        				
-	        				<td>Thanh xuân, Hà nội</td>
-	        				<td>MTr54312</td>
-	        				<td>Chưa xử lý</td>
+	        			<tr th:each="baogia, itemStat:${listBaoGiaMua}">
+	        				<td th:text="${itemStat.index+1}"></td>
+	        				<td th:text="${baogia.ngayBaoGia}"></td>
+	        				<td th:text="${baogia.soBaoGia}"></td>
+	        				<td th:text="${baogia.ngayHieuLuc}"></td>
+	        				<td th:text="${baogia.nguoiPhuTrach}"></td>
+	        				<td th:text="${baogia.tenDoiTuong}"></td>        				
+	        				<td th:text="${baogia.diaChi}"></td>
+	        				<td th:text="${baogia.maSoThue}"></td>
+	        				<td th:text="${baogia.tinhTrang}"></td>
 	        				<td>
-	        					<button class="btn btn-primary">Xem</button>
+	        					<button class="btn btn-primary">Sửa</button>
 	        					<button class="btn btn-danger">Xóa</button>
 	        				</td>
-	        			</tr>
-	        			<tr>
-	        				<td>2</td>
-	        				<td>23/5/2021</td>
-	        				<td>BGM1001</td>
-	        				<td>23/6/2021</td>
-	        				<td>Nguyễn Văn A</td>
-	        				<td>Công ty TNHH Bình An</td>        				
-	        				<td>Thanh xuân, Hà nội</td>
-	        				<td>MTr54312</td>
-	        				<td>Hoàn thành</td>
-	        				<td>
-	        					<button class="btn btn-primary">Xem</button>
-	        					<button class="btn btn-danger">Xóa</button>
-	        				</td>
-	        			</tr>
+	        			</tr>        			
 	        		</table>
 	        	</div>
 	        </div>

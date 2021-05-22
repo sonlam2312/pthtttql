@@ -23,8 +23,9 @@
 	        	<h3>Danh mục hàng hóa</h3>
 	        	<div class="header_hanghoa">	        		
 	        		<div class="taohanghoa">
-	        			<form th:action="@{/form_hanghoa}">
-	        				<button class="btn btn-save">Tạo mới</button>
+	        			<form th:action="@{/form_hanghoa}" method="get">
+	        				<input type="hidden" name="id_kho" id="inputhidden" value=""/>
+	        				<button class="btn btn-save" onclick="getParam()">Tạo mới</button>
 	        			</form>
 	        		</div>   
 	        		<div class="search_hanghoa">
@@ -49,14 +50,14 @@
 	        				<th>Số lượng</th>
 	        				<th></th>
 	        			</tr>
-	        			<tr>
-	        				<td>1</td>
-	        				<td>MH001</td>
-	        				<td>SSD Samsung</td>
-	        				<td>256GB, 1mm</td>
-	        				<td>Chiếc</td>       
-	        				<td>1.500.000</td>
-	        				<td>18</td>
+	        			<tr th:each="hanghoa, iState:${listHangHoa}">
+	        				<td th:text="${iState.index+1}"></td>
+	        				<td th:text="${hanghoa.maHang}"></td>
+	        				<td th:text="${hanghoa.tenHang}"></td>
+	        				<td th:text="${hanghoa.moTa}"></td>
+	        				<td th:text="${hanghoa.donViTinh}"></td>       
+	        				<td th:text="${hanghoa.giaNhap}"></td>
+	        				<td th:text="${hanghoa.soLuong}"></td>
 	        				<td>
 	        					<button class="btn btn-primary">Sửa</button>
 	        					<button class="btn btn-danger">Xóa</button>
@@ -67,5 +68,14 @@
 	        </div>
 	    </div>
 	</div>
+	<script>
+		function getParam(){
+			var url_string = window.location.href;
+			var url = new URL(url_string);
+			var c = url.searchParams.get("id_kho");
+			document.getElementById("inputhidden").value = c;
+		}
+		getParam();
+	</script>
 </body>
 </html>

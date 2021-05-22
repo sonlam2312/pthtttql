@@ -32,7 +32,7 @@ $(document).ready(function(){
     $("#select_hoadon").change(tab_hoadon);
     $('.nav-tabs a').on('shown.bs.tab', function(event){
     	var x = $(event.target).text();         // active tab
-        if(x == "Chứng từ ghi nợ"){
+        if(x == "Chứng từ bán"){
         	$("#f_phieuthu").css({"display":"none"});
         	$("#f_phieuxuat").css({"display":"none"});
             $("#f_chungtu").css({"display":"block"});
@@ -59,6 +59,7 @@ $(document).ready(function(){
     });
     
     $("#thanhtien").focus(function(){
+    	document.getElementById("thanhtoanngay").setAttribute("checked","checked");
         var gia = document.getElementById("gia").value;
         var soluong = document.getElementById("soluong").value;
         var chietkhau = document.getElementById("chietkhau").value;

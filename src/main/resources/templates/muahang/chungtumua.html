@@ -53,38 +53,21 @@
 	        				<th>Tình trạng</th>
 	        				<th></th>
 	        			</tr>
-	        			<tr>
-	        				<td>1</td>
-	        				<td>23/5/2021</td>
-	        				<td>23/5/2021</td>
-	        				<td>CTM1001</td>
-	        				<td>HD1001</td>
-	        				<td>Công ty TNHH Bình An</td>        				
-	        				<td>Thanh xuân, Hà nội</td>
-	        				<td>Nguyễn Văn A</td>
-	        				<td>Mua hàng để nhập kho</td>
-	        				<td>18.000.000</td>
-	        				<td>Chưa xử lý</td>
+	        			<tr th:each="chungtumua, itemStat:${listChungTuMua}">
+	        				<td th:text="${itemStat.index+1}"></td>
+	        				<td th:text="${chungtumua.ngayHachToan}"></td>
+	        				<td th:text="${chungtumua.ngayChungTu}"></td>
+	        				<td th:text="${chungtumua.soChungTu}"></td>
+	        				<td th:text="${id}"></td>
+	        				<td th:text="${chungtumua.tenDoiTuong}"></td>        				
+	        				<td th:text="${chungtumua.diaChi}"></td>
+	        				<td th:text="${chungtumua.nguoiPhuTrach}"></td>
+	        				<td th:text="${chungtumua.dienGiai}"></td>
+	        				<td th:text="${chungtumua.tongTien}"></td>
+	        				<td th:text="${chungtumua.tinhTrang}"></td>
 	        				<td>
-	        					<button class="btn btn-primary">Xem</button>
+	        					<button class="btn btn-primary">Sửa</button>
 	        					<button class="btn btn-danger">Xóa</button>
-	        				</td>
-	        			</tr>
-	        			<tr>
-	        				<td>2</td>
-	        				<td>23/5/2021</td>
-	        				<td>23/5/2021</td>
-	        				<td>CTM1001</td>
-	        				<td>HD1001</td>
-	        				<td>Công ty TNHH Bình An</td>        				
-	        				<td>Thanh xuân, Hà nội</td>
-	        				<td>Nguyễn Văn A</td>
-	        				<td>Mua hàng để nhập kho</td>
-	        				<td>18.000.000</td>
-	        				<td>Chưa xử lý</td>
-	        				<td>
-	        					<button  class="btn btn-primary">Xem</button>
-	        					<button  class="btn btn-danger">Xóa</button>
 	        				</td>
 	        			</tr>
 	        		</table>

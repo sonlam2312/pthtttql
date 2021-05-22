@@ -59,6 +59,7 @@
 .wrapper .main_content .info .content_phieuchi #table_phieuchi{
 	margin-top:10px;
  	border-collapse: collapse;
+ 	width:950px;
 }
 .wrapper .main_content .info .content_phieuchi #table_phieuchi tr:nth-child(even){
   background-color: #f2f2f2;

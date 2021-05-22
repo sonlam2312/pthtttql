@@ -9,6 +9,10 @@ public class KiemKeController {
 	public String kiemke() {
 		return "kho/kiemke";
 	}
+	@GetMapping("/form_ngaykiemke")
+	public String NgayKiemKe() {
+		return "kho/tao_kiemke";
+	}
 	@GetMapping("/form_kiemke")
 	public String formKiemKe() {
 		return "kho/form_kiemke";

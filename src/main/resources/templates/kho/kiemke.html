@@ -20,34 +20,42 @@
 	    <div class="main_content">
 	        <div th:replace="fragments::header_Signined"></div>
 	        <div class="info">
+	        	<h3>Kiểm kê kho</h3>
+	        	<div class="header_kiemke">	        		
+	        		<div class="taokiemke">
+	        			<form th:action="@{/form_ngaykiemke}">
+	        				<button class="btn btn-save">Tạo mới</button>
+	        			</form>
+	        		</div>  
+	        		<div class="search_kiemke">
+	        			<form th:action="@{#}" method="get">
+	        				<input type="text" name="txt_kiemke" placeholder="Số chứng từ"/>
+	        				<button class="btn btn-search">
+	        					<i class="fa fa-search"></i>
+	        				</button>
+	        			</form>
+	        		</div>   	        		   		
+	        	</div>
 	        	<div class="content_kiemke">
-	        		<h3>Kiểm kê hàng hóa, vật tư</h3>
-	        		<form th:action="@{/form_kiemke}" method="get">
-		        		<table>
-		        			<tr>
-		        				<td>
-		        					<label for="makho">Kiểm kê kho:</label>
-		        				</td>
-		        				<td>
-		        					<input type="text" name="makho"/>
-		        				</td>        				
-		        			</tr>
-		        			<tr>
-		        				<td>
-		        					<label for="ngay">Đến ngày:</label>
-		        				</td>
-		        				<td>
-		        					<input type="date" name="ngay"/>
-		        				</td>        				
-		        			</tr>
-		        			<tr>
-		        				<td></td>
-		        				<td>
-		        					<button class="btn btn-primary">Đồng ý</button>
-		        				</td>
-		        			</tr>
-		        		</table>
-		        	</form>
+	        		<h3>Danh sách phiếu chi</h3>
+	        		<table id="table_kiemke">
+	        			<tr>
+	        				<th>No</th>
+	        				<th>Ngày kiểm kê</th>
+	        				<th>Số chứng từ</th>        		
+	        				<th>Kho</th>
+	        				<th>Người phụ trách</th>
+	        				<th>Mục đích kiểm kê</th>
+	        			</tr>
+	        			<tr>
+	        				<td>1</td>
+	        				<td>23/5/2021</td>
+	        				<td>KK1001</td>
+	        				<td>Kho Hàng Hóa</td>   
+	        				<td>Nguyễn Văn A</td>    
+	        				<td>Kiểm kê định kì</td>
+	        			</tr>
+	        		</table>
 	        	</div>
 	        </div>
 	    </div>

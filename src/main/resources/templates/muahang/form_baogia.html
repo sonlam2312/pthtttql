@@ -21,19 +21,48 @@
 	        <div th:replace="fragments::header_Signined"></div>
 	        <div class="info">
 	        	<h3>Báo giá mua hàng</h3>
+	        	<form th:action="@{/baogiamua_save}" method="post" th:object="${baogiamua}">
 	        	<div class="row t1">
 	        		<div class="col-sm-7" id="nhapphieu">
-	        			<h4>Thông tin chung</h4>
-	        			<lable for="mancc">Mã nhà cung cấp:</lable>
-	        			<input type="text" name="mancc"/>
-	        			<lable for="tenncc">Tên nhà cung cấp:</lable>
-	        			<input type="text" name="tenncc"/><br><br>
-	        			<lable for="diachi">Địa chỉ:</lable>
-	        			<input type="text" name="diachi"/><br><br>
-	        			<lable for="masothue">Mã số thuế:</lable>
-	        			<input type="text" name="mathue"/><br><br>
-	        			<lable for="nguoimua">Người phụ trách:</lable>
-	        			<input type="text" name="nguoimua"/><br>
+	        			<h4>Thông tin chung</h4>	    
+	        			<table>  
+	        				<tr>
+	        					<td><label for="mancc">Mã nhà cung cấp:</label></td>
+	        					<td><input type="text" name="mancc" th:field="*{maDoiTuong}"/></td>
+	        				</tr>
+		        			<tr>
+		        				<td>
+		        					<label for="tenncc">Tên nhà cung cấp:</label>
+		        				</td>
+		        				<td>
+		        					<input type="text" name="tenncc" th:field="*{tenDoiTuong}"/>
+		        				</td>
+		        			</tr>
+		        			<tr>
+		        				<td>
+		        					<label for="diachi">Địa chỉ:</label>
+		        				</td>
+		        				<td>
+		        					<input type="text" name="diachi" th:field="*{diaChi}"/>
+		        				</td>
+		        			</tr>
+		        			<tr>
+		        				<td>
+		        					<label for="masothue">Mã số thuế:</label>
+		        				</td>
+		        				<td>
+		        					<input type="text" name="mathue" th:field="*{maSoThue}"/>
+		        				</td>
+		        			</tr>
+		        			<tr>
+		        				<td>
+		        					<label for="nguoimua">Người phụ trách:</label>
+		        				</td>
+		        				<td>
+		        					<input type="text" name="nguoimua" th:field="*{nguoiPhuTrach}"/>
+		        				</td>
+		        			</tr>
+	        			</table>
 	        		</div>
 	        		<div class="col-sum-5" id="kihieu">
 	        			<h4>Báo giá mua hàng</h4>
@@ -42,19 +71,19 @@
                               <td>
                                 <label for="sobaogia">Số báo giá:</label>
                               </td>
-                              <td><input type="text" name="sobaogia"> </td>
+                              <td><input type="text" name="sobaogia" th:field="*{soBaoGia}"/> </td>
                             </tr>
                             <tr>
                               <td>
                                 <label for="ngaybaogia">Ngày báo giá:</label>
                               </td>
-                              <td><input type="date" name="ngaybaogia"> </td>
+                              <td><input type="date" name="ngaybaogia" th:field="*{ngayBaoGia}"/> </td>
                             </tr>
                             <tr>
                               <td>
                                 <label for="ngayhethan">Hiệu lực đến:</label>
                               </td>
-                              <td><input type="date" name="ngayhethan"> </td>
+                              <td><input type="date" name="ngayhethan" th:field="*{ngayHieuLuc}"/> </td>
                             </tr>                       
                           </table> 
 	        		</div>
@@ -82,30 +111,30 @@
                       <th>Thuế GTGT(%)</th>
                       <th>Thành tiền</th>
                     </tr>
-                    <tr>
+                    <tr th:each="chiTietPhieu, itemStat : *{chiTietPhieuMua}">
                       <td>
-                        <input type="text" name="mahang"/>                     
+                        <input type="text" name="mahang" th:field="*{chiTietPhieuMua[__${itemStat.index}__].maHang}" />                     
                       </td>  
                       <td>
-                        <input type="text" name="tenhang"/>                     
+                        <input type="text" name="tenhang" th:field="*{chiTietPhieuMua[__${itemStat.index}__].tenHang}"/>                     
                       </td> 
                       <td>
-                        <input type="number" name="soluong" id="soluong" oninput="tongtien()"/>                     
+                        <input type="number" name="soluong" id="soluong" th:field="*{chiTietPhieuMua[__${itemStat.index}__].soLuong}" onclick="tongtien1()"/>                     
                       </td> 
                       <td>
-                        <input type="text" name="DVT"/>                     
+                        <input type="text" name="DVT" th:field="*{chiTietPhieuMua[__${itemStat.index}__].donViTinh}"/>                     
                       </td> 
                       <td>
-                        <input type="text" name="gia" id="gia" oninput="tongtien()"/>                     
+                        <input type="text" name="gia" id="gia" oninput="tongtien1()" th:field="*{chiTietPhieuMua[__${itemStat.index}__].gia}"/>                     
                       </td> 
                       <td>
-                        <input type="text" name="chietkhau" id="chietkhau" oninput="tongtien()"/>                     
+                        <input type="text" name="chietkhau" id="chietkhau" oninput="tongtien1()" th:field="*{chiTietPhieuMua[__${itemStat.index}__].chietkhau}"/>                     
                       </td> 
                       <td>
-                        <input type="text" name="GTGT" id="GTGT" oninput="tongtien()"/>                     
+                        <input type="text" name="GTGT" id="GTGT" oninput="tongtien1()" th:field="*{chiTietPhieuMua[__${itemStat.index}__].VAT}"/>                     
                       </td> 
                       <td>
-                        <input type="text" name="thanhtien" id="thanhtien" oninput="tongtien()"/>                     
+                        <input type="text" name="thanhtien" id="thanhtien" oninput="tongtien1()" th:field="*{chiTietPhieuMua[__${itemStat.index}__].thanhTien}"/>                     
                       </td>                
                     </tr>                                      
                   </table>
@@ -114,15 +143,15 @@
                   <table id="tinhtong">
                   	<tr>
                       <td> <label for="tienhang">Tiền hàng:</label></td>
-                      <td><input type="text" name="tienhang" id="tienhang" oninput="tongtien()"/></td>
+                      <td><input type="text" name="tienhang" id="tienhang" oninput="tongtien1()" th:field="*{tongHang}"/></td>
                       <td> <label for="GTGT">Tổng thuế GTGT:</label></td>
-                      <td><input type="text" name="GTGT" id="tongGTGT" oninput="tongtien()"/></td>
+                      <td><input type="text" name="GTGT" id="tongGTGT" oninput="tongtien1()" th:field="*{tongGTGT}"/></td>
                     </tr>
                     <tr>
                       <td> <label for="chietkhau">Tổng chiết khấu:</label></td>
-                      <td><input type="text" name="chietkhau" id="tongchietkhau" oninput="tongtien()"/></td>
+                      <td><input type="text" name="chietkhau" id="tongchietkhau" oninput="tongtien1()" th:field="*{tongChietKhau}"/></td>
                       <td> <label for="tongtien">Tổng tiền:</label></td>
-                      <td><input type="text" name="tongtien" id="tongtien" oninput="tongtien()"/></td>
+                      <td><input type="text" name="tongtien" id="tongtien" oninput="tongtien1()" th:field="*{tongTien}"/></td>
                     </tr>
                   </table>                
                 </div>
@@ -130,6 +159,9 @@
                     <button class="btn btn-cancel">Hủy bỏ</button> 
                 	<button class="btn btn-save">Lưu lại</button>
                 </div>
+                </form>
 	       	</div>
 	    </div>
 	</div>
+</body>
+</html>

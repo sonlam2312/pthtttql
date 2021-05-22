@@ -20,57 +20,65 @@
 	    <div class="main_content">
 	        <div th:replace="fragments::header_Signined"></div>
 	        <div class="info">
-	        	<form>
+	        	<form th:action="@{/hanghoa_save}" method="post" th:object="${hanghoa}">
 	        		<h3>Thêm mặt hàng</h3>
 	        		<table>
 	        			<tr>
 	        				<td>
-	        					<lable for="mahang">Mã hàng:</lable>
+	        					<label for="mahang">Mã hàng:</label>
 	        				</td>
 	        				<td>
-	        					<input type="text" name="mahang"/>
+	        					<input type="text" name="mahang" th:field="*{maHang}"/>
 	        				</td>
 	        			</tr>
 	        			<tr>
 	        				<td>
-	        					<lable for="tenhang">Tên hàng:</lable>
+	        					<label for="tenhang">Tên hàng:</label>
 	        				</td>
 	        				<td>
-	        					<input type="text" name="tenhang"/>
+	        					<input type="text" name="tenhang" th:field="*{tenHang}"/>
 	        				</td>
 	        			</tr>
 	        			<tr>
 	        				<td>
-	        					<lable for="mota">Mô tả:</lable>
+	        					<label for="mota">Mô tả:</label>
 	        				</td>
 	        				<td>
-	        					<input type="text" name="mota"/>
+	        					<input type="text" name="mota" th:field="*{moTa}"/>
 	        				</td>
 	        			</tr>
 	        			<tr>
 	        				<td>
-	        					<lable for="dvt">Đơn vị tính:</lable>
+	        					<label for="dvt">Đơn vị tính:</label>
 	        				</td>
 	        				<td>
-	        					<input type="text" name="dvt"/>
+	        					<input type="text" name="dvt" th:field="*{donViTinh}"/>
 	        				</td>
 	        			</tr>
 	        			<tr>
 	        				<td>
-	        					<lable for="gia">Giá nhập:</lable>
+	        					<label for="gia">Giá nhập:</label>
 	        				</td>
 	        				<td>
-	        					<input type="text" name="gia"/>
+	        					<input type="text" name="gia" th:field="*{giaNhap}"/>
 	        				</td>
 	        			</tr>
 	        			<tr>
 	        				<td>
-	        					<lable for="soluong">Số lượng:</lable>
+	        					<label for="soluong">Số lượng:</label>
 	        				</td>
 	        				<td>
-	        					<input type="text" name="soluong"/>
+	        					<input type="text" name="soluong" th:field="*{soLuong}"/>        			
 	        				</td>
-	        			</tr>
+	        			</tr>  
+	        			<tr>
+	        				<td>
+	        					<label for="kho">Mã kho:</label>	  
+	        				</td>
+	        				<td>
+	        					<input type="text" name="kho" th:field="*{kho.id}"/>        			
+	        				</td>
+	        			</tr>       			
 	        			<tr>
 	        				<td></td>
 	        				<td>

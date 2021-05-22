@@ -33,37 +33,15 @@
 		        				<th>Thủ kho</th>
 		        				<th></th>
 		        			</tr>
-		        			<tr>
-		        				<td>1</td>
-		        				<td>K001</td>
-		        				<td>Kho sản xuất</td>
-		        				<td>Hà đông, Hà nội</td>
-		        				<td>123456789</td>       
-		        				<td>Nguyễn Văn A</td>
+		        			<tr th:each="kho:${listKho}">
+		        				<td th:text="${kho.id}"></td>
+		        				<td th:text="${kho.maKho}"></td>
+		        				<td th:text="${kho.tenKho}"></td>
+		        				<td th:text="${kho.diaChi}"></td>
+		        				<td th:text="${kho.SDT}"></td>
+		        				<td th:text="${kho.thuKho}"></td>
 		        				<td>
-		        					<button class="btn btn-primary">Xem</button>
-		        				</td>
-		        			</tr>
-		        			<tr>
-		        				<td>2</td>
-		        				<td>K002</td>
-		        				<td>Kho Thành phẩm</td>
-		        				<td>Gia Lâm, Hà nội</td>
-		        				<td>123456789</td>       
-		        				<td>Nguyễn Văn A</td>
-		        				<td>
-		        					<button class="btn btn-primary">Xem</button>
-		        				</td>
-		        			</tr>
-		        			<tr>
-		        				<td>3</td>
-		        				<td>K003</td>
-		        				<td>Kho hàng hóa</td>
-		        				<td>Hoài Đức, Hà nội</td>
-		        				<td>123456789</td>       
-		        				<td>Nguyễn Văn A</td>
-		        				<td>
-		        					<button class="btn btn-primary">Xem</button>
+		        					<a th:href="@{/hanghoa?id_kho={id}(id=${kho.id})}" class="btn btn-primary">Xem</a>
 		        				</td>
 		        			</tr>
 		        		</table>

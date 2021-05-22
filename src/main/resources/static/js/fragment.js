@@ -4,7 +4,7 @@ $(document).ready(function(){
 	   $(this).find(".dropdown").toggleClass("icon_rotate");
 	});
 });
-function tongtien(){
+function tongtien1(){
 	var soluong = document.querySelectorAll("#soluong");
 	var gia = document.querySelectorAll("#gia");
 	var chietkhau = document.querySelectorAll("#chietkhau");
@@ -26,6 +26,7 @@ function tongtien(){
 	document.getElementById("tongGTGT").value = tongGTGT;
 	document.getElementById("tongchietkhau").value = tongCK;
 }
+tongtien1();
 function tongtien2(){
 	var soluong = document.querySelectorAll("#soluong");
 	var gia = document.querySelectorAll("#gia");

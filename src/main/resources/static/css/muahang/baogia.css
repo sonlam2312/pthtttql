@@ -57,6 +57,7 @@
 .wrapper .main_content .info .content_baogia #table_baogia{
 	margin-top:10px;
  	border-collapse: collapse;
+ 	width:1000px;
 }
 .wrapper .main_content .info .content_baogia #table_baogia tr:nth-child(even){
   background-color: #f2f2f2;

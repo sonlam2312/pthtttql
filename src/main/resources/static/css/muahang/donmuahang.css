@@ -59,6 +59,7 @@
 .wrapper .main_content .info .content_donmua #table_donmua{
 	margin-top:10px;
  	border-collapse: collapse;
+ 	width:1000px;
 }
 .wrapper .main_content .info .content_donmua #table_donmua tr:nth-child(even){
   background-color: #f2f2f2;

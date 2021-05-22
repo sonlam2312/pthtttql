@@ -28,7 +28,7 @@
 	        			</form>
 	        		</div>   
 	        		<div class="search_donmua">
-	        			<form th:action="@{#}" method="get">
+	        			<form th:action="@{/search_donmuahang}" method="get">
 	        				<input type="text" name="txt_donmua" placeholder="Số đơn hàng"/>
 	        				<button class="btn btn-search">
 	        					<i class="fa fa-search"></i>
@@ -51,36 +51,21 @@
 	        				<th>Tình trạng</th>
 	        				<th></th>
 	        			</tr>
-	        			<tr>
-	        				<td>1</td>
-	        				<td>23/5/2021</td>
-	        				<td>BGM1001</td>
-	        				<td>23/6/2021</td>
-	        				<td>Nguyễn Văn A</td>
-	        				<td>Công ty TNHH Bình An</td>        				
-	        				<td>Thanh xuân, Hà nội</td>
-	        				<td>MTr54312</td>
-	        				<td>Chưa xử lý</td>
+	        			<tr th:each="donmuahang, itemStat:${listdonmuahang}">
+	        				<td th:text="${itemStat.index+1}"></td>
+	        				<td th:text="${donmuahang.ngayDonHang}"></td>
+	        				<td th:text="${donmuahang.soDonHang}"></td>
+	        				<td th:text="${donmuahang.ngayNhanHang}"></td>
+	        				<td th:text="${donmuahang.nguoiPhuTrach}"></td>
+	        				<td th:text="${donmuahang.tenDoiTuong}"></td>        				
+	        				<td th:text="${donmuahang.diaChi}"></td>
+	        				<td th:text="${donmuahang.maSoThue}"></td>
+	        				<td th:text="${donmuahang.tinhTrang}"></td>
 	        				<td>
-	        					<button class="btn btn-primary">Xem</button>
-	        					<button  class="btn btn-danger">Xóa</button>
+	        					<button class="btn btn-primary">Sửa</button>
+	        					<button class="btn btn-danger">Xóa</button>
 	        				</td>
-	        			</tr>
-	        			<tr>
-	        				<td>2</td>
-	        				<td>23/5/2021</td>
-	        				<td>BGM1001</td>
-	        				<td>23/6/2021</td>
-	        				<td>Nguyễn Văn A</td>
-	        				<td>Công ty TNHH Bình An</td>        				
-	        				<td>Thanh xuân, Hà nội</td>
-	        				<td>MTr54312</td>
-	        				<td>Hoàn thành</td>
-	        				<td>
-	        					<button  class="btn btn-primary">Xem</button>
-	        					<button  class="btn btn-danger">Xóa</button>
-	        				</td>
-	        			</tr>
+	        			</tr> 
 	        		</table>
 	        	</div>
 	        </div>

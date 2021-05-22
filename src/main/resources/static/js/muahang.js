@@ -4,6 +4,7 @@ function tab_thanhtoan(){
     }else if(this.value === "thanhtoanngay"){
         $(".nav-tabs li:nth-child(3)").css({"display":"block"});
     }
+    document.getElementById("thanhtoanngay").setAttribute("checked","checked");
 }
 function tab_hoadon(){
     var x = $("#select_hoadon").val();
@@ -15,9 +16,20 @@ function tab_hoadon(){
     }
 }
 function select_loaimuahang(){
+	var x = $("#loaimuahang").val();
+    if(x == "muahangnhapkho"){
+    	$(".nav-tabs li:first-child").css({"display":"block"});
+    	$(".nav-tabs li:nth-child(2)").css({"display":"block"});
+    }
+    if(x == "muahangkhongquakho"){
+    	$(".nav-tabs li:first-child").css({"display":"block"});
+    	$(".nav-tabs li:nth-child(2)").css({"display":"none"});
+    }
+}
+function select_loaimuahang1(){
     var x = $("#loaimuahang").val();
     if(x == "muahangnhapkho"){  
-        $(".nav-tabs li:first-child").css({"display":"none"}); 
+        $(".nav-tabs li:first-child").css({"display":"block"}); 
         $(".nav-tabs li:nth-child(2)").css({"display":"block"});
         $(".nav-tabs li:nth-child(3)").css({"display":"block"});
         $(".nav-tabs li:nth-child(4)").css({"display":"block"});
@@ -31,6 +43,7 @@ function select_loaimuahang(){
         });
     }
     if(x == "muahangkhongquakho"){
+    	$(".nav-tabs li:nth-child(1)").css({"display":"block"});
         $(".nav-tabs li:nth-child(2)").css({"display":"none"});
         $(".nav-tabs li:nth-child(3)").css({"display":"block"});
         $(".nav-tabs li:nth-child(4)").css({"display":"block"});
@@ -49,12 +62,12 @@ $(document).ready(function(){
     tab_hoadon();
     tab_thanhtoan();
     select_loaimuahang();
-    $("input[type=radio][name=thanhtoan]").change(tab_thanhtoan);
+    $("input[type=radio]").change(tab_thanhtoan);
     $("#select_hoadon").change(tab_hoadon);
     $("#loaimuahang").change(select_loaimuahang);
     $('.nav-tabs a').on('shown.bs.tab', function(event){
     	var x = $(event.target).text();         // active tab
-        if(x == "Chứng từ ghi nợ"){
+        if(x == "Chứng từ mua hàng"){
         	$("#f_phieuchi").css({"display":"none"});
         	$("#f_phieunhap").css({"display":"none"});
             $("#f_chungtu").css({"display":"block"});
