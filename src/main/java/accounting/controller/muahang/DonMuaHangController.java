@@ -57,16 +57,17 @@ public class DonMuaHangController {
 		if(id_baogia==0) {
 			donmuahang.setBaoGiaMua(null);
 			listPhieuMua = donmuahang.getChiTietPhieuMua();
+			donmuahang.setChiTietPhieuMua(listPhieuMua);
+			donMuaHangRepo.save(donmuahang);
+			for(ChiTietPhieuMua c:listPhieuMua) {
+				c.setDonMuaHang(donmuahang);
+				phieuMuaRepo.save(c);
+			}
 		}else {
 			baogiamua.setTinhTrang("Hoàn Thành");
-			listPhieuMua = baogiamua.getChiTietPhieuMua();
 			donmuahang.setBaoGiaMua(baogiamua);
+			donMuaHangRepo.save(donmuahang);
 		}
-		for(ChiTietPhieuMua c:listPhieuMua) {
-			c.setDonMuaHang(donmuahang);
-			phieuMuaRepo.save(c);
-		}
-		donMuaHangRepo.save(donmuahang);
 		return "redirect:/donmuahang";
 	}
 	@GetMapping("/getBaoGiaMua")

@@ -3,6 +3,7 @@ package accounting.model;
 import java.sql.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -32,6 +33,6 @@ public class BaoGiaMua {
 	private double tongGTGT;
 	private double tongTien;
 	private String tinhTrang;
-	@OneToMany(mappedBy = "baoGiaMua",fetch = FetchType.EAGER)
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<ChiTietPhieuMua> chiTietPhieuMua;
 }

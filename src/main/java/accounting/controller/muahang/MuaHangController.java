@@ -1,5 +1,6 @@
 package accounting.controller.muahang;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,6 +60,17 @@ public class MuaHangController {
 		listPhieuChi.add(phieuchi);
 		chungtumua.setPhieuChi(listPhieuChi);
 		chungtumua.setHoaDonMua(hoadonmua);
+		//
+		long millis = System.currentTimeMillis();
+		Date date = new Date(millis);
+		phieuchi.setNgayChungTu(date);
+		phieuchi.setNgayHachToan(date);
+		phieunhap.setNgayHachToan(date);
+		chungtumua.setNgayChungTu(date);
+		chungtumua.setNgayHachToan(date);
+		phieunhap.setNgayChungTu(date);
+		hoadonmua.setNgayHoaDon(date);
+		//
 		model.addAttribute("chungtumua", chungtumua);
 		return "muahang/form_muahang";
 	}
@@ -103,6 +115,17 @@ public class MuaHangController {
 		hoadonmua.setMaSoThue(maSoThue);
 		hoadonmua.setDiaChi(diaChi);
 		chungtumua.setHoaDonMua(hoadonmua);
+		// date
+		long millis = System.currentTimeMillis();
+		Date date = new Date(millis);
+		phieuchi.setNgayChungTu(date);
+		phieuchi.setNgayHachToan(date);
+		phieunhap.setNgayHachToan(date);
+		chungtumua.setNgayChungTu(date);
+		chungtumua.setNgayHachToan(date);
+		phieunhap.setNgayChungTu(date);
+		hoadonmua.setNgayHoaDon(date);
+		//
 		model.addAttribute("chungtumua", chungtumua);
 		model.addAttribute("donMuaHang", donMuaHang);
 		return "muahang/form_muahang";
@@ -114,12 +137,16 @@ public class MuaHangController {
 		String loaimua = chungtumua.getLoaiMuaHang();
 		String nhankem = chungtumua.getNhanKemHoaDon();
 		DonMuaHang donmuahang = donMuaHangRepo.getOne(id_donmuahang);
+		chungtumua.setTinhTrang("Chưa xử lý");
 		List<ChiTietPhieuMua> chiTietPhieuMuas = chungtumua.getChiTietPhieuMua();
 		if(donmuahang.getId() == 0) {
 			chungtumua.setDonMuaHang(null);
 		}else {
 			donmuahang.setTinhTrang("Hoàn Thành");
-			donMuaHangRepo.save(donmuahang);
+			chungtumua.setDonMuaHang(donmuahang);
+		}
+		for(ChiTietPhieuMua c:chiTietPhieuMuas) {
+			phieuMuaRepo.save(c);
 		}
 		if(thanhToan.equals("chuathanhtoan")) {
 			chungtumua.setPhieuChi(null);
@@ -127,7 +154,6 @@ public class MuaHangController {
 		if(thanhToan.equals("thanhtoanngay")) {
 			List<PhieuChi> phieuChis = chungtumua.getPhieuChi();
 			PhieuChi phieuchi = phieuChis.get(0);
-			phieuchi.setChungTuMua(chungtumua);
 			phieuChiRepo.save(phieuchi);
 		}
 		if(nhankem.equals("nhankem")) {
@@ -135,24 +161,17 @@ public class MuaHangController {
 		}
 		if(nhankem.equals("khongkem")) {
 			HoaDonMua hoadonmua = chungtumua.getHoaDonMua();
-			hoadonmua.setChiTietPhieuMuas(chiTietPhieuMuas);
-			hoadonmua.setChungTuMua(chungtumua);
+//			hoadonmua.setChiTietPhieuMuas(chiTietPhieuMuas);
 			hoaDonMuaRepo.save(hoadonmua);
 		}
-		if(loaimua.equals("muahangnhapkho")) {
+		if(loaimua.equals("muahangkhongquakho")) {
 			chungtumua.setPhieuNhapKho(null);
 		}
-		if(loaimua.equals("muahangkhongquakho")) {
+		if(loaimua.equals("muahangnhapkho")) {
 			PhieuNhapKho phieunhap = chungtumua.getPhieuNhapKho();
-			phieunhap.setChiTietPhieuMuas(chiTietPhieuMuas);
-			phieunhap.setChungTuMua(chungtumua);
+//			phieunhap.setChiTietPhieuMuas(chiTietPhieuMuas);
 			phieuNhapRepo.save(phieunhap);
 		}
-		for(ChiTietPhieuMua c:chiTietPhieuMuas) {
-			c.setChungTuMua(chungtumua);
-			phieuMuaRepo.save(c);
-		}
-		chungtumua.setTinhTrang("Chưa xử lý");
 		chungTuMuaRepo.save(chungtumua);
 		return "redirect:/chungtumuahang";
 	}

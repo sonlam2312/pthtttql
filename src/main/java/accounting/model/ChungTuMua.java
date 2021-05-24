@@ -3,6 +3,7 @@ package accounting.model;
 import java.sql.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -43,15 +44,15 @@ public class ChungTuMua {
 	private double tongGTGT;
 	private double tongTien;
 	private double tienShip;
-	@OneToOne(mappedBy = "chungTuMua")
+	@OneToOne(mappedBy = "chungTuMua",cascade = CascadeType.ALL)
 	private PhieuNhapKho phieuNhapKho;
-	@OneToOne(mappedBy = "chungTuMua")
+	@OneToOne(mappedBy = "chungTuMua",cascade = CascadeType.ALL)
 	private HoaDonMua hoaDonMua;
-	@OneToMany(mappedBy = "chungTuMua")
+	@OneToMany(mappedBy = "chungTuMua",cascade = CascadeType.ALL)
 	private List<PhieuChi> phieuChi;
-	@OneToMany(mappedBy = "chungTuMua")
+	@OneToMany(mappedBy = "chungTuMua",cascade = CascadeType.ALL)
 	private List<ChiTietPhieuMua> chiTietPhieuMua;
-	@OneToOne
-	@JoinColumn(name = "id_donmuahang")
+	@OneToOne(mappedBy = "chungTuMua",cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_donmuahang",referencedColumnName = "id")
 	private DonMuaHang donMuaHang;
 }

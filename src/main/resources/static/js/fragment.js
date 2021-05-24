@@ -2,6 +2,7 @@ $(document).ready(function(){
 	$(".sub-btn").click(function(){
 	   $(this).next(".sub-menu").slideToggle();
 	   $(this).find(".dropdown").toggleClass("icon_rotate");
+	   $("input[type=date]").value = new Date();
 	});
 });
 function tongtien1(){
@@ -50,4 +51,11 @@ function tongtien2(){
 	var x = parseInt(document.getElementById("tienship").value);
 	sum += x;
 	document.getElementById("tongtien").value = sum;
+}
+function getDate(){
+    var today = new Date();
+	document.querySelectorAll("input[type=date]").value = today;
+}
+window.onload = function(){
+	getDate();
 }

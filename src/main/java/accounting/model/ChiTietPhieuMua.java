@@ -25,7 +25,7 @@ public class ChiTietPhieuMua {
 	private double VAT;
 	private double thanhTien;
 	@ManyToOne
-	@JoinColumn(name = "id_chungtumua")
+	@JoinColumn(name = "id_chungtumua",referencedColumnName = "id")
 	private ChungTuMua chungTuMua;
 	@ManyToOne
 	@JoinColumn(name = "id_baogiamua", referencedColumnName = "id")

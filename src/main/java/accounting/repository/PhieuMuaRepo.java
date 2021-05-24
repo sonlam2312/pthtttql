@@ -12,6 +12,4 @@ public interface PhieuMuaRepo extends JpaRepository<ChiTietPhieuMua, Integer>{
 	List<ChiTietPhieuMua> listChiTietPhieuMua(String sobaogia);
 	@Query("SELECT c FROM DonMuaHang h INNER JOIN h.chiTietPhieuMua c WHERE h.soDonHang = ?1 AND c.donMuaHang = h.id")
 	List<ChiTietPhieuMua> listChiTietPhieuMuaByDonHang(String sodonhang);
-	@Query("UPDATE ChiTietPhieuMua c SET c.donMuaHang = ?1 WHERE c.baoGiaMua = ?2")
-	void UpdateChiTietPhieu(int id_donmuahang, int id_baogiamua);
 }

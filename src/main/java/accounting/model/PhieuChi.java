@@ -31,6 +31,6 @@ public class PhieuChi {
 	@Transient
 	private String phuongThucThanhToan;
 	@ManyToOne
-	@JoinColumn(name = "id_chungtumua")
+	@JoinColumn(name = "id_chungtumua", referencedColumnName = "id")
 	private ChungTuMua chungTuMua;
 }
