@@ -9,6 +9,7 @@ public class QuanLiTaiKhoanController {
 	public String QuanLiTaiKhoan() {
 		return "admin/qltaikhoan";
 	}
+
 	@GetMapping("/form_taotaikhoan")
 	public String FormTaoTaiKhoan() {
 		return "admin/form_taotaikhoan";

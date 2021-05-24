@@ -16,6 +16,27 @@ public class Account {
 	@Id
 	@GeneratedValue
 	private int id;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	private String username;
 	private String password;
 	@OneToOne
