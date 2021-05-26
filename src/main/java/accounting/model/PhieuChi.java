@@ -30,6 +30,8 @@ public class PhieuChi {
 	private double soTien;
 	@Transient
 	private String phuongThucThanhToan;
+	@Transient
+	private String loaiChi;
 	@ManyToOne
 	@JoinColumn(name = "id_chungtumua", referencedColumnName = "id")
 	private ChungTuMua chungTuMua;

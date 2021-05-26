@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import accounting.model.BaoGiaMua;
 import accounting.model.ChiTietPhieuMua;
 import accounting.model.ChungTuMua;
 import accounting.model.DonMuaHang;
@@ -20,10 +21,7 @@ import accounting.model.PhieuChi;
 import accounting.model.PhieuNhapKho;
 import accounting.repository.ChungTuMuaRepo;
 import accounting.repository.DonMuaHangRepo;
-import accounting.repository.HoaDonMuaRepo;
-import accounting.repository.PhieuChiRepo;
 import accounting.repository.PhieuMuaRepo;
-import accounting.repository.PhieuNhapKhoRepo;
 
 @Controller
 public class MuaHangController {
@@ -33,16 +31,16 @@ public class MuaHangController {
 	private DonMuaHangRepo donMuaHangRepo;
 	@Autowired
 	private PhieuMuaRepo phieuMuaRepo;
-	@Autowired
-	private PhieuNhapKhoRepo phieuNhapRepo;
-	@Autowired
-	private PhieuChiRepo phieuChiRepo;
-	@Autowired
-	private HoaDonMuaRepo hoaDonMuaRepo;
 	@GetMapping("/chungtumuahang")
 	public String chungtumuahang(Model model) {
 		List<ChungTuMua> listChungTuMua = chungTuMuaRepo.findAll();
 		model.addAttribute("listChungTuMua", listChungTuMua);
+		return "muahang/chungtumua";
+	}
+	@GetMapping("search_chungtumua")
+	public String TimChungTuMua(Model model, @RequestParam String txt_chungtumua) {
+		List<ChungTuMua> list = chungTuMuaRepo.Search_Chungtumua(txt_chungtumua);
+		model.addAttribute("listChungTuMua", list);
 		return "muahang/chungtumua";
 	}
 	@GetMapping("/form_chungtumua")
@@ -77,18 +75,21 @@ public class MuaHangController {
 	@GetMapping("/getDonMuaHang")
 	public String GetDonMuaHang(Model model, @RequestParam String sodonmua) {
 		List<DonMuaHang> listDonMuaHangs = donMuaHangRepo.getDonMuaTheoSoDon(sodonmua);
-		List<ChiTietPhieuMua> listChiTietPhieuMuas = phieuMuaRepo.listChiTietPhieuMuaByDonHang(sodonmua);
 		if(listDonMuaHangs.isEmpty()) {
 			return "muahang/form_muahang";
 		}
+		List<ChiTietPhieuMua> listChiTietPhieuMuas = new ArrayList<ChiTietPhieuMua>();
 		DonMuaHang donMuaHang = listDonMuaHangs.get(0);
+		BaoGiaMua baogiamua = donMuaHang.getBaoGiaMua();
+		if(baogiamua == null) {
+			listChiTietPhieuMuas = phieuMuaRepo.listChiTietPhieuMuaByDonHang(sodonmua);
+		}else {
+			listChiTietPhieuMuas = phieuMuaRepo.listChiTietPhieuMua(baogiamua.getSoBaoGia());
+		}
 		String maDoiTuong = donMuaHang.getMaDoiTuong();
 		String tenDoiTuong = donMuaHang.getTenDoiTuong();
 		String diaChi = donMuaHang.getDiaChi();
 		String maSoThue = donMuaHang.getMaSoThue();
-//		double tongHang = donMuaHang.getTongHang();
-//		double tongGTGT = donMuaHang.getTongGTGT();
-//		double tongChietKhau = donMuaHang.getTongChietKhau();
 		ChungTuMua chungtumua = new ChungTuMua();
 		chungtumua.setDonMuaHang(donMuaHang);
 		chungtumua.setChiTietPhieuMua(listChiTietPhieuMuas);
@@ -136,17 +137,20 @@ public class MuaHangController {
 		String thanhToan = chungtumua.getThanhToan();
 		String loaimua = chungtumua.getLoaiMuaHang();
 		String nhankem = chungtumua.getNhanKemHoaDon();
-		DonMuaHang donmuahang = donMuaHangRepo.getOne(id_donmuahang);
+		List<ChiTietPhieuMua> chiTietPhieuMuas = new ArrayList<ChiTietPhieuMua>();
 		chungtumua.setTinhTrang("Chưa xử lý");
-		List<ChiTietPhieuMua> chiTietPhieuMuas = chungtumua.getChiTietPhieuMua();
-		if(donmuahang.getId() == 0) {
+		if(id_donmuahang == 0) {
+			chiTietPhieuMuas = chungtumua.getChiTietPhieuMua();
 			chungtumua.setDonMuaHang(null);
+			for(ChiTietPhieuMua c:chiTietPhieuMuas) {
+				c.setChungTuMua(chungtumua);
+			}
 		}else {
+			DonMuaHang donmuahang = donMuaHangRepo.getOne(id_donmuahang);
+			chiTietPhieuMuas = donmuahang.getChiTietPhieuMua();
 			donmuahang.setTinhTrang("Hoàn Thành");
 			chungtumua.setDonMuaHang(donmuahang);
-		}
-		for(ChiTietPhieuMua c:chiTietPhieuMuas) {
-			phieuMuaRepo.save(c);
+			chungtumua.setChiTietPhieuMua(null);
 		}
 		if(thanhToan.equals("chuathanhtoan")) {
 			chungtumua.setPhieuChi(null);
@@ -154,15 +158,16 @@ public class MuaHangController {
 		if(thanhToan.equals("thanhtoanngay")) {
 			List<PhieuChi> phieuChis = chungtumua.getPhieuChi();
 			PhieuChi phieuchi = phieuChis.get(0);
-			phieuChiRepo.save(phieuchi);
-		}
-		if(nhankem.equals("nhankem")) {
-			chungtumua.setHoaDonMua(null);
+			phieuchi.setChungTuMua(chungtumua);
 		}
 		if(nhankem.equals("khongkem")) {
+			chungtumua.setHoaDonMua(null);
+		}
+		if(nhankem.equals("nhankem")) {
 			HoaDonMua hoadonmua = chungtumua.getHoaDonMua();
 //			hoadonmua.setChiTietPhieuMuas(chiTietPhieuMuas);
-			hoaDonMuaRepo.save(hoadonmua);
+			hoadonmua.setTongTien(chungtumua.getTongTien());
+			hoadonmua.setChungTuMua(chungtumua);
 		}
 		if(loaimua.equals("muahangkhongquakho")) {
 			chungtumua.setPhieuNhapKho(null);
@@ -170,7 +175,7 @@ public class MuaHangController {
 		if(loaimua.equals("muahangnhapkho")) {
 			PhieuNhapKho phieunhap = chungtumua.getPhieuNhapKho();
 //			phieunhap.setChiTietPhieuMuas(chiTietPhieuMuas);
-			phieuNhapRepo.save(phieunhap);
+			phieunhap.setChungTuMua(chungtumua);
 		}
 		chungTuMuaRepo.save(chungtumua);
 		return "redirect:/chungtumuahang";

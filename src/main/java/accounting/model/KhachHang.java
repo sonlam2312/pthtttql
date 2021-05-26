@@ -10,7 +10,7 @@ import lombok.Data;
 @Entity
 @Table
 @Data
-public class DoiTuong {
+public class KhachHang {
 	@Id
 	@GeneratedValue
 	private int id; // id KHxxx là khách hàng, NCCxx là nhà cung cấp

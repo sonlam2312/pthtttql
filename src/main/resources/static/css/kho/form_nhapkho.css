@@ -58,26 +58,14 @@
 .wrapper .main_content .info .t4 input:hover, input:active{
 	border-bottom:1.5px solid #2196f3;
 }
-.wrapper .main_content .info .t1 #nhapphieu input[name=mancc]{
-	width:50px;
+.wrapper .main_content .info .t1 #nhapphieu table tr{
+	height:40px;
 }
-.wrapper .main_content .info .t1 #nhapphieu input[name=tenncc]{
-	width:230px;
+.wrapper .main_content .info .t1 #nhapphieu input{
+	width:350px;
 }
 .wrapper .main_content .info .t1 #nhapphieu label{
-	margin-left:20px;
-}
-.wrapper .main_content .info .t1 #nhapphieu input[name=nguoigiaohang]{
-	width:400px;
-	margin-left:5px;
-} 
-.wrapper .main_content .info .t1 #nhapphieu input[name=diengiai]{
-	width:400px;
-	margin-left:55px;
-}
-.wrapper .main_content .info .t1 #nhapphieu input[name=nguoiphutrach]{
-	width:400px;
-	margin-left:7px;
+	margin-left:2px;
 }
 .wrapper .main_content .info .t1 #kihieu input{
 	width:250px;

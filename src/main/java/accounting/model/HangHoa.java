@@ -28,8 +28,6 @@ public class HangHoa {
 	@ManyToOne
 	@JoinColumn(name = "id_kho")
 	private Kho kho;
-	@OneToMany
+	@OneToMany(mappedBy = "hangHoa")
 	private List<ChiTietPhieuMua> chiTietPhieuMua;
-	@OneToMany
-	private List<ChiTietPhieuBan> chiTietPhieuBans;
 }

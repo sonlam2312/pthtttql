@@ -29,7 +29,7 @@
 	        			</form>
 	        		</div>   
 	        		<div class="search_baogia">
-	        			<form th:action="@{#}" method="get">
+	        			<form th:action="@{/search_baogiaban}" method="get">
 	        				<input type="text" name="txt_baogia" placeholder="Số báo giá"/>
 	        				<button class="btn btn-search">
 	        					<i class="fa fa-search"></i>
@@ -52,34 +52,19 @@
 	        				<th>Tình trạng</th>
 	        				<th></th>
 	        			</tr>
-	        			<tr>
-	        				<td>1</td>
-	        				<td>23/5/2021</td>
-	        				<td>BGM1001</td>
-	        				<td>23/6/2021</td>
-	        				<td>Nguyễn Văn A</td>
-	        				<td>Công ty TNHH Bình An</td>        				
-	        				<td>Thanh xuân, Hà nội</td>
-	        				<td>MTr54312</td>
-	        				<td>Chưa xử lý</td>
+	        			<tr th:each="baogiaban,itemStat:${listBaoGiaBan}">
+	        				<td th:text="${itemStat.index+1}"></td>
+	        				<td th:text="${baogiaban.ngayBaoGia}"></td>
+	        				<td th:text="${baogiaban.soBaoGia}"></td>
+	        				<td th:text="${baogiaban.ngayHieuLuc}"></td>
+	        				<td th:text="${baogiaban.nguoiPhuTrach}"></td>
+	        				<td th:text="${baogiaban.tenDoiTuong}"></td>        				
+	        				<td th:text="${baogiaban.diaChi}"></td>
+	        				<td th:text="${baogiaban.maSoThue}"></td>
+	        				<td th:text="${baogiaban.tinhTrang}"></td>
 	        				<td>
-	        					<button  class="btn btn-primary">Sửa</button>
-	        					<button  class="btn btn-danger">Xóa</button>
-	        				</td>
-	        			</tr>
-	        			<tr>
-	        				<td>2</td>
-	        				<td>23/5/2021</td>
-	        				<td>BGM1001</td>
-	        				<td>23/6/2021</td>
-	        				<td>Nguyễn Văn A</td>
-	        				<td>Công ty TNHH Bình An</td>        				
-	        				<td>Thanh xuân, Hà nội</td>
-	        				<td>MTr54312</td>
-	        				<td>Hoàn thành</td>
-	        				<td>
-	        					<button class="btn btn-primary">Sửa</button>
-	        					<button class="btn btn-danger">Xóa</button>
+	        					<a th:href="@{/edit_baogiaban?soBaoGia={soBaoGia}(soBaoGia=${baogiaban.soBaoGia})}" class="btn btn-primary">Sửa</a>
+	        					<a th:href="@{/delete_baogiaban?soBaoGia={soBaoGia}(soBaoGia=${baogiaban.soBaoGia})}" class="btn btn-danger">Xóa</a>
 	        				</td>
 	        			</tr>
 	        		</table>

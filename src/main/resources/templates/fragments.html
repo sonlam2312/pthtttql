@@ -210,9 +210,9 @@
         </button>
         <a href="#" class="sign_in">
         	<i class="fas fa-user-circle"></i>
-            Username
+            <span th:text="${username}"></span>
         </a>
-        <a href="#" class="log_out">
+        <a th:href="@{/dangxuat}" class="log_out">
         	<i class="fa fa-power-off"></i>
             Đăng xuất
         </a>

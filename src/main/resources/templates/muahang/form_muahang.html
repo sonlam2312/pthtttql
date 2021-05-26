@@ -79,12 +79,22 @@
                           			<input type="text" name="tenncc" th:field="*{tenDoiTuong}"/>
                           		</td>
                           	</tr>
+                          	<tr>
+                          		<td>
+                          			<label for="diaChi">Địa chỉ:</label>
+                          		</td>
+                          		<td>
+                          			<input type="text" name="diaChi" th:field="*{diaChi}"/>
+                          		</td>
+                          	</tr>
+                          	<tr>
                           		<td>
                           			<label for="diengiai">Diễn giải:</label>
                           		</td>
                           		<td>
                           			<input type="text" name="diengiai" th:field="*{dienGiai}"/>
                           		</td>
+                          	</tr>
                           	<tr>
                           		<td>
                           			<label for="mancc">Người phụ trách:</label>
@@ -237,6 +247,7 @@
                               </td>
                               <td><input type="date" name="ngaychungtu" th:field="*{ngayChungTu}"> </td>
                             </tr>
+                            <tr>
                               <td>
                                 <label for="sochungtu">Số chứng từ:</label>
                               </td>
@@ -259,6 +270,7 @@
                               </td>
                               <td><input type="date" name="ngaychungtu" th:field="*{phieuChi[__${itemStat.index}__].ngayChungTu}"/> </td>
                             </tr>
+                            <tr>
                               <td>
                                 <label for="sophieuchi">Số phiếu chi:</label>
                               </td>
@@ -281,6 +293,7 @@
                               </td>
                               <td><input type="date" name="ngaychungtu" th:field="*{phieuNhapKho.ngayChungTu}"> </td>
                             </tr>
+                            <tr>
                               <td>
                                 <label for="sophieunhap">Số phiếu nhập:</label>
                               </td>

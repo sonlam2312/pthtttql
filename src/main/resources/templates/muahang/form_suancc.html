@@ -11,7 +11,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" th:href="@{/css/fragment.css}">
     <link rel="stylesheet" th:href="@{/css/index.css}">
-    <link rel="stylesheet" th:href="@{/css/banhang/form_khachhang.css}">
+    <link rel="stylesheet" th:href="@{/css/muahang/form_ncc.css}">
     <script th:src="@{/js/fragment.js}"></script>
 </head>
 <body>
@@ -20,65 +20,61 @@
 	    <div class="main_content">
 	        <div th:replace="fragments::header_Signined"></div>
 	        <div class="info">
-	        	<form th:action="@{/hanghoa_update}" method="post" th:object="${hanghoa}">
-	        		<h3>Thêm mặt hàng</h3>
+	        	<form th:action="@{nhacungcap_update}" method="post" th:object="${nhacungcap}">
+	        		<h3>Sửa thông tin nhà cung cấp</h3>
 	        		<table>
 	        			<tr>
+	        				<td></td>
+	        				<td><input type="hidden" th:field="*{id}"/></td>
+	        			</tr>
+	        			<tr>
 	        				<td>
-	        					<label for="mahang">Mã hàng:</label>
+	        					<label for="mancc">Mã nhà cung cấp:</label>
 	        				</td>
 	        				<td>
-	        					<input type="text" name="mahang" th:field="*{maHang}"/>
+	        					<input type="text" name="mancc" th:field="*{maDoiTuong}"/>
 	        				</td>
 	        			</tr>
 	        			<tr>
 	        				<td>
-	        					<label for="tenhang">Tên hàng:</label>
+	        					<label for="tenncc">Tên cung cấp:</label>
 	        				</td>
 	        				<td>
-	        					<input type="text" name="tenhang" th:field="*{tenHang}"/>
+	        					<input type="text" name="tenncc" th:field="*{tenDoiTuong}"/>
 	        				</td>
 	        			</tr>
 	        			<tr>
 	        				<td>
-	        					<label for="mota">Mô tả:</label>
+	        					<label for="diachi">Địa chỉ:</label>
 	        				</td>
 	        				<td>
-	        					<input type="text" name="mota" th:field="*{moTa}"/>
+	        					<input type="text" name="diachi" th:field="*{diaChi}"/>
 	        				</td>
 	        			</tr>
 	        			<tr>
 	        				<td>
-	        					<label for="dvt">Đơn vị tính:</label>
+	        					<label for="sdt">Số điện thoại:</label>
 	        				</td>
 	        				<td>
-	        					<input type="text" name="dvt" th:field="*{donViTinh}"/>
+	        					<input type="text" name="sdt" th:field="*{SDT}"/>
 	        				</td>
 	        			</tr>
 	        			<tr>
 	        				<td>
-	        					<label for="gia">Giá nhập:</label>
+	        					<label for="masothue">Mã số thuế:</label>
 	        				</td>
 	        				<td>
-	        					<input type="text" name="gia" th:field="*{giaNhap}"/>
+	        					<input type="text" name="masothue" th:field="*{maSoThue}"/>
 	        				</td>
 	        			</tr>
 	        			<tr>
 	        				<td>
-	        					<label for="soluong">Số lượng:</label>
+	        					<label for="sotaikhoan">Số tài khoản:</label>
 	        				</td>
 	        				<td>
-	        					<input type="text" name="soluong" th:field="*{soLuong}"/>        			
+	        					<input type="text" name="sotaikhoan" th:field="*{soTaiKhoan}"/>
 	        				</td>
-	        			</tr>  
-	        			<tr>
-	        				<td>
-	        					<label for="kho">Mã kho:</label>	  
-	        				</td>
-	        				<td>
-	        					<input type="text" name="kho" th:field="*{Kho.maKho}"/>        			
-	        				</td>
-	        			</tr>       			
+	        			</tr>
 	        			<tr>
 	        				<td></td>
 	        				<td>

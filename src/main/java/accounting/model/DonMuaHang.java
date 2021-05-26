@@ -37,8 +37,6 @@ public class DonMuaHang {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_baogiamua")
 	private BaoGiaMua baoGiaMua;
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "donMuaHang",cascade = CascadeType.ALL)
 	private List<ChiTietPhieuMua> chiTietPhieuMua;
-	@OneToOne
-	private ChungTuMua chungTuMua;
 }

@@ -12,20 +12,24 @@
 <body>
 	<div class="form_dangnhap">
 		<h2>Đăng nhập</h2>
-		<form th:action="@{/login}" method="post">
+		<form th:action="@{/login}" method="get" th:object="${account}">
 			<table>
 				<tr>
 					<td><i class="fas fa-user-circle"></i></td>
 					<td>
-						<input type="text" name="username" id="username" placeholder="username" required="required"/>
+						<input type="text" name="username" id="username" placeholder="username" required="required" th:field="*{username}"/>
 					</td>
 				</tr>
 				<tr>
 					<td><i class="fas fa-unlock-alt"></i></td>
 					<td>
-						<input type="password" name="password" id="password" placeholder="password" required="required"/>
+						<input type="password" name="password" id="password" placeholder="password" required="required" th:field="*{password}"/>
 					</td>
 				</tr>
+                <tr th:if="${message}" style="font-size:16px;color:white;text-align:center;" >
+                	<td></td>
+					<td th:text="${message}"></td>
+                </tr>
 				<tr>
 					<td></td>
 					<td>

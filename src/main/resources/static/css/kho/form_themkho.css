@@ -1,0 +1,36 @@
+.wrapper .main_content .info .content_themkho{
+	height:350px;
+	width:350px;
+	padding:20px;
+	border:1px solid #2196f3;
+	border-radius:10px;
+	margin: 100px auto;
+}
+.wrapper .main_content .info .content_themkho h3{
+	text-align: center;
+	margin: 10px;
+}
+.wrapper .main_content .info .content_themkho table{
+	margin-top:-20px;
+}
+.wrapper .main_content .info .content_themkho table tr{
+	height:35px;
+}
+.wrapper .main_content .info .content_themkho table tr td input{
+	outline:none;
+	border:none;
+	background-color:inherit;
+	border-bottom:1px solid gray;
+}
+.wrapper .main_content .info .content_themkho table tr td input:hover, input:focus{
+	border-bottom:1.5px solid #2196f3;
+}
+.wrapper .main_content .info .content_themkho .btn-save{
+	margin-top:15px;
+	background:white;
+	border:1px solid #2196f3;
+}
+.wrapper .main_content .info .content_themkho .btn-save:hover, .btn-save:active{
+	background:#2196f3;
+	color:white;
+}

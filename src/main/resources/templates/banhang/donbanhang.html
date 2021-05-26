@@ -28,8 +28,8 @@
 	        			</form>
 	        		</div>   
 	        		<div class="search_donmua">
-	        			<form th:action="@{#}" method="get">
-	        				<input type="text" name="txt_donmua" placeholder="Số đơn hàng"/>
+	        			<form th:action="@{/search_donbanhang}" method="get">
+	        				<input type="text" name="txt_donbanhang" placeholder="Số đơn hàng"/>
 	        				<button class="btn btn-search">
 	        					<i class="fa fa-search"></i>
 	        				</button>
@@ -51,34 +51,19 @@
 	        				<th>Tình trạng</th>
 	        				<th></th>
 	        			</tr>
-	        			<tr>
-	        				<td>1</td>
-	        				<td>23/5/2021</td>
-	        				<td>BGM1001</td>
-	        				<td>23/6/2021</td>
-	        				<td>Nguyễn Văn A</td>
-	        				<td>Công ty TNHH Bình An</td>        				
-	        				<td>Thanh xuân, Hà nội</td>
-	        				<td>MTr54312</td>
-	        				<td>Chưa xử lý</td>
+	        			<tr th:each="donbanhang, itemStat:${listDonBanHang}">
+	        				<td th:text="${itemStat.index+1}"></td>
+	        				<td th:text="${donbanhang.ngayDonHang}"></td>
+	        				<td th:text="${donbanhang.soDonHang}"></td>
+	        				<td th:text="${donbanhang.ngayGiaoHang}"></td>
+	        				<td th:text="${donbanhang.nguoiPhuTrach}"></td>
+	        				<td th:text="${donbanhang.tenDoiTuong}"></td>        				
+	        				<td th:text="${donbanhang.diaChi}"></td>
+	        				<td th:text="${donbanhang.maSoThue}"></td>
+	        				<td th:text="${donbanhang.tinhTrang}"></td>
 	        				<td>
-	        					<button class="btn btn-primary">Sửa</button>
-	        					<button class="btn btn-danger">Xóa</button>
-	        				</td>
-	        			</tr>
-	        			<tr>
-	        				<td>2</td>
-	        				<td>23/5/2021</td>
-	        				<td>BGM1001</td>
-	        				<td>23/6/2021</td>
-	        				<td>Nguyễn Văn A</td>
-	        				<td>Công ty TNHH Bình An</td>        				
-	        				<td>Thanh xuân, Hà nội</td>
-	        				<td>MTr54312</td>
-	        				<td>Hoàn thành</td>
-	        				<td>
-	        					<button class="btn btn-primary">Sửa</button>
-	        					<button class="btn btn-danger">Xóa</button>
+	        					<a th:href="@{/edit_donbanhang?soDonHang={soDonHang}(soDonHang=${donbanhang.soDonHang})}" class="btn btn-primary">Sửa</a>
+	        					<a th:href="@{/delete_donbanhang?soDonHang={soDonHang}(soDonHang=${donbanhang.soDonHang})}" class="btn btn-danger">Xóa</a>
 	        				</td>
 	        			</tr>
 	        		</table>

@@ -28,7 +28,7 @@
 	        			</form>
 	        		</div>   
 	        		<div class="search_ncc">
-	        			<form th:action="@{#}" method="get">
+	        			<form th:action="@{/search_nhacungcap}" method="get">
 	        				<input type="text" name="txt_ncc" placeholder="Mã nhà cung cấp"/>
 	        				<button class="btn btn-search">
 	        					<i class="fa fa-search"></i>
@@ -49,17 +49,17 @@
 	        				<th>Số tài khoản</th>
 	        				<th></th>
 	        			</tr>     
-	        			<tr>
-	        				<td>1</td>
-	        				<td>NCC1001</td>
-	        				<td>Công ty TNHH Bình An</td>
-	        				<td>Thanh Xuân, Hà Nội</td>
-	        				<td>091234567</td>
-	        				<td>MS01234</td>
-	        				<td>1200546753123</td>
+	        			<tr th:each="nhacungcap, itemStat:${listNhaCungCap}">
+	        				<td th:text="${itemStat.index+1}"></td>
+	        				<td th:text="${nhacungcap.maDoiTuong}"></td>
+	        				<td th:text="${nhacungcap.tenDoiTuong}"></td>
+	        				<td th:text="${nhacungcap.diaChi}"></td>
+	        				<td th:text="${nhacungcap.SDT}"></td>
+	        				<td th:text="${nhacungcap.maSoThue}"></td>
+	        				<td th:text="${nhacungcap.soTaiKhoan}"></td>
 	        				<td>
-	        					<button class="btn btn-primary">Sửa</button>
-	        					<button class="btn btn-danger">Xóa</button>
+	        					<a th:href="@{/edit_nhacungcap?maDoiTuong={maDoiTuong}(maDoiTuong=${nhacungcap.maDoiTuong})}" class="btn btn-primary">Sửa</a>
+	        					<a th:href="@{/delete_nhacungcap?maDoiTuong={maDoiTuong}(maDoiTuong=${nhacungcap.maDoiTuong})}" class="btn btn-danger">Xóa</a>
 	        				</td>
 	        			</tr>     			
 	        		</table>

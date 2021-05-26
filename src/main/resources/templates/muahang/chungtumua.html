@@ -28,7 +28,7 @@
 	        			</form>
 	        		</div>   
 	        		<div class="search_chungtumua">
-	        			<form th:action="@{#}" method="get">
+	        			<form th:action="@{/search_chungtumua}" method="get">
 	        				<input type="text" name="txt_chungtumua" placeholder="Số chứng từ"/>
 	        				<button class="btn btn-search">
 	        					<i class="fa fa-search"></i>
@@ -58,7 +58,7 @@
 	        				<td th:text="${chungtumua.ngayHachToan}"></td>
 	        				<td th:text="${chungtumua.ngayChungTu}"></td>
 	        				<td th:text="${chungtumua.soChungTu}"></td>
-	        				<td th:text="${id}"></td>
+	        				<td th:text="${chungtumua.hoaDonMua.soHoaDon}"></td>
 	        				<td th:text="${chungtumua.tenDoiTuong}"></td>        				
 	        				<td th:text="${chungtumua.diaChi}"></td>
 	        				<td th:text="${chungtumua.nguoiPhuTrach}"></td>

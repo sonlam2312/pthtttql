@@ -1,3 +1,14 @@
+.wrapper .main_content .info .taokho{
+	margin: 20px 0;
+}
+.wrapper .main_content .info .taokho .btn-save{
+	background-color:white;
+	border:1px solid #2196f3;
+}
+.wrapper .main_content .info .taokho .btn-save:hover, .btn-save:active{
+	background-color:#2196f3;
+	color:white;
+}
 .wrapper .main_content .info .content_kho #table_kho{
 	margin-top:10px;
  	border-collapse: collapse;

@@ -48,8 +48,9 @@
 .wrapper .main_content .info .content_congno #table_congno{
 	margin-top:10px;
  	border-collapse: collapse;
- 	width:950px;
+ 	width:1000px;
 }
+
 .wrapper .main_content .info .content_congno #table_congno tr:nth-child(even){
   background-color: #f2f2f2;
 }
@@ -57,14 +58,14 @@
   background-color: #ddd;
 }
 .wrapper .main_content .info .content_congno #table_congno th{
-  padding: 1px 1px;
+  padding: 4px 4px;
   text-align: center;
   background-color: #2196f3;
   border: 1px solid #fff;
   color: white;
 }
 .wrapper .main_content .info .content_congno #table_congno td{
-	padding: 0 2px;
+	padding: 0 5px;
 }
 .wrapper .main_content .info .content_congno #table_congno td:last-child{
 	width:120px;

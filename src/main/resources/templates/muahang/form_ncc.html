@@ -20,55 +20,55 @@
 	    <div class="main_content">
 	        <div th:replace="fragments::header_Signined"></div>
 	        <div class="info">
-	        	<form>
+	        	<form th:action="@{nhacungcap_add}" method="post" th:object="${nhacungcap}">
 	        		<h3>Tạo thông tin nhà cung cấp</h3>
 	        		<table>
 	        			<tr>
 	        				<td>
-	        					<lable for="mancc">Mã nhà cung cấp:</lable>
+	        					<label for="mancc">Mã nhà cung cấp:</label>
 	        				</td>
 	        				<td>
-	        					<input type="text" name="mancc"/>
-	        				</td>
-	        			</tr>
-	        			<tr>
-	        				<td>
-	        					<lable for="tenncc">Tên cung cấp:</lable>
-	        				</td>
-	        				<td>
-	        					<input type="text" name="tenncc"/>
+	        					<input type="text" name="mancc" th:field="*{maDoiTuong}"/>
 	        				</td>
 	        			</tr>
 	        			<tr>
 	        				<td>
-	        					<lable for="diachi">Địa chỉ:</lable>
+	        					<label for="tenncc">Tên cung cấp:</label>
 	        				</td>
 	        				<td>
-	        					<input type="text" name="diachi"/>
-	        				</td>
-	        			</tr>
-	        			<tr>
-	        				<td>
-	        					<lable for="sdt">Số điện thoại:</lable>
-	        				</td>
-	        				<td>
-	        					<input type="text" name="sdt"/>
+	        					<input type="text" name="tenncc" th:field="*{tenDoiTuong}"/>
 	        				</td>
 	        			</tr>
 	        			<tr>
 	        				<td>
-	        					<lable for="masothue">Mã số thuế:</lable>
+	        					<label for="diachi">Địa chỉ:</label>
 	        				</td>
 	        				<td>
-	        					<input type="text" name="masothue"/>
+	        					<input type="text" name="diachi" th:field="*{diaChi}"/>
 	        				</td>
 	        			</tr>
 	        			<tr>
 	        				<td>
-	        					<lable for="sotaikhoan">Số tài khoản:</lable>
+	        					<label for="sdt">Số điện thoại:</label>
 	        				</td>
 	        				<td>
-	        					<input type="text" name="sotaikhoan"/>
+	        					<input type="text" name="sdt" th:field="*{SDT}"/>
+	        				</td>
+	        			</tr>
+	        			<tr>
+	        				<td>
+	        					<label for="masothue">Mã số thuế:</label>
+	        				</td>
+	        				<td>
+	        					<input type="text" name="masothue" th:field="*{maSoThue}"/>
+	        				</td>
+	        			</tr>
+	        			<tr>
+	        				<td>
+	        					<label for="sotaikhoan">Số tài khoản:</label>
+	        				</td>
+	        				<td>
+	        					<input type="text" name="sotaikhoan" th:field="*{soTaiKhoan}"/>
 	        				</td>
 	        			</tr>
 	        			<tr>

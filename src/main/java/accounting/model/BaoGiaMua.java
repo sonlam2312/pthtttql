@@ -33,6 +33,6 @@ public class BaoGiaMua {
 	private double tongGTGT;
 	private double tongTien;
 	private String tinhTrang;
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "baoGiaMua", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<ChiTietPhieuMua> chiTietPhieuMua;
 }

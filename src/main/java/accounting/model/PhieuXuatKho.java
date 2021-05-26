@@ -7,9 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 import lombok.Data;
 
@@ -31,8 +31,6 @@ public class PhieuXuatKho {
 	@OneToOne
 	@JoinColumn(name = "id_chungtuban")
 	private ChungTuBan chungTuBan;
-	// này không lưu trong csdl cho đỡ nhiêu
-	// lấy list chi tiết phiếu bán của chứng từ gán vào;
-	@Transient
-	private List<ChiTietPhieuBan> chiTietPhieuBans;
+	@OneToMany(mappedBy = "phieuXuatKho")
+	private List<ChiTietPhieuBan> chiTietPhieuBan;
 }

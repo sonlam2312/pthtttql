@@ -21,11 +21,12 @@
 	    <div class="main_content">
 	        <div th:replace="fragments::header_Signined"></div>
 	        <div class="info">
+	        	<form th:action="@{/phieuchi_add}" method="post" th:object="${phieuchi}">
 	        	<h3>Phiếu chi tiền</h3>	 
 	        	<div class="row t0">
 	        		<div class="loaichi">
 	        			<label for="loaichi">Loại chi:</label>
-						<select name="loaichi" id="loaihci">
+						<select name="loaichi" id="loaichi" th:field="*{loaiChi}">
 						  <option value="tamung">Chi tạm ứng</option>
 						  <option value="thueluong">Trả lương</option>
 						  <option value="trathue">Trả thuế</option>
@@ -50,7 +51,7 @@
 			        				<label for="madoituong">Mã đối tượng:</label>
 			        			</td>
 			        			<td>
-			        				<input type="text" name="madoituong"/>
+			        				<input type="text" name="madoituong" th:field="*{maDoiTuong}"/>
 			        			</td>
 		        			</tr>
 		        			<tr>
@@ -58,23 +59,15 @@
 			        				<label for="tendoituong">Tên đối tượng:</label>
 			        			</td>
 			        			<td>
-			        				<input type="text" name="tendoituong"/>
+			        				<input type="text" name="tendoituong" th:field="*{tenDoiTuong}"/>
 			        			</td>
-		        			</tr>
-		        			<tr>
-				        		<td>
-			        				<label for="nguoinhan">Người nhận:</label>
-			        			</td>
-			        			<td>
-			        				<input type="text" name="nguoinhan"/>
-			        			</td>
-		        			</tr>
+		        			</tr>		        		
 		        			<tr id="taikhoan">
 				        		<td>
 			        				<label for="sotk">Tài khoản nhận:</label>
 			        			</td>
 			        			<td>
-			        				<input type="text" name="sotk"/>
+			        				<input type="text" name="sotk" th:field="*{taiKhoanNhan}"/>
 			        			</td>
 		        			</tr>
 		        			<tr>
@@ -82,7 +75,7 @@
 			        				<label for="diachi">Địa chỉ:</label>
 			        			</td>
 			        			<td>
-			        				<input type="text" name="diachi"/>
+			        				<input type="text" name="diachi" th:field="*{diaChi}"/>
 			        			</td>
 		        			</tr>
 		        			<tr>
@@ -90,7 +83,7 @@
 			        				<label for="diengiai">Diễn giải:</label>
 			        			</td>
 			        			<td>
-			        				<input type="text" name="diengiai"/>
+			        				<input type="text" name="diengiai" th:field="*{dienGiai}"/>
 			        			</td>
 		        			</tr>
 		        			<tr>
@@ -98,15 +91,21 @@
 		        					<label for="sotien">Số tiền:</label>
 		        				</td>
 		        				<td>
-	        						<input type="text" name="sotien"/>
+	        						<input type="text" name="sotien" th:field="*{soTien}"/>
 	        					</td>
 	        				</tr>
 	        				<tr>
 			        			<td>
-		        					<label for="chungtugoc">Kèm theo:</label>
+		        					<label for="chungtugoc">Kèm theo chứng từ gốc:</label>
 		        				</td>
 		        				<td>
 	        						<input type="text" name="chungtugoc"/>
+	        					</td>
+	        				</tr>
+	        				<tr>
+	        					<td></td>
+	        					<td>
+	        						<input type="hidden" th:field="*{chungTuMua.id}"/>
 	        					</td>
 	        				</tr>
 	        			</table>
@@ -118,19 +117,19 @@
                               <td>
                                 <label for="ngayhachtoan">Ngày hạch toán:</label>
                               </td>
-                              <td><input type="date" name="ngayhachtoan"> </td>
+                              <td><input type="date" name="ngayhachtoan" th:field="*{ngayHachToan}"> </td>
                             </tr>
                             <tr>
                               <td>
                                 <label for="ngaychungtu">Ngày chứng từ:</label>
                               </td>
-                              <td><input type="date" name="ngaychungtu"> </td>
+                              <td><input type="date" name="ngaychungtu" th:field="*{ngayChungTu}"> </td>
                             </tr> 
                             <tr>
                               <td>
                                 <label for="sophieuchi">Số phiếu chi:</label>
                               </td>
-                              <td><input type="text" name="sophieuchi"> </td>
+                              <td><input type="text" name="sophieuchi" th:field="*{soPhieuChi}"> </td>
                             </tr>                      
                           </table> 
 	        		</div>
@@ -148,7 +147,8 @@
                 <div class="row t3">      
                     <button class="btn btn-cancel">Hủy bỏ</button> 
                 	<button class="btn btn-save">Lưu lại</button>
-                </div> 
+                </div>
+                </form> 
 	    	</div>
 	    </div>
 	</div>

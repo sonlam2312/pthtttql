@@ -11,7 +11,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" th:href="@{/css/fragment.css}">
     <link rel="stylesheet" th:href="@{/css/index.css}">
-    <link rel="stylesheet" th:href="@{/css/banhang/form_khachhang.css}">
+    <link rel="stylesheet" th:href="@{/css/kho/form_themkho.css}">
     <script th:src="@{/js/fragment.js}"></script>
 </head>
 <body>
@@ -20,75 +20,66 @@
 	    <div class="main_content">
 	        <div th:replace="fragments::header_Signined"></div>
 	        <div class="info">
-	        	<form th:action="@{/hanghoa_update}" method="post" th:object="${hanghoa}">
-	        		<h3>Thêm mặt hàng</h3>
+	        	<div class="content_themkho">
+	        		<h3>Thêm kho</h3>
+	        		<form th:action="@{/themkho}" method="post" th:object="${kho}">
 	        		<table>
-	        			<tr>
-	        				<td>
-	        					<label for="mahang">Mã hàng:</label>
-	        				</td>
-	        				<td>
-	        					<input type="text" name="mahang" th:field="*{maHang}"/>
-	        				</td>
-	        			</tr>
-	        			<tr>
-	        				<td>
-	        					<label for="tenhang">Tên hàng:</label>
-	        				</td>
-	        				<td>
-	        					<input type="text" name="tenhang" th:field="*{tenHang}"/>
-	        				</td>
-	        			</tr>
-	        			<tr>
-	        				<td>
-	        					<label for="mota">Mô tả:</label>
-	        				</td>
-	        				<td>
-	        					<input type="text" name="mota" th:field="*{moTa}"/>
-	        				</td>
-	        			</tr>
-	        			<tr>
-	        				<td>
-	        					<label for="dvt">Đơn vị tính:</label>
-	        				</td>
-	        				<td>
-	        					<input type="text" name="dvt" th:field="*{donViTinh}"/>
-	        				</td>
-	        			</tr>
-	        			<tr>
-	        				<td>
-	        					<label for="gia">Giá nhập:</label>
-	        				</td>
-	        				<td>
-	        					<input type="text" name="gia" th:field="*{giaNhap}"/>
-	        				</td>
-	        			</tr>
-	        			<tr>
-	        				<td>
-	        					<label for="soluong">Số lượng:</label>
-	        				</td>
-	        				<td>
-	        					<input type="text" name="soluong" th:field="*{soLuong}"/>        			
-	        				</td>
-	        			</tr>  
-	        			<tr>
-	        				<td>
-	        					<label for="kho">Mã kho:</label>	  
-	        				</td>
-	        				<td>
-	        					<input type="text" name="kho" th:field="*{Kho.maKho}"/>        			
-	        				</td>
-	        			</tr>       			
 	        			<tr>
 	        				<td></td>
 	        				<td>
-	        					<button class="btn btn-primary">Lưu lại</button>
-	        					<button class="btn btn-danger">Hủy bỏ</button>
+	        					<input type="hidden" name="id" th:field="*{id}"/>
+	        				</td>
+	        			</tr>
+	        			<tr>
+	        				<td>
+	        					<label for="makho">Mã kho:</label>
+	        				</td>
+	        				<td>
+	        					<input type="text" name="makho" th:field="*{maKho}"/>
+	        				</td>
+	        			</tr>
+	        			<tr>
+	        				<td>
+	        					<label for="tenkho">Tên kho:</label>
+	        				</td>
+	        				<td>
+	        					<input type="text" name="tenkho" th:field="*{tenKho}"/>
+	        				</td>
+	        			</tr>
+	        			<tr>
+	        				<td>
+	        					<label for="diaChi">Địa chỉ:</label>
+	        				</td>
+	        				<td>
+	        					<input type="text" name="diaChi" th:field="*{diaChi}"/>
+	        				</td>
+	        			</tr>
+	        			<tr>
+	        				<td>
+	        					<label for="SDT">Số điện thoại:</label>
+	        				</td>
+	        				<td>
+	        					<input type="text" name="SDT" th:field="*{SDT}"/>
+	        				</td>
+	        			</tr>
+	        			<tr>
+	        				<td>
+	        					<label for="thukho">Tên thủ kho:</label>
+	        				</td>
+	        				<td>
+	        					<input type="text" name="thukho" th:field="*{thuKho}"/>
+	        				</td>
+	        			</tr>
+	        			<tr>
+	        				<td></td>
+	        				<td>
+	        					<button class="btn btn-save">Lưu lại</button>
 	        				</td>
 	        			</tr>
 	        		</table>
-	        	</form>
-	        </div>
+	        		</form>
+	        	</div>
+	        </div>	
 	    </div>
 	</div>
 </body>

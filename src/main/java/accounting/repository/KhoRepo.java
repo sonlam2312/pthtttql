@@ -8,4 +8,5 @@ import accounting.model.Kho;
 
 public interface KhoRepo extends JpaRepository<Kho, Integer>{
 	List<Kho> findAll();
+	List<Kho> findAllByMaKho(String makho);
 }

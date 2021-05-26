@@ -52,22 +52,21 @@ public class DonMuaHangController {
 	public String ThemDonMuaHang(@ModelAttribute("donmua") DonMuaHang donmuahang) {
 		donmuahang.setTinhTrang("Chưa xử lý");
 		int id_baogia = donmuahang.getBaoGiaMua().getId();
-		BaoGiaMua baogiamua = baoGiaMuaRepo.getOne(id_baogia);
 		List<ChiTietPhieuMua> listPhieuMua = new ArrayList<ChiTietPhieuMua>();
 		if(id_baogia==0) {
 			donmuahang.setBaoGiaMua(null);
 			listPhieuMua = donmuahang.getChiTietPhieuMua();
 			donmuahang.setChiTietPhieuMua(listPhieuMua);
-			donMuaHangRepo.save(donmuahang);
 			for(ChiTietPhieuMua c:listPhieuMua) {
 				c.setDonMuaHang(donmuahang);
-				phieuMuaRepo.save(c);
 			}
 		}else {
+			BaoGiaMua baogiamua = baoGiaMuaRepo.getOne(id_baogia);
 			baogiamua.setTinhTrang("Hoàn Thành");
 			donmuahang.setBaoGiaMua(baogiamua);
-			donMuaHangRepo.save(donmuahang);
+			donmuahang.setChiTietPhieuMua(null);
 		}
+		donMuaHangRepo.save(donmuahang);
 		return "redirect:/donmuahang";
 	}
 	@GetMapping("/getBaoGiaMua")

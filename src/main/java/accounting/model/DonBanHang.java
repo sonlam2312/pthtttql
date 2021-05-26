@@ -6,9 +6,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -33,11 +31,6 @@ public class DonBanHang {
 	private double tongGTGT;
 	private double tongTien;
 	private String tinhTrang;
-	@OneToOne
-	@JoinColumn(name = "id_baogiaban")
-	private BaoGiaBan baoGiaBan;
-	@OneToMany(mappedBy = "donBanHang")
+	@OneToMany(mappedBy = "donbanhang")
 	private List<ChiTietPhieuBan> chiTietPhieuBan;
-	@OneToOne
-	private ChungTuBan chungTuBan;
 }

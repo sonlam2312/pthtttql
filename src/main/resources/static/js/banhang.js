@@ -4,6 +4,7 @@ function tab_thanhtoan(){
     }else if(this.value === "thanhtoanngay"){
         $(".nav-tabs li:nth-child(3)").css({"display":"block"});
     }
+    document.getElementById("thanhtoanngay").setAttribute("checked","checked");
 }
 function tab_hoadon(){
     var x = $("#select_hoadon").val();
@@ -27,7 +28,7 @@ $(document).ready(function(){
     tab_hoadon();
     tab_thanhtoan();
     tab_phieuxuat();
-    $("input[type=radio][name=thanhtoan]").change(tab_thanhtoan);
+    $("input[type=radio]").change(tab_thanhtoan);
     $("#kemphieuxuat").change(tab_phieuxuat);
     $("#select_hoadon").change(tab_hoadon);
     $('.nav-tabs a').on('shown.bs.tab', function(event){

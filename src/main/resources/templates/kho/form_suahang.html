@@ -21,8 +21,14 @@
 	        <div th:replace="fragments::header_Signined"></div>
 	        <div class="info">
 	        	<form th:action="@{/hanghoa_update}" method="post" th:object="${hanghoa}">
-	        		<h3>Thêm mặt hàng</h3>
+	        		<h3>Sửa mặt hàng</h3>
 	        		<table>
+	        			<tr>
+	        				<td></td>
+	        				<td>
+	        					<input type="hidden" name="id" th:field="*{id}"/>
+	        				</td>
+	        			</tr>
 	        			<tr>
 	        				<td>
 	        					<label for="mahang">Mã hàng:</label>

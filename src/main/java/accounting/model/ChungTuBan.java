@@ -3,11 +3,10 @@ package accounting.model;
 import java.sql.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -28,7 +27,9 @@ public class ChungTuBan {
 	private String maDoiTuong;
 	private String tenDoiTuong;
 	private String dienGiai;
+	private String diaChi;
 	private String nguoiPhuTrach;
+	private String tinhTrang;
 	// @Transient là các cờ để xem có lập hóa đơn, phiếu thu, phiếu xuất hay không, không lưu trong csdl
 	@Transient
 	private String thanhToan;
@@ -36,23 +37,18 @@ public class ChungTuBan {
 	@Transient
 	private String nhanKemHoaDon;
 	@Transient
-	private String loaiMuaHang; // nhận hoặc không nhận hóa đơn
+	private boolean kemphieuxuat; // nhận hoặc không nhận hóa đơn
 	private double tongHang;
 	private double tongChietKhau;
 	private double tongGTGT;
 	private double tongTien;
-	@OneToOne(mappedBy = "chungTuBan")
+	private double tienShip;
+	@OneToOne(mappedBy = "chungTuBan",cascade = CascadeType.ALL)
 	private PhieuXuatKho phieuXuatKho;
-	@OneToOne(mappedBy = "chungTuBan")
+	@OneToOne(mappedBy = "chungTuBan",cascade = CascadeType.ALL)
 	private HoaDonBan hoaDonBan;
 	@OneToMany(mappedBy = "chungTuBan")
 	private List<PhieuThu> phieuThu;
 	@OneToMany(mappedBy = "chungTuBan")
 	private List<ChiTietPhieuBan> chiTietPhieuBan;
-	@OneToOne
-	@JoinColumn(name = "id_donbanhang")
-	private DonMuaHang donBanHang;
-	@ManyToOne
-	@JoinColumn(name = "id_hanghoaban", referencedColumnName = "id")
-	private HangHoa hangHoa;
 }

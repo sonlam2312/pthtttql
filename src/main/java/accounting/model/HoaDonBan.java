@@ -32,8 +32,6 @@ public class HoaDonBan {
 	@OneToOne
 	@JoinColumn(name = "id_chungtuban")
 	private ChungTuBan chungTuBan;
-	// này không lưu trong csdl cho đỡ nhiêu
-	// lấy list chi tiết phiếu ban của chứng từ gán vào;
 	@Transient
 	private List<ChiTietPhieuBan> chiTietPhieuBans;
 }

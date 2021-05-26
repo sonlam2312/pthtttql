@@ -52,7 +52,7 @@ public class ChungTuMua {
 	private List<PhieuChi> phieuChi;
 	@OneToMany(mappedBy = "chungTuMua",cascade = CascadeType.ALL)
 	private List<ChiTietPhieuMua> chiTietPhieuMua;
-	@OneToOne(mappedBy = "chungTuMua",cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_donmuahang",referencedColumnName = "id")
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_donmuahang")
 	private DonMuaHang donMuaHang;
 }
