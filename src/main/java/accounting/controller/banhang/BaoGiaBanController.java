@@ -57,31 +57,53 @@ public class BaoGiaBanController {
 		baoGiaBanRepo.save(baogiaban);
 		for(ChiTietPhieuBan c:listChiTietPhieuBan) {
 			c.setBaoGiaBan(baogiaban);
-			String maHang = c.getMaHang().substring(2);
-			int id_hang = Integer.parseInt(maHang);
-			Optional<HangHoa> h = hangHoaRepo.findById(id_hang);
-			if(!h.isPresent()) {
+			String maHang = c.getMaHang();
+			List<HangHoa> listHangHoa = hangHoaRepo.findAllByMaHang(maHang);
+			if(listHangHoa.isEmpty()) {
 				return "redirect:/form_baogiaban";
 			}else {
-				c.setHangHoa(h.get());
+				HangHoa h = listHangHoa.get(0);
+				c.setHangHoa(h);
 			}
 			phieuBanRepo.save(c);
 		}
 		return "redirect:/baogiaban";
 	}
 	@GetMapping("/delete_baogiaban")
-	public String XoaBaoGia(@RequestParam String soBaoGia) {
-		List<BaoGiaBan> listBaoGiaBan = baoGiaBanRepo.findBySoBaoGia(soBaoGia);
-		BaoGiaBan baogiaban = listBaoGiaBan.get(0);
+	public String XoaBaoGia(@RequestParam int id_baogia) {
+		Optional<BaoGiaBan> listBaoGiaBan = baoGiaBanRepo.findById(id_baogia);
+		BaoGiaBan baogiaban = listBaoGiaBan.get();
 		List<ChiTietPhieuBan> listChiTietPhieuBan = baogiaban.getChiTietPhieuBan();
 		for(ChiTietPhieuBan c:listChiTietPhieuBan) {
-			if(c.getDonbanhang()!= null || c.getChungTuBan() != null || c.getPhieuXuatKho() != null) {
-				c.setBaoGiaBan(null);
-			}else {
-				phieuBanRepo.delete(c);
-			}
+			phieuBanRepo.delete(c);
 		}	
 		baoGiaBanRepo.delete(baogiaban);
+		return "redirect:/baogiaban";
+	}
+	@GetMapping("/edit_baogiaban")
+	public String FormSuaBaoGia(@RequestParam int id_baogia, Model model) {
+		Optional<BaoGiaBan> listOptional = baoGiaBanRepo.findById(id_baogia);
+		BaoGiaBan baogiaban = listOptional.get();
+		model.addAttribute("baogiaban", baogiaban);
+		return "banhang/form_suabaogiaban";
+	}
+	@GetMapping("/baogiaban_update")
+	public String SuaBaoGia(
+			@ModelAttribute("baogiaban") BaoGiaBan baogiaban) {
+		List<ChiTietPhieuBan> listChiTietPhieuBan = baogiaban.getChiTietPhieuBan();
+		baoGiaBanRepo.save(baogiaban);
+		for(ChiTietPhieuBan c:listChiTietPhieuBan) {
+			c.setBaoGiaBan(baogiaban);
+			String maHang = c.getMaHang();
+			List<HangHoa> listHangHoa = hangHoaRepo.findAllByMaHang(maHang);
+			if(listHangHoa.isEmpty()) {
+				return "redirect:/form_baogiaban";
+			}else {
+				HangHoa h = listHangHoa.get(0);
+				c.setHangHoa(h);
+			}
+			phieuBanRepo.save(c);
+		}
 		return "redirect:/baogiaban";
 	}
 }

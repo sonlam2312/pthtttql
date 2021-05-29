@@ -23,10 +23,6 @@ import accounting.model.PhieuXuatKho;
 import accounting.repository.ChungTuBanRepo;
 import accounting.repository.DonBanHangRepo;
 import accounting.repository.HangHoaRepo;
-import accounting.repository.HoaDonBanRepo;
-import accounting.repository.PhieuBanRepo;
-import accounting.repository.PhieuThuRepo;
-import accounting.repository.PhieuXuatKhoRepo;
 
 @Controller
 public class ChungTuBanController {
@@ -35,11 +31,8 @@ public class ChungTuBanController {
 	@Autowired
 	private DonBanHangRepo donBanHangRepo;
 	@Autowired
-	private PhieuThuRepo phieuThuRepo;
-	@Autowired
-	private PhieuBanRepo phieuBanRepo;
-	@Autowired
 	private HangHoaRepo hangHoaRepo;
+	
 	@GetMapping("/chungtuban")
 	public String chungTuBan(Model model) {
 		List<ChungTuBan> listChungTuBan = chungTuBanRepo.findAll();
@@ -84,7 +77,15 @@ public class ChungTuBanController {
 		long millis = System.currentTimeMillis();
 		Date date = new Date(millis);
 		List<DonBanHang> listDonBanHang = donBanHangRepo.findAllBySoDonHang(sodonban);
+		if(listDonBanHang.isEmpty()) {
+			model.addAttribute("message1", "Không tìm thấy đơn bán hàng");
+			return "banhang/form_banhang";
+		}
 		DonBanHang donbanhang = listDonBanHang.get(0);
+//		if(donbanhang.getTinhTrang().equals("Đã lập chứng từ")) {
+//			model.addAttribute("message", "Không tìm thấy đơn bán hàng");
+//			return "banhang/form_banhang";
+//		}
 		String maDoiTuong = donbanhang.getMaDoiTuong();
 		String tenDoiTuong = donbanhang.getTenDoiTuong();
 		String diaChi = donbanhang.getDiaChi();
@@ -98,6 +99,10 @@ public class ChungTuBanController {
 		phieuxuat.setTenDoiTuong(tenDoiTuong);
 		phieuxuat.setNgayChungTu(date);
 		phieuxuat.setNgayHachToan(date);
+		phieuxuat.setDiaChi(diaChi);
+		phieuxuat.setTongHang(tongHang);
+		phieuxuat.setTongChietKhau(tongChietKhau);
+		phieuxuat.setTongGTGT(tongGTGT);
 		List<PhieuThu> listPhieuThu = new ArrayList<PhieuThu>();
 		PhieuThu phieuthu = new PhieuThu();
 		phieuthu.setMaDoiTuong(maDoiTuong);
@@ -125,6 +130,8 @@ public class ChungTuBanController {
 		chungtuban.setTongHang(tongHang);
 		chungtuban.setTongGTGT(tongGTGT);
 		chungtuban.setTongChietKhau(tongChietKhau);
+		donbanhang.setTinhTrang("Đã lập chứng từ");
+		donBanHangRepo.save(donbanhang);
 		model.addAttribute("chungtuban", chungtuban);
 		return "banhang/form_banhang";
 	}
@@ -137,69 +144,61 @@ public class ChungTuBanController {
 		for(ChiTietPhieuBan c:listChiTietPhieuBan) {
 			if(c.getMaHang() == null) break;
 			int soluong = c.getSoLuong();
-			int id_hangHoa = Integer.parseInt(c.getMaHang().substring(2));
-			Optional<HangHoa> hangHoa = hangHoaRepo.findById(id_hangHoa);
-			int soLuongCon = hangHoa.get().getSoLuong();
+			List<HangHoa> listHangHoa = hangHoaRepo.findAllByMaHang(c.getMaHang());
+			HangHoa h = listHangHoa.get(0);
+			int soLuongCon = h.getSoLuong();
 			if(soluong>soLuongCon) {
 				model.addAttribute("chungtuban", chungtuban);
-				model.addAttribute("message", "Mã hàng "+ hangHoa.get().getMaHang()+ " trong kho không còn đủ");
+				model.addAttribute("message", "Mã hàng "+ h.getMaHang()+ " trong kho không còn đủ");
 				return "banhang/form_banhang";
 			}
 		}
-		PhieuXuatKho phieuxuat = chungtuban.getPhieuXuatKho();
-		if(kemphieuxuat) {
-			phieuxuat.setChungTuBan(chungtuban);
-//			phieuXuatRepo.save(phieuxuat);
-		}else {
-			chungtuban.setPhieuXuatKho(null);
-		}
-		if(kemhoadon.equals("nhankem")) {
-			HoaDonBan hoadonban = chungtuban.getHoaDonBan();
-			hoadonban.setTongTien(chungtuban.getTongTien());
-			hoadonban.setChungTuBan(chungtuban);
-//			hoaDonBanRepo.save(hoadonban);
-		}
-		if(kemhoadon.equals("khongkem")) {
-			chungtuban.setHoaDonBan(null);
-		}
-		chungTuBanRepo.save(chungtuban);
-		for(ChiTietPhieuBan c:listChiTietPhieuBan) {
-			int id = c.getId();
-			if(kemphieuxuat) {
-				c.setPhieuXuatKho(phieuxuat);
-				if(id!=0) {
-					Optional<ChiTietPhieuBan> list = phieuBanRepo.findById(id);
-					ChiTietPhieuBan phieuban = list.get();
-					phieuban.setChungTuBan(chungtuban);
-					phieuban.setPhieuXuatKho(phieuxuat);
-//					phieuBanRepo.save(phieuban);
-				}else {
-					c.setChungTuBan(chungtuban);
-					c.setPhieuXuatKho(phieuxuat);
-//					phieuBanRepo.save(c);
-				}
-			}else {
-				c.setPhieuXuatKho(null);
-				if(id!=0) {
-					Optional<ChiTietPhieuBan> list = phieuBanRepo.findById(id);
-					ChiTietPhieuBan phieuban = list.get();
-					phieuban.setChungTuBan(chungtuban);
-//					phieuBanRepo.save(phieuban);
-				}else {
-					c.setChungTuBan(chungtuban);
-//					phieuBanRepo.save(c);
-				}
-			}
-		}
+		
 		if(thanhToan.equals("thanhtoanngay")) {
 			List<PhieuThu> listPhieuThu = chungtuban.getPhieuThu();
 			PhieuThu phieuthu = listPhieuThu.get(0);
 			phieuthu.setChungTuBan(chungtuban);
-			phieuThuRepo.save(phieuthu);
-		}
-		if(thanhToan.equals("chuathanhtoan")) {
+		}else {
 			chungtuban.setPhieuThu(null);
 		}
+		PhieuXuatKho phieuxuat = chungtuban.getPhieuXuatKho();
+		if(kemphieuxuat) {
+			phieuxuat.setChungTuBan(chungtuban);
+			phieuxuat.setTongHang(chungtuban.getTongHang());
+			phieuxuat.setTienShip(chungtuban.getTienShip());
+			phieuxuat.setTongChietKhau(chungtuban.getTongChietKhau());
+			phieuxuat.setTongGTGT(chungtuban.getTongGTGT());
+			phieuxuat.setTongTien(chungtuban.getTongTien());
+		}else {
+			chungtuban.setPhieuXuatKho(null);
+		}
+		HoaDonBan hoadonban = chungtuban.getHoaDonBan();
+		if(kemhoadon.equals("nhankem")) {
+			hoadonban.setTongTien(chungtuban.getTongTien());
+			hoadonban.setChungTuBan(chungtuban);
+		}else {
+			chungtuban.setHoaDonBan(null);
+		}
+		for(ChiTietPhieuBan c : listChiTietPhieuBan) {
+			String mahang = c.getMaHang();
+			List<HangHoa> listHangHoa = hangHoaRepo.findAllByMaHang(mahang);
+			HangHoa h = listHangHoa.get(0);
+			c.setHangHoa(h);
+			c.setChungTuBan(chungtuban);
+			if(kemphieuxuat) {
+				c.setPhieuXuatKho(phieuxuat);
+				int soluong = h.getSoLuong() - c.getSoLuong();
+				h.setSoLuong(soluong);
+				hangHoaRepo.save(h);
+			}
+		}
+		chungTuBanRepo.save(chungtuban);
+		return "redirect:/chungtuban";
+	}
+	@GetMapping("/delete_chungtuban")
+	public String XoaChungTuBan(@RequestParam int id_chungtuban) {
+		Optional<ChungTuBan> listChungTuBan = chungTuBanRepo.findById(id_chungtuban);
+		chungTuBanRepo.delete(listChungTuBan.get());
 		return "redirect:/chungtuban";
 	}
 }

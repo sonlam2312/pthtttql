@@ -24,8 +24,9 @@
 		<div class="main_content">
 			<div th:replace="fragments::header_Signined"></div>
 			<div class="info">
-				<h3>Kiểm kê hàng hóa, vật tư</h3>
-				<form th:action="@{/donkiemke_add}" method="post" th:object="${kiemke}">
+				<h3>Sửa phiếu kiểm kê hàng hóa, vật tư</h3>
+				<form th:action="@{/donkiemke_update}" method="get" th:object="${kiemke}">
+				<input type="hidden" th:field="*{id}"/>
 				<div class="row t1">
 					<div class="col-sm-6" id="nhapphieu">
 						<h4>Thông tin chung</h4>
@@ -79,6 +80,7 @@
 							<td>Chênh lệch</td>
 						</tr>
 						<tr th:each="chiTietPhieu, itemStat : *{chiTietPhieuKiemKe}">	
+							<td style="display:none;"><input type="hidden" th:field="*{chiTietPhieuKiemKe[__${itemStat.index}__].id}"/></td>
 							<td>
 								<input type="text" name="mahang" th:field="*{chiTietPhieuKiemKe[__${itemStat.index}__].maHang}"/>
 							</td>

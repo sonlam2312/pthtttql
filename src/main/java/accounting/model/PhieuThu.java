@@ -8,7 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 import lombok.Data;
 
@@ -28,8 +27,8 @@ public class PhieuThu {
 	private String diaChi;
 	private String dienGiai;
 	private double soTien;
-	@Transient
 	private String phuongThucThanhToan;
+	private String loaiThu;
 	@ManyToOne
 	@JoinColumn(name = "id_chungtuban")
 	private ChungTuBan chungTuBan;

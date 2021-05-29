@@ -23,7 +23,7 @@
 	        	<h3>Lịch sử giao dịch</h3>
 	        	<div class="header_phieuthu">	        			        		 
 	        		<div class="search_phieuthu">
-	        			<form th:action="@{#}" method="get">
+	        			<form th:action="@{/search_phieuthu}" method="get">
 	        				<input type="text" name="txt_phieuthu" placeholder="Số phiếu thu"/>
 	        				<button class="btn btn-search">
 	        					<i class="fa fa-search"></i>
@@ -43,14 +43,14 @@
 	        				<th>Số tiền</th>
 	        				<th>Đối tượng</th>
 	        			</tr>
-	        			<tr>
-	        				<td>1</td>
-	        				<td>23/5/2021</td>
-	        				<td>23/5/2021</td>
-	        				<td>PT1001</td>
-	        				<td>Vay vốn kinh doanh</td>       
-	        				<td>18.000.000</td>
-	        				<td>Công ty TNHH Bình An</td>
+	        			<tr th:each="phieuthu,itemStat:${listPhieuThu}">
+	        				<td th:text="${itemStat.index+1}"></td>
+	        				<td th:text="${phieuthu.ngayHachToan}"></td>
+	        				<td th:text="${phieuthu.ngayChungTu}"></td>
+	        				<td th:text="${phieuthu.soPhieuThu}"></td>
+	        				<td th:text="${phieuthu.dienGiai}"></td>       
+	        				<td th:text="${phieuthu.soTien}"></td>
+	        				<td th:text="${phieuthu.ngayHachToan}"></td>
 	        			</tr>
 	        		</table>
 	        	</div>

@@ -29,6 +29,7 @@ public class PhieuNhapKho {
 	private String nguoiGiaoHang;
 	private String dienGiai;
 	private String nguoiPhuTrach;
+	private double tienShip;
 	private double tongHang;
 	private double tongChietKhau;
 	private double tongGTGT;
@@ -36,8 +37,6 @@ public class PhieuNhapKho {
 	@OneToOne
 	@JoinColumn(name = "id_chungtumua",referencedColumnName = "id")
 	private ChungTuMua chungTuMua;
-	// này không lưu trong csdl cho đỡ nhiêu
-	// lấy list chi tiết phiếu mua của chứng từ gán vào;
 	@OneToMany(mappedBy = "phieuNhapKho", cascade = CascadeType.ALL)
 	private List<ChiTietPhieuMua> chiTietPhieuMua;
 }

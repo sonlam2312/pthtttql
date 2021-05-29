@@ -59,6 +59,7 @@
 .wrapper .main_content .info .content_nhapkho #table_nhapkho{
 	margin-top:10px;
  	border-collapse: collapse;
+ 	width:980px;
 }
 .wrapper .main_content .info .content_nhapkho #table_nhapkho tr:nth-child(even){
   background-color: #f2f2f2;

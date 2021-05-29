@@ -57,7 +57,15 @@ public class DonBanHangController {
 	@GetMapping("/getbaogiaban")
 	public String LayBaoGiaBan(Model model, @RequestParam String sobaogia) {
 		List<BaoGiaBan> listBaoGiaBan = baoGiaBanRepo.findBySoBaoGia(sobaogia);
+		if(listBaoGiaBan.isEmpty()) {
+			model.addAttribute("message", "Không tìm thấy báo giá");
+			return "banhang/form_donban";
+		}
 		BaoGiaBan baogiaban = listBaoGiaBan.get(0);
+		if(baogiaban.getTinhTrang().equals("Đã lập đơn")) {
+			model.addAttribute("message", "Không tìm thấy báo giá");
+			return "banhang/form_donban";
+		}
 		baogiaban.setTinhTrang("Hoàn Thành");
 		String maDoiTuong = baogiaban.getMaDoiTuong();
 		String tenDoiTuong = baogiaban.getTenDoiTuong();
@@ -74,6 +82,8 @@ public class DonBanHangController {
 		donbanhang.setTongGTGT(baogiaban.getTongGTGT());
 		donbanhang.setTongTien(baogiaban.getTongTien());
 		donbanhang.setChiTietPhieuBan(listChiTietPhieuBan);
+		baogiaban.setTinhTrang("Đã lập đơn");
+		baoGiaBanRepo.save(baogiaban);
 		model.addAttribute("donbanhang", donbanhang);
 		return "banhang/form_donban";
 	}
@@ -83,38 +93,45 @@ public class DonBanHangController {
 		donBanHangRepo.save(donbanhang);
 		List<ChiTietPhieuBan> listChiTietPhieuBan = donbanhang.getChiTietPhieuBan();
 		for(ChiTietPhieuBan c:listChiTietPhieuBan) {
-			int id_chitiet = c.getId();
-			if(id_chitiet !=0 ) {
-				Optional<ChiTietPhieuBan> chitiet = phieuBanRepo.findById(c.getId());
-				ChiTietPhieuBan chitietphieuban = chitiet.get();
-				chitietphieuban.setDonbanhang(donbanhang);
-				BaoGiaBan baogiaban = chitietphieuban.getBaoGiaBan();
-				baogiaban.setTinhTrang("Đã lập đơn");
-				baoGiaBanRepo.save(baogiaban);
-				phieuBanRepo.save(chitietphieuban);
-			}else {
-				int id_hang = Integer.parseInt(c.getMaHang().substring(2));
-				Optional<HangHoa> h = hangHoaRepo.findById(id_hang);
-				c.setHangHoa(h.get());
-				c.setDonbanhang(donbanhang);
-				phieuBanRepo.save(c);
-			}
+			String mahang = c.getMaHang();
+			List<HangHoa> listHangHoa = hangHoaRepo.findAllByMaHang(mahang);
+			HangHoa h = listHangHoa.get(0);
+			c.setHangHoa(h);
+			c.setDonbanhang(donbanhang);
+			phieuBanRepo.save(c);
 		}
 		return "redirect:/donbanhang";
 	}
 	@GetMapping("/delete_donbanhang")
-	public String XoaDonBanHang(@RequestParam String soDonHang) {
-		List<accounting.model.DonBanHang> listdonbanhang = donBanHangRepo.findAllBySoDonHang(soDonHang);
-		accounting.model.DonBanHang donbanhang = listdonbanhang.get(0);
+	public String XoaDonBanHang(@RequestParam int id_donban) {
+		Optional<accounting.model.DonBanHang> listdonbanhang = donBanHangRepo.findById(id_donban);
+		accounting.model.DonBanHang donbanhang = listdonbanhang.get();
 		List<ChiTietPhieuBan> listChiTietPhieuBan = donbanhang.getChiTietPhieuBan();
 		for(ChiTietPhieuBan c:listChiTietPhieuBan) {
-			if(c.getBaoGiaBan() != null || c.getChungTuBan() != null || c.getPhieuXuatKho() != null) {
-				c.setDonbanhang(null);
-			}else {
-				phieuBanRepo.delete(c);
-			}
+			phieuBanRepo.delete(c);
 		}	
 		donBanHangRepo.delete(donbanhang);
+		return "redirect:/donbanhang";
+	}
+	@GetMapping("/edit_donbanhang")
+	public String FormSuaDonBan(@RequestParam int id_donban, Model model) {
+		Optional<accounting.model.DonBanHang> listOptional = donBanHangRepo.findById(id_donban);
+		accounting.model.DonBanHang donbanhang = listOptional.get();
+		model.addAttribute("donbanhang", donbanhang);
+		return "banhang/form_suadonban";
+	}
+	@GetMapping("/donbanhang_update")
+	public String SuaDonBanHang(@ModelAttribute("donbanhang") accounting.model.DonBanHang donbanhang) {
+		donBanHangRepo.save(donbanhang);
+		List<ChiTietPhieuBan> listChiTietPhieuBan = donbanhang.getChiTietPhieuBan();
+		for(ChiTietPhieuBan c:listChiTietPhieuBan) {
+			String mahang = c.getMaHang();
+			List<HangHoa> listHangHoa = hangHoaRepo.findAllByMaHang(mahang);
+			HangHoa h = listHangHoa.get(0);
+			c.setHangHoa(h);
+			c.setDonbanhang(donbanhang);
+			phieuBanRepo.save(c);
+		}
 		return "redirect:/donbanhang";
 	}
 }

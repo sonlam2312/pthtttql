@@ -62,8 +62,8 @@
 	        				<td th:text="${donbanhang.maSoThue}"></td>
 	        				<td th:text="${donbanhang.tinhTrang}"></td>
 	        				<td>
-	        					<a th:href="@{/edit_donbanhang?soDonHang={soDonHang}(soDonHang=${donbanhang.soDonHang})}" class="btn btn-primary">Sửa</a>
-	        					<a th:href="@{/delete_donbanhang?soDonHang={soDonHang}(soDonHang=${donbanhang.soDonHang})}" class="btn btn-danger">Xóa</a>
+	        					<a th:href="@{/edit_donbanhang?id_donban={id_donban}(id_donban=${donbanhang.id})}" class="btn btn-primary">Sửa</a>
+	        					<a th:href="@{/delete_donbanhang?id_donban={id_donban}(id_donban=${donbanhang.id})}" class="btn btn-danger">Xóa</a>
 	        				</td>
 	        			</tr>
 	        		</table>

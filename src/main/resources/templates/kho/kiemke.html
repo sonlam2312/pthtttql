@@ -28,7 +28,7 @@
 	        			</form>
 	        		</div>  
 	        		<div class="search_kiemke">
-	        			<form th:action="@{#}" method="get">
+	        			<form th:action="@{/search_kiemke}" method="get">
 	        				<input type="text" name="txt_kiemke" placeholder="Số chứng từ"/>
 	        				<button class="btn btn-search">
 	        					<i class="fa fa-search"></i>
@@ -46,14 +46,19 @@
 	        				<th>Kho</th>
 	        				<th>Người phụ trách</th>
 	        				<th>Mục đích kiểm kê</th>
+	        				<th></th>
 	        			</tr>
-	        			<tr>
-	        				<td>1</td>
-	        				<td>23/5/2021</td>
-	        				<td>KK1001</td>
-	        				<td>Kho Hàng Hóa</td>   
-	        				<td>Nguyễn Văn A</td>    
-	        				<td>Kiểm kê định kì</td>
+	        			<tr th:each="kiemke,itemStat:${listKiemKe}">
+	        				<td th:text="${itemStat.index+1}"></td>
+	        				<td th:text="${kiemke.ngayKiemKe}"></td>
+	        				<td th:text="${kiemke.soChungTu}"></td>
+	        				<td th:text="${kiemke.kho}"></td>   
+	        				<td th:text="${kiemke.nguoiPhuTrach}"></td>    
+	        				<td th:text="${kiemke.mucDich}"></td>
+	        				<td>
+		        				<a th:href="@{/edit_kiemke?id_kiemke={id}(id=${kiemke.id})}" class="btn btn-primary">Sửa</a>
+		        				<a th:href="@{/delete_kiemke?id_kiemke={id}(id=${kiemke.id})}" class="btn btn-primary">Xóa</a>
+		        			</td>
 	        			</tr>
 	        		</table>
 	        	</div>

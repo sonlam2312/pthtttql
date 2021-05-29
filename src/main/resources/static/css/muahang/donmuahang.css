@@ -74,6 +74,9 @@
   border: 1px solid #fff;
   color: white;
 }
+.wrapper .main_content .info .content_donmua #table_donmua th:last-child{
+	width:130px;
+}
 .wrapper .main_content .info .content_donmua #table_donmua td{
 	padding:5px;
 }

@@ -20,20 +20,10 @@
 	    <div class="main_content">
 	        <div th:replace="fragments::header_Signined"></div>
 	        <div class="info">
-	        	<h3>Đơn bán hàng</h3>
-	        	<form th:action="@{/getbaogiaban}" method="get">
-	        		<label for="sobaogia">Số báo giá:</label>
-	        		<input type="text" name="sobaogia" placeholder="Số báo giá"/>
-	        		<button class="btn btn-download">
-	        			<i class="fa fa-download"></i>
-	        		</button>
-	        	</form>
-	        	<div>
-                	<div th:if="${message}" style="font-size:16px;color:red;">
-					    <div th:text="${message}"></div>
-					</div>
-                </div>
-	        	<form th:action="@{/donbanhang_add}" method="post" th:object="${donbanhang}">
+	        	<h3> Sửa Đơn bán hàng</h3>
+	        	<form th:action="@{/donbanhang_update}" method="get" th:object="${donbanhang}">
+	        	<input type="hidden" name="id" th:field="*{id}"/>
+	        	<input type="hidden" name="id" th:field="*{tinhTrang}"/>
 	        	<div class="row t1">
 	        		<div class="col-sm-7" id="nhapphieu">
 	        			<h4>Thông tin chung</h4>
@@ -126,7 +116,10 @@
                       <th>Thuế GTGT(%)</th>
                       <th>Thành tiền</th>
                     </tr>
-                    <tr th:each="chiTietPhieu, itemStat : *{chiTietPhieuBan}">         
+                    <tr th:each="chiTietPhieu, itemStat : *{chiTietPhieuBan}">   
+                      <td style="display:none;">
+                        <input type="hidden" name="id" th:field="*{chiTietPhieuBan[__${itemStat.index}__].id}"/>                     
+                      </td>      
                       <td>
                         <input type="text" name="mahang" th:field="*{chiTietPhieuBan[__${itemStat.index}__].maHang}"/>                     
                       </td>  

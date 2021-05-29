@@ -65,9 +65,8 @@
 	        				<td th:text="${chungtuban.tongTien}"></td>
 	        				<td>
 	        					<a class="btn btn-primary">Sửa</a>
-	        					<a class="btn btn-danger">Xóa</a>
+	        					<a th:href="@{/delete_chungtuban?id_chungtuban={idChungTuBan}(idChungTuBan=${chungtuban.id})}" class="btn btn-primary">Xóa</a>
 	        				</td>
-	        			</tr>
 	        			</tr>
 	        		</table>
 	        	</div>

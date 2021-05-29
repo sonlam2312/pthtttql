@@ -37,7 +37,7 @@ public class ChiTienController {
 	}
 	@GetMapping("search_phieuchi")
 	public String TimKiemPhieuChi(Model model, @RequestParam String txt_phieuchi) {
-		List<PhieuChi> listPhieuChi = phieuChiRepo.TimKiemPhieuChi(txt_phieuchi);
+		List<PhieuChi> listPhieuChi = phieuChiRepo.findAllBySoPhieuChi(txt_phieuchi);
 		model.addAttribute("listPhieuChi", listPhieuChi);
 		return "quy/chitien";
 	}

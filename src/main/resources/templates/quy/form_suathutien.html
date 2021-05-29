@@ -22,7 +22,8 @@
 	        <div th:replace="fragments::header_Signined"></div>
 	        <div class="info">
 	        	<h3>Phiếu thu tiền</h3>	 
-	        	<form th:action="@{/phieuthu_add}" method="post" th:object="${phieuthu}">
+	        	<form th:action="@{/phieuthu_update}" method="get" th:object="${phieuthu}">
+	        	<input type="hidden" name="id" th:field="*{id}"/>
 	        	<div class="row t0">
 	        		<div class="loaithu">
 	        			<label for="loaithu">Loại thu:</label>

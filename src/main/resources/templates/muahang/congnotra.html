@@ -59,8 +59,8 @@
 		        			<td th:text="${congno.soConLai}"></td>
 		        			<td th:text="${congno.tinhTrang}"></td>
 		        			<td>
-		        				<a th:href="@{/xemgiaodich?sochungtu={sochungtu}(sochungtu=${congno.chungtumua.soChungTu})}" class="btn btn-primary">Xem</a>
-			        			<a th:href="@{/tratiennhacungcap?sochungtu={sochungtu}(sochungtu=${congno.chungtumua.soChungTu})}" class="btn btn-primary">Trả</a>
+		        				<a th:href="@{/xemgiaodich?id_chungtu={id_chungtu}(id_chungtu=${congno.chungtumua.id})}" class="btn btn-primary">Xem</a>
+			        			<a th:href="@{/tratiennhacungcap?id_chungtu={id_chungtu}(id_chungtu=${congno.chungtumua.id})}" class="btn btn-primary">Trả</a>
 		        			</td>
 		        		</tr>  
 	        		</table>

@@ -66,8 +66,8 @@
 	        				<td th:text="${chungtumua.tongTien}"></td>
 	        				<td th:text="${chungtumua.tinhTrang}"></td>
 	        				<td>
-	        					<button class="btn btn-primary">Sửa</button>
-	        					<button class="btn btn-danger">Xóa</button>
+	        					<a class="btn btn-primary">Sửa</a>
+	        					<a th:href="@{/delete_chungtumua?id_chungtumua={id_chungtumua}(id_chungtumua=${chungtumua.id})}" class="btn btn-danger">Xóa</a>
 	        				</td>
 	        			</tr>
 	        		</table>

@@ -60,8 +60,8 @@
 	        				<td th:text="${phieunhap.nguoiGiaoHang}"></td>
 	        				<td th:text="${phieunhap.tenDoiTuong}"></td>
 	        				<td>
-	        					<a th:href="@{/sua_phieunhap?sophieunhap={sophieunhap}(sophieunhap=${phieunhap.soPhieuNhap})}" class="btn btn-primary">Sửa</a>
-	        					<a th:href="@{/xoaphieunhap?sophieunhap={sophieunhap}(sophieunhap=${phieunhap.soPhieuNhap})}" class="btn btn-danger">Xóa</a>
+	        					<a th:href="@{/edit_phieunhap?id_phieunhap={id_phieunhap}(id_phieunhap=${phieunhap.id})}" class="btn btn-primary">Sửa</a>
+	        					<a th:href="@{/delete_phieunhap?id_phieunhap={id_phieunhap}(id_phieunhap=${phieunhap.id})}" class="btn btn-danger">Xóa</a>
 	        				</td>
 	        			</tr>
 	        		</table>

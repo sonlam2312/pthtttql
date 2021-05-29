@@ -2,6 +2,7 @@ package accounting.controller.muahang;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import accounting.model.BaoGiaMua;
 import accounting.model.ChiTietPhieuMua;
 import accounting.model.DonMuaHang;
+import accounting.model.HangHoa;
 import accounting.repository.BaoGiaMuaRepo;
 import accounting.repository.DonMuaHangRepo;
+import accounting.repository.HangHoaRepo;
 import accounting.repository.PhieuMuaRepo;
 
 @Controller
@@ -26,6 +29,8 @@ public class DonMuaHangController {
 	private PhieuMuaRepo phieuMuaRepo;
 	@Autowired
 	private DonMuaHangRepo donMuaHangRepo;
+	@Autowired
+	private HangHoaRepo hangHoaRepo;
 	@GetMapping("/donmuahang")
 	public String donmuahang(Model model) {
 		List<DonMuaHang> listDonMuaHang = donMuaHangRepo.findAll();
@@ -34,7 +39,7 @@ public class DonMuaHangController {
 	}
 	@GetMapping("/search_donmuahang")
 	public String TimKiemBaoGia(Model model, @RequestParam String txt_donmua) {
-		List<DonMuaHang> listDonMua = donMuaHangRepo.search_donmuahang(txt_donmua);
+		List<DonMuaHang> listDonMua = donMuaHangRepo.findAllBySoDonHang(txt_donmua);
 		model.addAttribute("listdonmuahang", listDonMua);
 		return "muahang/donmuahang";
 	}
@@ -51,34 +56,31 @@ public class DonMuaHangController {
 	@PostMapping("/donMuaHang_add")
 	public String ThemDonMuaHang(@ModelAttribute("donmua") DonMuaHang donmuahang) {
 		donmuahang.setTinhTrang("Chưa xử lý");
-		int id_baogia = donmuahang.getBaoGiaMua().getId();
-		List<ChiTietPhieuMua> listPhieuMua = new ArrayList<ChiTietPhieuMua>();
-		if(id_baogia==0) {
-			donmuahang.setBaoGiaMua(null);
-			listPhieuMua = donmuahang.getChiTietPhieuMua();
-			donmuahang.setChiTietPhieuMua(listPhieuMua);
-			for(ChiTietPhieuMua c:listPhieuMua) {
-				c.setDonMuaHang(donmuahang);
-			}
-		}else {
-			BaoGiaMua baogiamua = baoGiaMuaRepo.getOne(id_baogia);
-			baogiamua.setTinhTrang("Hoàn Thành");
-			donmuahang.setBaoGiaMua(baogiamua);
-			donmuahang.setChiTietPhieuMua(null);
-		}
 		donMuaHangRepo.save(donmuahang);
+		List<ChiTietPhieuMua> listChiTietPhieuMua = donmuahang.getChiTietPhieuMua();
+		for(ChiTietPhieuMua c:listChiTietPhieuMua) {
+			String mahang = c.getMaHang();
+			List<HangHoa> listHangHoa = hangHoaRepo.findAllByMaHang(mahang);
+			HangHoa h = listHangHoa.get(0);
+			c.setHangHoa(h);
+			c.setDonMuaHang(donmuahang);
+			phieuMuaRepo.save(c);
+		}
 		return "redirect:/donmuahang";
 	}
 	@GetMapping("/getBaoGiaMua")
 	public String LayBaoGiaMua(Model model, @RequestParam String sobaogia) {
-		List<BaoGiaMua> listbaogiamua = baoGiaMuaRepo.getBaoGiaBySoBaoGia(sobaogia);
-		List<ChiTietPhieuMua> listChiTietPhieuMuas = phieuMuaRepo.listChiTietPhieuMua(sobaogia);
+		List<BaoGiaMua> listbaogiamua = baoGiaMuaRepo.findAllBySoBaoGia(sobaogia);
 		if(listbaogiamua.isEmpty()) {
+			model.addAttribute("message", "Không tìm thấy báo giá");
 			return "redirect:/form_donmua";
 		}
 		BaoGiaMua baogiamua = listbaogiamua.get(0);
+		baogiamua.setTinhTrang("Đã lập đơn");
+		baoGiaMuaRepo.save(baogiamua);
+		List<ChiTietPhieuMua> listChiTietPhieuMua = baogiamua.getChiTietPhieuMua();
 		DonMuaHang donmua = new DonMuaHang();
-		donmua.setChiTietPhieuMua(listChiTietPhieuMuas);
+		donmua.setChiTietPhieuMua(listChiTietPhieuMua);
 		donmua.setMaDoiTuong(baogiamua.getMaDoiTuong());
 		donmua.setTenDoiTuong(baogiamua.getTenDoiTuong());
 		donmua.setDiaChi(baogiamua.getDiaChi());
@@ -88,9 +90,35 @@ public class DonMuaHangController {
 		donmua.setTongHang(baogiamua.getTongHang());
 		donmua.setTongGTGT(baogiamua.getTongGTGT());
 		donmua.setTongTien(baogiamua.getTongTien());
-		donmua.setBaoGiaMua(baogiamua);
 		model.addAttribute("donmua", donmua);
-		model.addAttribute("sobaogia", baogiamua.getSoBaoGia());
 		return "muahang/form_donmua";
+	}
+	@GetMapping("/edit_donmuahang")
+	public String FormSuaDonMuaHang(Model model, @RequestParam int id_donmuahang) {
+		Optional<DonMuaHang> listOptional = donMuaHangRepo.findById(id_donmuahang);
+		DonMuaHang donmua = listOptional.get();
+		model.addAttribute("donmua", donmua);
+		return "muahang/form_suadonmuahang";
+	}
+	@GetMapping("/donMuaHang_update")
+	public String SuaDonMuaHang(@ModelAttribute("donmua") DonMuaHang donmuahang) {
+		donMuaHangRepo.save(donmuahang);
+		List<ChiTietPhieuMua> listChiTietPhieuMua = donmuahang.getChiTietPhieuMua();
+		for(ChiTietPhieuMua c:listChiTietPhieuMua) {
+			String mahang = c.getMaHang();
+			List<HangHoa> listHangHoa = hangHoaRepo.findAllByMaHang(mahang);
+			HangHoa h = listHangHoa.get(0);
+			c.setHangHoa(h);
+			c.setDonMuaHang(donmuahang);
+			phieuMuaRepo.save(c);
+		}
+		return "redirect:/donmuahang";
+	}
+	@GetMapping("/delete_donmuahang")
+	public String XoaDonMuaHang(@RequestParam int id_donmuahang) {
+		Optional<DonMuaHang> listOptional = donMuaHangRepo.findById(id_donmuahang);
+		DonMuaHang donmua = listOptional.get();
+		donMuaHangRepo.delete(donmua);
+		return "redirect:/donmuahang";
 	}
 }

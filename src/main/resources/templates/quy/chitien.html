@@ -60,8 +60,8 @@
 	        				<td th:text="${phieuchi.maDoiTuong}"></td>
 	        				<td th:text="${phieuchi.tenDoiTuong}"></td>
 	        				<td>
-	        					<a th:href="@{/sua_phieuchi?sophieuchi={sophieuchi}(sophieuchi=${phieuchi.soPhieuChi})}" class="btn btn-primary">Sửa</a>
-	        					<a th:href="@{/xoa_phieuchi?sophieuchi={sophieuchi}(sophieuchi=${phieuchi.soPhieuChi})}" class="btn btn-danger">Xóa</a>
+	        					<a th:href="@{/edit_phieuchi?id_phieuchi={id_phieuchi}(id_phieuchi=${phieuchi.id})}" class="btn btn-primary">Sửa</a>
+	        					<a th:href="@{/delete_phieuchi?id_phieuchi={id_phieuchi}(id_phieuchi=${phieuchi.id})}" class="btn btn-danger">Xóa</a>
 	        				</td>
 	        			</tr>
 	        		</table>

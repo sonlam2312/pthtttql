@@ -31,8 +31,12 @@
 		        		</button>
 		        	</form>
                 </div>
+                <div>
+                	<div th:if="${message}" style="font-size:16px;color:red;">
+					    <div th:text="${message}"></div>
+					</div>
+                </div>
                 <form th:action="@{/chungtumua_add}" method="post" th:object="${chungtumua}">
-                <input type="hidden" th:field="*{donMuaHang.id}"/>
                 <div class="row t2"> 
                 	<div class="loai_mua" style="margin:10px 0;">
                         <label for="loaimuahang">Loại hàng:</label>

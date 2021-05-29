@@ -26,8 +26,14 @@ public class PhieuXuatKho {
 	private String maDoiTuong;
 	private String tenDoiTuong;
 	private String nguoiGiaoHang;
+	private String diaChi;
 	private String dienGiai;
 	private String nguoiPhuTrach;
+	private double tongHang;
+	private double tongChietKhau;
+	private double tongGTGT;
+	private double tongTien;
+	private double tienShip;
 	@OneToOne
 	@JoinColumn(name = "id_chungtuban")
 	private ChungTuBan chungTuBan;

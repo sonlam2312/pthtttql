@@ -32,8 +32,6 @@ public class HoaDonMua {
 	@OneToOne
 	@JoinColumn(name = "id_chungtumua",referencedColumnName = "id")
 	private ChungTuMua chungTuMua;
-	// này không lưu trong csdl cho đỡ nhiêu
-	// lấy list chi tiết phiếu mua của chứng từ gán vào;
 	@Transient
 	private List<ChiTietPhieuMua> chiTietPhieuMuas;
 }

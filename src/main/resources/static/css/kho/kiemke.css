@@ -59,7 +59,7 @@
 .wrapper .main_content .info .content_kiemke #table_kiemke{
 	margin-top:10px;
  	border-collapse: collapse;
- 	width:950px;
+ 	width:1000px;
 }
 .wrapper .main_content .info .content_kiemke #table_kiemke tr:nth-child(even){
   background-color: #f2f2f2;
@@ -75,8 +75,18 @@
   color: white;
 }
 .wrapper .main_content .info .content_kiemke #table_kiemke th:last-child{
-	width:120px;
+	width:190px;
 }
 .wrapper .main_content .info .content_kiemke #table_kiemke td{
-	padding:5px;
+	padding:2px;
+}
+.wrapper .main_content .info .btn{
+	border:1px solid #2196f3;
+	border-radius:4px;
+	background:white;
+	color:black;
+}
+.wrapper .main_content .info .btn:hover, .btn:active{
+	background:#2196f3;
+	color:white;
 }

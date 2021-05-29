@@ -62,8 +62,8 @@
 	        				<td th:text="${baogia.maSoThue}"></td>
 	        				<td th:text="${baogia.tinhTrang}"></td>
 	        				<td>
-	        					<button class="btn btn-primary">Sửa</button>
-	        					<button class="btn btn-danger">Xóa</button>
+	        					<a th:href="@{/edit_baogiamua?id_baogia={idBaoGia}(idBaoGia=${baogia.id})}" class="btn btn-primary">Sửa</a>
+	        					<a th:href="@{/delete_baogiamua?id_baogia={idBaoGia}(idBaoGia=${baogia.id})}" class="btn btn-danger">Xóa</a>
 	        				</td>
 	        			</tr>        			
 	        		</table>

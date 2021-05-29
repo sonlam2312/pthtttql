@@ -23,8 +23,8 @@
 	        	<h3>Công nợ thu</h3>
 	        	<div class="header_congno">	        		  
 	        		<div class="search_congno">
-	        			<form th:action="@{#}" method="get">
-	        				<input type="text" name="txt_congno" placeholder="Số chứng từ"/>
+	        			<form th:action="@{/search_congnothu}" method="get">
+	        				<input type="text" name="txt_congnothu" placeholder="Số chứng từ"/>
 	        				<button class="btn btn-search">
 	        					<i class="fa fa-search"></i>
 	        				</button>
@@ -47,23 +47,21 @@
 	        				<th>Tình trạng</th>
 	        				<th></th>
 	        			</tr>
-	        			<tr>
-	        				<form th:action="@{/lichsugiaodichthu}" method="get">
-		        				<td>1</td>
-		        				<td>23/5/2021</td>
-		        				<td>23/5/2021</td>
-		        				<td>BGM1001</td>
-		        				<td>HD1001</td>
-		        				<td>Công ty TNHH Bình An</td>        				
-		        				<td>18000000</td>
-		        				<td>2000000</td>
-		        				<td>16000000</td>
-		        				<td>Chưa thanh toán xong</td>
-		        				<td>
-		        					<input type="submit" name="action" class="btn btn-primary" value="Xem"/>
-		        					<input type="submit" name="action" class="btn btn-primary" value="Thu"/>
-		           				</td>
-		        			</form>
+	        			<tr th:each="congnothu, itemStat:${listCongNoThu}">
+		        			<td th:text=${itemStat.index+1}></td>
+		        			<td th:text="${congnothu.chungtuban.ngayHachToan}"></td>
+		        			<td th:text="${congnothu.chungtuban.ngayChungTu}"></td>
+		        			<td th:text="${congnothu.chungtuban.soChungTu}"></td>
+		        			<td th:text="${congnothu.chungtuban.hoaDonBan.soHoaDon}"></td>
+		        			<td th:text="${congnothu.chungtuban.tenDoiTuong}"></td>        				
+		        			<td th:text="${congnothu.chungtuban.tongTien}"></td>
+		        			<td th:text="${congnothu.soDaTra}"></td>
+		        			<td th:text="${congnothu.soConLai}"></td>
+		        			<td th:text="${congnothu.tinhTrang}"></td>
+		        			<td>
+		        				<a th:href="@{/xemgiaodichthu?sochungtu={sochungtu}(sochungtu=${congnothu.chungtuban.soChungTu})}" class="btn btn-primary">Xem</a>
+			        			<a th:href="@{/thutienkhachhang?sochungtu={sochungtu}(sochungtu=${congnothu.chungtuban.soChungTu})}" class="btn btn-primary">Thu</a>
+		           			</td>
 	        			</tr>
 	        		</table>
 	        	</div>

@@ -20,9 +20,13 @@
 	    <div class="main_content">
 	        <div th:replace="fragments::header_Signined"></div>
 	        <div class="info">
-	        	<form th:action="@{khachhang_add}" method="post" th:object="${khachhang}">
-	        		<h3>Tạo thông tin khách hàng</h3>
+	        	<form th:action="@{khachhang_update}" method="post" th:object="${khachhang}">
+	        		<h3>Sửa thông tin khách hàng</h3>
 	        		<table>
+	        			<tr>
+	        				<td></td>
+	        				<td><input type="hidden" th:field="*{id}"/></td>
+	        			</tr>
 	        			<tr>
 	        				<td>
 	        					<label for="makhachhang">Mã khách hàng:</label>

@@ -63,8 +63,8 @@
 	        				<td th:text="${baogiaban.maSoThue}"></td>
 	        				<td th:text="${baogiaban.tinhTrang}"></td>
 	        				<td>
-	        					<a th:href="@{/edit_baogiaban?soBaoGia={soBaoGia}(soBaoGia=${baogiaban.soBaoGia})}" class="btn btn-primary">Sửa</a>
-	        					<a th:href="@{/delete_baogiaban?soBaoGia={soBaoGia}(soBaoGia=${baogiaban.soBaoGia})}" class="btn btn-danger">Xóa</a>
+	        					<a th:href="@{/edit_baogiaban?id_baogia={idBaoGia}(idBaoGia=${baogiaban.id})}" class="btn btn-primary">Sửa</a>
+	        					<a th:href="@{/delete_baogiaban?id_baogia={idBaoGia}(idBaoGia=${baogiaban.id})}" class="btn btn-danger">Xóa</a>
 	        				</td>
 	        			</tr>
 	        		</table>

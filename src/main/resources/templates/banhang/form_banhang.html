@@ -31,6 +31,11 @@
 		        		</button>
 		        	</form>
                 </div>
+                <div>
+                	<div th:if="${message1}" style="font-size:16px;color:red;">
+					    <div th:text="${message1}"></div>
+					</div>
+                </div>
                 <form th:action="@{/chungtuban_add}" method="post" th:object="${chungtuban}">
                 <div class="row t2">
                     <input type="radio" id="chuathanhtoan" name="thanhtoan" value="chuathanhtoan" th:field="*{thanhToan}">
@@ -116,6 +121,14 @@
 	                          			<input type="text" name="tenkh" th:field="*{phieuXuatKho.tenDoiTuong}"/>
 	                          		</td>
 	                          	</tr>
+	                          	<tr>
+	                          		<td>
+	                          			<label for="diaChi">Địa chỉ:</label>
+	                          		</td>
+	                          		<td>
+	                          			<input type="text" name="diaChi" th:field="*{phieuXuatKho.diaChi}"/>
+	                          		</td>
+                          		</tr>
                         		<tr>
                         			<td>
                         				<label for="nguoigiao">Người giao hàng:</label>
@@ -354,9 +367,6 @@
                       <th>Thành tiền</th>
                     </tr>
                     <tr th:each="chiTietPhieu, itemStat : *{chiTietPhieuBan}">
-                      <td style="display:none;">
-                      	<input type="hidden" name="id" th:field="*{chiTietPhieuBan[__${itemStat.index}__].id}"/>
-                      </td>
                       <td>
                         <input type="text" name="mahang" th:field="*{chiTietPhieuBan[__${itemStat.index}__].maHang}"/>                     
                       </td>  

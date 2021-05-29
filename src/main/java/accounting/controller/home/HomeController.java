@@ -2,6 +2,9 @@ package accounting.controller.home;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,12 +25,12 @@ public class HomeController {
 		return "login";
 	}
 	@GetMapping("/login")
-	public String checkLogin(@ModelAttribute("account") Account account, Model model) {
+	public String checkLogin(@ModelAttribute("account") Account account, Model model, HttpSession session) {
 		String url = "";
 		String username = account.getUsername();
 		String password = account.getPassword();
 		if(username.equals("admin") && password.equals("admin")){
-			model.addAttribute("username", username);
+			session.setAttribute("username", username);
 			url = "admin/admin_index";
 			return url;
 		}
@@ -38,7 +41,7 @@ public class HomeController {
 		}else {		
 			url = "index";
 		}
-		model.addAttribute("username", username);
+		session.setAttribute("username", username);
 		return url;
 	}
 	@GetMapping("/home")
@@ -50,7 +53,9 @@ public class HomeController {
 		return "admin/admin_index";
 	}
 	@GetMapping("/dangxuat")
-	public String DangXuat() {
+	public String DangXuat(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		session.removeAttribute("username");
 		return "redirect:/";
 	}
 }

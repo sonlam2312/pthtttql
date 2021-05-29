@@ -3,6 +3,7 @@ package accounting.controller.muahang;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,16 +13,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import accounting.model.BaoGiaMua;
 import accounting.model.ChiTietPhieuMua;
 import accounting.model.ChungTuMua;
 import accounting.model.DonMuaHang;
+import accounting.model.HangHoa;
 import accounting.model.HoaDonMua;
 import accounting.model.PhieuChi;
 import accounting.model.PhieuNhapKho;
 import accounting.repository.ChungTuMuaRepo;
 import accounting.repository.DonMuaHangRepo;
-import accounting.repository.PhieuMuaRepo;
+import accounting.repository.HangHoaRepo;
 
 @Controller
 public class MuaHangController {
@@ -30,7 +31,7 @@ public class MuaHangController {
 	@Autowired
 	private DonMuaHangRepo donMuaHangRepo;
 	@Autowired
-	private PhieuMuaRepo phieuMuaRepo;
+	private HangHoaRepo hangHoaRepo;
 	@GetMapping("/chungtumuahang")
 	public String chungtumuahang(Model model) {
 		List<ChungTuMua> listChungTuMua = chungTuMuaRepo.findAll();
@@ -39,7 +40,7 @@ public class MuaHangController {
 	}
 	@GetMapping("search_chungtumua")
 	public String TimChungTuMua(Model model, @RequestParam String txt_chungtumua) {
-		List<ChungTuMua> list = chungTuMuaRepo.Search_Chungtumua(txt_chungtumua);
+		List<ChungTuMua> list = chungTuMuaRepo.findAllBySoChungTu(txt_chungtumua);
 		model.addAttribute("listChungTuMua", list);
 		return "muahang/chungtumua";
 	}
@@ -74,24 +75,20 @@ public class MuaHangController {
 	}
 	@GetMapping("/getDonMuaHang")
 	public String GetDonMuaHang(Model model, @RequestParam String sodonmua) {
-		List<DonMuaHang> listDonMuaHangs = donMuaHangRepo.getDonMuaTheoSoDon(sodonmua);
+		List<DonMuaHang> listDonMuaHangs = donMuaHangRepo.findAllBySoDonHang(sodonmua);
 		if(listDonMuaHangs.isEmpty()) {
+			model.addAttribute("message", "Không tìm thấy đơn mua hàng");
 			return "muahang/form_muahang";
 		}
-		List<ChiTietPhieuMua> listChiTietPhieuMuas = new ArrayList<ChiTietPhieuMua>();
 		DonMuaHang donMuaHang = listDonMuaHangs.get(0);
-		BaoGiaMua baogiamua = donMuaHang.getBaoGiaMua();
-		if(baogiamua == null) {
-			listChiTietPhieuMuas = phieuMuaRepo.listChiTietPhieuMuaByDonHang(sodonmua);
-		}else {
-			listChiTietPhieuMuas = phieuMuaRepo.listChiTietPhieuMua(baogiamua.getSoBaoGia());
-		}
+		List<ChiTietPhieuMua> listChiTietPhieuMuas = donMuaHang.getChiTietPhieuMua();
 		String maDoiTuong = donMuaHang.getMaDoiTuong();
 		String tenDoiTuong = donMuaHang.getTenDoiTuong();
 		String diaChi = donMuaHang.getDiaChi();
 		String maSoThue = donMuaHang.getMaSoThue();
+		donMuaHang.setTinhTrang("Đã lập chứng từ");
+		donMuaHangRepo.save(donMuaHang);
 		ChungTuMua chungtumua = new ChungTuMua();
-		chungtumua.setDonMuaHang(donMuaHang);
 		chungtumua.setChiTietPhieuMua(listChiTietPhieuMuas);
 		chungtumua.setMaDoiTuong(maDoiTuong);
 		chungtumua.setTenDoiTuong(tenDoiTuong);
@@ -133,25 +130,10 @@ public class MuaHangController {
 	}
 	@PostMapping("/chungtumua_add")
 	public String ThemChungTuMuaHang(@ModelAttribute("chungtumua") ChungTuMua chungtumua) {
-		int id_donmuahang = chungtumua.getDonMuaHang().getId();
 		String thanhToan = chungtumua.getThanhToan();
 		String loaimua = chungtumua.getLoaiMuaHang();
 		String nhankem = chungtumua.getNhanKemHoaDon();
-		List<ChiTietPhieuMua> chiTietPhieuMuas = new ArrayList<ChiTietPhieuMua>();
 		chungtumua.setTinhTrang("Chưa xử lý");
-		if(id_donmuahang == 0) {
-			chiTietPhieuMuas = chungtumua.getChiTietPhieuMua();
-			chungtumua.setDonMuaHang(null);
-			for(ChiTietPhieuMua c:chiTietPhieuMuas) {
-				c.setChungTuMua(chungtumua);
-			}
-		}else {
-			DonMuaHang donmuahang = donMuaHangRepo.getOne(id_donmuahang);
-			chiTietPhieuMuas = donmuahang.getChiTietPhieuMua();
-			donmuahang.setTinhTrang("Hoàn Thành");
-			chungtumua.setDonMuaHang(donmuahang);
-			chungtumua.setChiTietPhieuMua(null);
-		}
 		if(thanhToan.equals("chuathanhtoan")) {
 			chungtumua.setPhieuChi(null);
 		}
@@ -177,7 +159,27 @@ public class MuaHangController {
 //			phieunhap.setChiTietPhieuMuas(chiTietPhieuMuas);
 			phieunhap.setChungTuMua(chungtumua);
 		}
+		List<ChiTietPhieuMua> listChiTietPhieuMua = chungtumua.getChiTietPhieuMua();
+		for(ChiTietPhieuMua c : listChiTietPhieuMua) {
+			String mahang = c.getMaHang();
+			List<HangHoa> listHangHoa = hangHoaRepo.findAllByMaHang(mahang);
+			HangHoa h = listHangHoa.get(0);
+			c.setHangHoa(h);
+			c.setChungTuMua(chungtumua);
+			if(loaimua.equals("muahangnhapkho")) {
+				int soluong = h.getSoLuong() + c.getSoLuong();
+				h.setSoLuong(soluong);
+				hangHoaRepo.save(h);
+			}
+		}
 		chungTuMuaRepo.save(chungtumua);
+		return "redirect:/chungtumuahang";
+	}
+	@GetMapping("/delete_chungtumua")
+	public String XoaChungTu(@RequestParam int id_chungtumua) {
+		Optional<ChungTuMua> listOptional = chungTuMuaRepo.findById(id_chungtumua);
+		ChungTuMua chungtumua = listOptional.get();
+		chungTuMuaRepo.delete(chungtumua);
 		return "redirect:/chungtumuahang";
 	}
 }

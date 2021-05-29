@@ -3,6 +3,7 @@ package accounting.model;
 import java.sql.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -23,7 +24,7 @@ public class KiemKe {
 	private String mucDich;
 	private String kho;
 	private String nguoiPhuTrach;
-	@OneToMany(mappedBy = "phieuKiemKe")
-	private List<ChiTietPhieuKiemKe> chiTietPhieuKiemKes;
+	@OneToMany(mappedBy = "phieuKiemKe",cascade = CascadeType.ALL)
+	private List<ChiTietPhieuKiemKe> chiTietPhieuKiemKe;
 	
 }

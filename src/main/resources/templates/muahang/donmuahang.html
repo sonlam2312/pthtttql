@@ -62,8 +62,8 @@
 	        				<td th:text="${donmuahang.maSoThue}"></td>
 	        				<td th:text="${donmuahang.tinhTrang}"></td>
 	        				<td>
-	        					<button class="btn btn-primary">Sửa</button>
-	        					<button class="btn btn-danger">Xóa</button>
+	        					<a th:href="@{/edit_donmuahang?id_donmuahang={id_donmuahang}(id_donmuahang=${donmuahang.id})}" class="btn btn-primary">Sửa</a>
+	        					<a th:href="@{/delete_donmuahang?id_donmuahang={id_donmuahang}(id_donmuahang=${donmuahang.id})}" class="btn btn-danger">Xóa</a>
 	        				</td>
 	        			</tr> 
 	        		</table>

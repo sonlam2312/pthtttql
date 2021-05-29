@@ -28,7 +28,7 @@
 	        			</form>
 	        		</div>   
 	        		<div class="search_xuatkho">
-	        			<form th:action="@{#}" method="get">
+	        			<form th:action="@{/search_phieuxuatkho}" method="get">
 	        				<input type="text" name="txt_xuatkho" placeholder="Số phiếu kho"/>
 	        				<button class="btn btn-search">
 	        					<i class="fa fa-search"></i>
@@ -43,27 +43,27 @@
 	        				<th>No</th>
 	        				<th>Ngày hạch toán</th>
 	        				<th>Ngày chứng từ</th>
-	        				<th>Số chứng từ</th>        		
+	        				<th>Số chứng từ</th> 
+	        				<th>Người phụ trách</th>       		
 	        				<th>Diễn giải</th>
 	        				<th>Tổng tiền</th>
 	        				<th>Người giao/nhân</th>
 	        				<th>Khách hàng</th>
-	        				<th>Tình trạng</th>
 	        				<th></th>
 	        			</tr>
-	        			<tr>
-	        				<td>1</td>
-	        				<td>23/5/2021</td>
-	        				<td>23/5/2021</td>
-	        				<td>NK1001</td>
-	        				<td>Mua hàng để nhập kho</td>       
-	        				<td>18.000.000</td>
-	        				<td>Nguyễn Văn A</td>
-	        				<td>Công ty TNHH Bình An</td>
-	        				<td>Chưa xử lý</td>
+	        			<tr th:each="phieuxuat, itemStat:${listPhieuXuat}">
+	        				<td th:text="${itemStat.index+1}"></td>
+	        				<td th:text="${phieuxuat.ngayHachToan}"></td>
+	        				<td th:text="${phieuxuat.ngayChungTu}"></td>
+	        				<td th:text="${phieuxuat.soPhieuXuat}"></td>
+	        				<td th:text="${phieuxuat.nguoiPhuTrach}"></td>
+	        				<td th:text="${phieuxuat.dienGiai}"></td>       
+	        				<td th:text="${phieuxuat.tongTien}"></td>
+	        				<td th:text="${phieuxuat.nguoiGiaoHang}"></td>
+	        				<td th:text="${phieuxuat.tenDoiTuong}"></td>
 	        				<td>
-	        					<button class="btn btn-primary">Sửa</button>
-	        					<button class="btn btn-danger">Xóa</button>
+	        					<a th:href="@{/edit_phieuxuat?idPhieuXuat={idPhieuXuat}(idPhieuXuat=${phieuxuat.id})}" class="btn btn-primary">Sửa</a>
+	        					<a th:href="@{/delete_phieuxuat?idPhieuXuat={idPhieuXuat}(idPhieuXuat=${phieuxuat.id})}" class="btn btn-danger">Xóa</a>
 	        				</td>
 	        			</tr>
 	        		</table>

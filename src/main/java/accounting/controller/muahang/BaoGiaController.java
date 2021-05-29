@@ -46,7 +46,7 @@ public class BaoGiaController {
 	}
 	@GetMapping("/search_baogiamua")
 	public String TimKiemBaoGia(Model model, @RequestParam String txt_baogia) {
-		List<BaoGiaMua> listBaoGiaMua = baoGiaMuaRepo.search_baogiamua(txt_baogia);
+		List<BaoGiaMua> listBaoGiaMua = baoGiaMuaRepo.findAllBySoBaoGia(txt_baogia);
 		model.addAttribute("listBaoGiaMua", listBaoGiaMua);
 		return "muahang/baogia";
 	}
@@ -57,13 +57,44 @@ public class BaoGiaController {
 		baoGiaMuaRepo.save(baogiamua);
 		for(ChiTietPhieuMua c:listChiTietPhieuMua) {
 			c.setBaoGiaMua(baogiamua);
-			String maHang = c.getMaHang().substring(2);
-			int id_hang = Integer.parseInt(maHang);
-			Optional<HangHoa> h = hangHoaRepo.findById(id_hang);
-			if(!h.isPresent()) {
+			String maHang = c.getMaHang();
+			List<HangHoa> listHangHoa = hangHoaRepo.findAllByMaHang(maHang);
+			if(listHangHoa.isEmpty()) {
 				return "redirect:/form_baogia";
 			}else {
-				c.setHangHoa(h.get());
+				HangHoa h = listHangHoa.get(0);
+				c.setHangHoa(h);
+			}
+			phieuMuaRepo.save(c);
+		}
+		return "redirect:/baogia";
+	}
+	@GetMapping("/delete_baogiamua")
+	public String XoaBaoGiaMua(@RequestParam int id_baogia) {
+		Optional<BaoGiaMua> listOptional = baoGiaMuaRepo.findById(id_baogia);
+		baoGiaMuaRepo.delete(listOptional.get());
+		return "redirect:/baogia";
+	}
+	@GetMapping("/edit_baogiamua")
+	public String FormSuaBaoGia(Model model, @RequestParam int id_baogia) {
+		Optional<BaoGiaMua> listOptional = baoGiaMuaRepo.findById(id_baogia);
+		BaoGiaMua baogiamua = listOptional.get();
+		model.addAttribute("baogiamua", baogiamua);
+		return "muahang/form_suabaogia";
+	}
+	@GetMapping("/baogiamua_update")
+	public String SuaBaoGiaMua(@ModelAttribute("baogiamua") BaoGiaMua baogiamua) {
+		List<ChiTietPhieuMua> listChiTietPhieuMua = baogiamua.getChiTietPhieuMua();
+		baoGiaMuaRepo.save(baogiamua);
+		for(ChiTietPhieuMua c:listChiTietPhieuMua) {
+			c.setBaoGiaMua(baogiamua);
+			String maHang = c.getMaHang();
+			List<HangHoa> listHangHoa = hangHoaRepo.findAllByMaHang(maHang);
+			if(listHangHoa.isEmpty()) {
+				return "redirect:/form_baogia";
+			}else {
+				HangHoa h = listHangHoa.get(0);
+				c.setHangHoa(h);
 			}
 			phieuMuaRepo.save(c);
 		}

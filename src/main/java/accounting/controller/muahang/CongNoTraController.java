@@ -2,6 +2,7 @@ package accounting.controller.muahang;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,8 +26,7 @@ public class CongNoTraController {
 		List<accounting.model.CongNoTra> listCongNo = new ArrayList<>();
 		List<ChungTuMua> listChungTuMua = chungTuMuaRepo.findAll();
 		for(ChungTuMua c:listChungTuMua) {
-			String soChungTu = c.getSoChungTu();
-			List<PhieuChi> listPhieuChi = phieuChiRepo.getPhieuChiBySoChungTuMua(soChungTu);
+			List<PhieuChi> listPhieuChi = phieuChiRepo.findAllByChungTuMua(c);
 			double sum =0;
 			for(PhieuChi chi:listPhieuChi) {
 				sum += chi.getSoTien();
@@ -48,16 +48,18 @@ public class CongNoTraController {
 		return "muahang/form_congnotra";
 	}
 	@GetMapping("/xemgiaodich")
-	public String XemGiaoDichTra(@RequestParam("sochungtu") String soChungTu, Model model) {
-		List<PhieuChi> listPhieuChi = phieuChiRepo.getPhieuChiBySoChungTuMua(soChungTu);
+	public String XemGiaoDichTra(@RequestParam("id_chungtu") int id_chungtu, Model model) {
+		Optional<ChungTuMua> listOptional = chungTuMuaRepo.findById(id_chungtu);
+		ChungTuMua chungtumua = listOptional.get();
+		List<PhieuChi> listPhieuChi = phieuChiRepo.findAllByChungTuMua(chungtumua);
 		model.addAttribute("listPhieuChi",listPhieuChi);
 		return "muahang/lichsugiaodich";
 	}
 	@GetMapping("/tratiennhacungcap")
-	public String TraTienNhaCungCap(@RequestParam("sochungtu") String soChungTu, Model model) {
+	public String TraTienNhaCungCap(@RequestParam("id_chungtu") int id_chungtu, Model model) {
 		PhieuChi phieuchi = new PhieuChi();
-		List<ChungTuMua> listChungTuMua = chungTuMuaRepo.getChungTuMuaBySoChungTu(soChungTu);
-		ChungTuMua chungtumua = listChungTuMua.get(0);
+		Optional<ChungTuMua> listChungTuMua = chungTuMuaRepo.findById(id_chungtu);
+		ChungTuMua chungtumua = listChungTuMua.get();
 		String maDoiTuong = chungtumua.getMaDoiTuong();
 		String tenDoiTuong = chungtumua.getTenDoiTuong();
 		String diaChi = chungtumua.getDiaChi();

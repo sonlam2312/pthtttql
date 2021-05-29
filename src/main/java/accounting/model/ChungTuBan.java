@@ -47,8 +47,8 @@ public class ChungTuBan {
 	private PhieuXuatKho phieuXuatKho;
 	@OneToOne(mappedBy = "chungTuBan",cascade = CascadeType.ALL)
 	private HoaDonBan hoaDonBan;
-	@OneToMany(mappedBy = "chungTuBan")
+	@OneToMany(mappedBy = "chungTuBan", cascade = CascadeType.ALL)
 	private List<PhieuThu> phieuThu;
-	@OneToMany(mappedBy = "chungTuBan")
+	@OneToMany(mappedBy = "chungTuBan", cascade = CascadeType.ALL)
 	private List<ChiTietPhieuBan> chiTietPhieuBan;
 }

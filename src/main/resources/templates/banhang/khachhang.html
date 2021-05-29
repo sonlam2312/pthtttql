@@ -28,7 +28,7 @@
 	        			</form>
 	        		</div>   
 	        		<div class="search_khachhang">
-	        			<form th:action="@{#}" method="get">
+	        			<form th:action="@{/search_khachhang}" method="get">
 	        				<input type="text" name="txt_khachhang" placeholder="Mã khách hàng"/>
 	        				<button class="btn btn-search">
 	        					<i class="fa fa-search"></i>
@@ -49,17 +49,17 @@
 	        				<th>Số tài khoản</th>
 	        				<th></th>
 	        			</tr>     
-	        			<tr>
-	        				<td>1</td>
-	        				<td>KH1001</td>
-	        				<td>Công ty TNHH Bình An</td>
-	        				<td>Thanh Xuân, Hà Nội</td>
-	        				<td>091234567</td>
-	        				<td>MS01234</td>
-	        				<td>1200546753123</td>
+	        			<tr th:each="khachhang,itemStat:${listKhachHang}">
+	        				<td th:text="${itemStat.index+1}"></td>
+	        				<td th:text="${khachhang.maDoiTuong}"></td>
+	        				<td th:text="${khachhang.tenDoiTuong}"></td>
+	        				<td th:text="${khachhang.diaChi}"></td>
+	        				<td th:text="${khachhang.SDT}"></td>
+	        				<td th:text="${khachhang.maSoThue}"></td>
+	        				<td th:text="${khachhang.soTaiKhoan}"></td>
 	        				<td>
-	        					<button class="btn btn-primary">Sửa</button>
-	        					<button class="btn btn-danger">Xóa</button>
+	        					<a th:href="@{/edit_khachhang?maDoiTuong={maDoiTuong}(maDoiTuong=${khachhang.maDoiTuong})}" class="btn btn-primary">Sửa</a>
+	        					<a th:href="@{/delete_khachhang?maDoiTuong={maDoiTuong}(maDoiTuong=${khachhang.maDoiTuong})}" class="btn btn-danger">Xóa</a>
 	        				</td>
 	        			</tr>     			
 	        		</table>
