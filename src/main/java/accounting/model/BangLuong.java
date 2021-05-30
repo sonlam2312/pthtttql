@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -26,7 +26,9 @@ public class BangLuong {
 	private double hoanTamUng;
 	private double soDaTra;
 	private double soConPhaiTra;
-	@OneToOne
-	@JoinColumn(name = "id_nhanvien")
-	private NhanVien nhanVien;
+	private String tinhTrang;
+	private String taiKhoanNganHang;
+	@ManyToOne
+	@JoinColumn(name = "id_thangluong")
+	private ThangLuong thangLuong;
 }

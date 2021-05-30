@@ -1,7 +1,44 @@
+.wrapper .main_content .info h3, h5{
+	text-align: center;
+}
+.wrapper .main_content .info .search_bangluong{
+	float:right;
+	margin-right:40px;
+	margin:20px;
+}
+.wrapper .main_content .info .search_bangluong input{
+	border:none;
+	outline:none;
+	width:250px;
+	height:36px;
+	font-size:14px;
+	background-color:#fff;
+	border:1px solid gray;
+	border-radius:20px;
+	padding:0 10px;
+}
+.wrapper .main_content .info .search_bangluong input:hover, input:active{
+	border:1.5px solid #2196f3;
+}
+.wrapper .main_content .info .search_bangluong .btn{
+	width:35px;
+	height:35px;
+	outline:none;
+	border:none;
+	background:#fff;
+	border:1px solid gray;
+	padding: 5px 5px;
+	border-radius:50%;
+	cursor:pointer;
+}
+.wrapper .main_content .info .search_bangluong .btn:hover, .btn:active{
+	background:#2196f3;
+	color:white;
+}
 .wrapper .main_content .info .content_hachtoan #table_hachtoan{
 	margin-top:10px;
  	border-collapse: collapse;
- 	width:950px;
+ 	width:1000px;
 }
 .wrapper .main_content .info .content_hachtoan #table_hachtoan tr:nth-child(even){
   background-color: #f2f2f2;

@@ -10,4 +10,6 @@ import accounting.model.PhieuThu;
 public interface PhieuThuRepo extends JpaRepository<PhieuThu, Integer>{
 	List<PhieuThu> findAllByChungTuBan(ChungTuBan chungtuban);
 	List<PhieuThu> findAllBySoPhieuThu(String sophieuthu);
+	List<PhieuThu> findAllByLoaiThu(String loaiThu);
+	List<PhieuThu> findAllByMaDoiTuongAndLoaiThu(String madoituong,String loaithu);
 }

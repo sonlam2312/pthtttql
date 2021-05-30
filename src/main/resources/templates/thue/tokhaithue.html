@@ -26,12 +26,13 @@
                         <li><a data-toggle="tab" href="#tab_GTGTmuavao">GTGT mua vào</a></li>
                         <li><a data-toggle="tab" href="#tab_GTGTbanra">GTGT bán ra</a></li>
                      </ul>
+                      <form th:action="@{/tokhaithue_add}" method="post" th:object="${tokhaithue}">
                       <div class="tab-content">
                         <div id="tab_tokhaithue" class="tab-pane fade in active"> 
                         	<h3>Tờ khai thuế giá trị gia tăng</h3>
                         	<h4>(Dành cho người nộp thuế khai thuế GTGT theo phương pháp khấu trừ)</h4>
-                        	<h5>Mẫu số: MS1231</h5>
-                        	<h5>Kỳ tính thuế: Tháng 5 năm 2021</h5>   
+                        	<h5>Mẫu số: <span><input type="text" id="mauso" th:field="*{mauSo}"/></span></h5>
+                        	<h5>Kỳ tính thuế: <span><input type="text" id="mauso" th:field="*{ki}"/></span></h5>   
                         	<label>Tên người nộp thuế:</label>
                         	<span>Công ty TNHH ABC</span><br><br> 
                         	<label>Mã số thuế thuế:</label>
@@ -119,13 +120,13 @@
                         				<td>Người đại diện:</td>
                         				<td><input type="text" name="daily"/></td>
                         				<td>Người lập đơn:</td>
-                        				<td><input type="text" name="doanhnghiep"/></td>
+                        				<td><input type="text" name="doanhnghiep" th:field="*{nguoiLapDon}"/></td>
                         			</tr>
                         			<tr>
                         				<td>Ngày ghi sổ:</td>
                         				<td><input type="date" name="ngayghiso"/></td>
                         				<td>Ngày ký:</td>
-                        				<td><input type="date" name="ngayki"/></td>
+                        				<td><input type="date" name="ngayki" th:field="*{ngayKi}"/></td>
                         			</tr>
                         		</table>
                         	</div>
@@ -150,14 +151,14 @@
                         			<td>Số chứng từ</td>
                         			<td>Ngày lập</td>	
                         		</tr>
-                        		<tr>
-                        			<td>1</td>
-                        			<td>CTM1001</td>
-                        			<td>26/5/2021</td>
-                        			<td>Công ty TNHH Bình An</td>
-                        			<td>MST001</td>
-                        			<td>900000000</td>
-                        			<td>90000000</td>
+                        		<tr th:each="chungtumua,itemStat:${listChungTuMua}">
+                        			<td th:text="${itemStat.index+1}"></td>
+                        			<td th:text="${chungtumua.soChungTu}"></td>
+                        			<td th:text="${chungtumua.ngayChungTu}"></td>
+                        			<td th:text="${chungtumua.tenDoiTuong}"></td>
+                        			<td th:text="${chungtumua.hoaDonMua.maSoThue}"></td>
+                        			<td th:text="${chungtumua.tongHang}"></td>
+                        			<td th:text="${chungtumua.tongGTGT}"></td>
                         			<td></td>
                         		</tr>
                         	</table>                   
@@ -178,19 +179,20 @@
                         			<td>Số chứng từ</td>
                         			<td>Ngày lập</td>	
                         		</tr>
-                        		<tr>
-                        			<td>1</td>
-                        			<td>CTB1001</td>
-                        			<td>26/5/2021</td>
-                        			<td>Công ty TNHH Bình An</td>
-                        			<td>MST001</td>
-                        			<td>920000000</td>
-                        			<td>92000000</td>
+                        		<tr th:each="chungtuban,itemStat:${listChungTuBan}">
+                        			<td th:text="${itemStat.index+1}"></td>
+                        			<td th:text="${chungtuban.soChungTu}"></td>
+                        			<td th:text="${chungtuban.ngayChungTu}"></td>
+                        			<td th:text="${chungtuban.tenDoiTuong}"></td>
+                        			<td th:text="${chungtuban.hoaDonBan.maSoThue}"></td>
+                        			<td th:text="${chungtuban.tongHang}"></td>
+                        			<td th:text="${chungtuban.tongGTGT}"></td>
                         			<td></td>
                         		</tr>
                         	</table>                      
                         </div>
                       </div>
+                      </form>
 	        	</div>
 	        </div>
 	    </div>

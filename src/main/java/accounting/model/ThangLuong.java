@@ -1,10 +1,12 @@
 package accounting.model;
 
-import java.sql.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -12,15 +14,11 @@ import lombok.Data;
 @Table
 @Entity
 @Data
-public class ToKhaiThue {
+public class ThangLuong {
 	@Id
 	@GeneratedValue
 	private int id;
-	private String mauSo;
-	private String tenToKhai;
-	private String loaiThue = "GTGT";
-	private String ki;
-	private String tinhTrang;
-	private String nguoiLapDon;
-	private Date ngayKi;
+	private String month;
+	@OneToMany(mappedBy = "thangLuong",cascade = CascadeType.ALL)
+	private List<BangLuong> bangLuong;
 }

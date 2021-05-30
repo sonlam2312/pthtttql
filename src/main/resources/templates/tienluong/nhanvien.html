@@ -28,7 +28,7 @@
 	        			</form>
 	        		</div>   
 	        		<div class="search_nhanvien">
-	        			<form th:action="@{#}" method="get">
+	        			<form th:action="@{/search_nhanvien}" method="get">
 	        				<input type="text" name="txt_nhanvien" placeholder="Mã nhân viên"/>
 	        				<button class="btn btn-search">
 	        					<i class="fa fa-search"></i>
@@ -47,21 +47,23 @@
 	        				<th>Số điện thoại</th>
 	        				<th>Chức vụ</th>
 	        				<th>Phòng ban</th>
+	        				<th>Lương</th>
 	        				<th>Số tài khoản</th>
 	        				<th></th>
 	        			</tr>     
-	        			<tr>
-	        				<td>1</td>
-	        				<td>NV1001</td>
-	        				<td>Nguyễn Văn An</td>
-	        				<td>Thanh Xuân, Hà Nội</td>
-	        				<td>091234567</td>
-	        				<td>Nhân viên</td>
-	        				<td>Phòng bảo vệ</td>
-	        				<td>1200546753123</td>
+	        			<tr th:each="nhanvien, itemStat:${listNhanVien}">
+	        				<td th:text="${itemStat.index+1}"></td>
+	        				<td th:text="${nhanvien.maNhanVien}"></td>
+	        				<td th:text="${nhanvien.tenNhanVien}"></td>
+	        				<td th:text="${nhanvien.diaChi}"></td>
+	        				<td th:text="${nhanvien.SDT}"></td>
+	        				<td th:text="${nhanvien.chucVu}"></td>
+	        				<td th:text="${nhanvien.phongBan}"></td>
+	        				<td th:text="${nhanvien.luong}"></td>
+	        				<td th:text="${nhanvien.taiKhoanNganHang}"></td>
 	        				<td>
-	        					<button class="btn btn-primary">Sửa</button>
-	        					<button class="btn btn-danger">Xóa</button>
+	        					<a th:href="@{/edit_nhanvien?id_nhanvien={idNhanVien}(idNhanVien=${nhanvien.id})}" class="btn btn-primary">Sửa</a>
+	        					<a th:href="@{/delete_nhanvien?id_nhanvien={idNhanVien}(idNhanVien=${nhanvien.id})}" class="btn btn-danger">Xóa</a>
 	        				</td>
 	        			</tr>     			
 	        		</table>

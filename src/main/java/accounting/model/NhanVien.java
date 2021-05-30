@@ -21,9 +21,8 @@ public class NhanVien {
 	private String SDT;
 	private String chucVu;
 	private String phongBan;
+	private double luong;
 	private String taiKhoanNganHang;
 	@OneToOne
 	private Account account;
-	@OneToOne
-	private BangLuong bangLuong;
 }

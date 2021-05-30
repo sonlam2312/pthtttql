@@ -21,14 +21,21 @@
 	        <div th:replace="fragments::header_Signined"></div>
 	        <div class="info">
 	        	<h3>Thông tin trả lương</h3>
+	        	<h5>Tháng:<span th:text="${thang}"></span></h5>
+	        	<div class="search_bangluong">
+	        		<form th:action="@{/search_bangluong}" method="get">
+	        			<input type="text" name="txt_bangluong" placeholder="Mã nhân viên"/>
+	        			<button class="btn btn-search">
+	        				<i class="fa fa-search"></i>
+	        			</button>
+	        		</form>
+	        	</div> 
 	        	<div class="content_hachtoan">
-	        		<form th:action="@{/hachtoan}" method="get">
 		        		<table id="table_hachtoan">
 		        			<tr>
 		        				<th>No</th>
 		        				<th>Mã nhân viên</th>
 		        				<th>Tên nhân viên</th>	             		
-		        				<th>Phòng ban</th>
 		        				<th>Lương</th>
 		        				<th>Thưởng</th>
 		        				<th>Phạt</th>
@@ -36,44 +43,28 @@
 		        				<th>Hoàn tạm ứng</th>
 		        				<th>Số đã trả</th>
 		        				<th>Số còn phải trả</th>
+		        				<th>Tình trạng</th>
 		        				<th></th>
 		        			</tr>
-		        			<tr>
-		        				<td>1</td>
-		        				<td>NV001</td>
-		        				<td>Nguyễn Văn A</td>
-		        				<td>Phòng nhân sự</td>
-		        				<td>16000000</td>   
-		        				<td>400000</td>
-		        				<td>0</td>    
-		        				<td>0</td>
-		        				<td>0</td>
-		        				<td>0</td>
-		        				<td>16400000</td>
+		        			<tr th:each="bangluong, itemStat:${listBangLuong}">
+		        				<td th:text="${itemStat.index+1}"></td>
+		        				<td th:text="${bangluong.maNhanVien}"></td>
+		        				<td th:text="${bangluong.tenNhanVien}"></td>
+		        				<td th:text="${bangluong.luong}"></td>   
+		        				<td th:text="${bangluong.thuong}"></td>
+		        				<td th:text="${bangluong.phat}"></td>    
+		        				<td th:text="${bangluong.tamUng}"></td>
+		        				<td th:text="${bangluong.hoanTamUng}"></td>
+		        				<td th:text="${bangluong.soDaTra}"></td>
+		        				<td th:text="${bangluong.soConPhaiTra}"></td>
+		        				<td th:text="${bangluong.tinhTrang}"></td>
 		        				<td>
-		        					<button class="btn btn-primary">Giao dịch</button>
-		        					<button class="btn btn-primary">Trả</button>
+		        					<a th:href="@{/xemlichsutra?id_bangluong={id_bangluong}(id_bangluong=${bangluong.id})}" class="btn btn-primary">Xem</a>
+		        					<a th:href="@{/traluong?id_bangluong={id_bangluong}(id_bangluong=${bangluong.id})}" class="btn btn-primary">Trả</a>
+		        					<a th:href="@{/edit_bangluong?id_bangluong={id_bangluong}(id_bangluong=${bangluong.id})}" class="btn btn-primary">Sửa</a>
 		        				</td>
-		        			</tr>
-		        			<tr>
-		        				<td>1</td>
-		        				<td>NV002</td>
-		        				<td>Nguyễn Văn B</td>
-		        				<td>Phòng kế toán</td>
-		        				<td>16000000</td> 
-		        				<td>0</td>
-		        				<td>0</td>      
-		        				<td>3000000</td>
-		        				<td>0</td>
-		        				<td>1000000</td>
-		        				<td>12000000</td>
-		        				<td>
-		        					<button class="btn btn-primary">Giao dịch</button>
-		        					<button class="btn btn-primary">Trả</button>
-		        				</td>
-		        			</tr>		        			
+		        			</tr>		        					        			
 		        		</table>
-		        	</form>
 	        	</div>
 	        </div>
 	    </div>

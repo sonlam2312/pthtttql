@@ -19,6 +19,16 @@
 	font-weight:bold;
 	border:none;
 }
+.wrapper .main_content .info input#mauso{
+	width:60px;
+	border:none;
+	outline:none;
+	background:inherit;
+	border-bottom:1px solid gray;
+}
+.wrapper .main_content .info input#mauso:hover, input#mauso:active{
+	border-bottom:1.5px solid #2196f3;
+}
 .wrapper .main_content .info .content_tokhaithue .kiten input{
 	width:70%;
 	border:none;

@@ -21,76 +21,59 @@
 	        <div th:replace="fragments::header_Signined"></div>
 	        <div class="info">	
 	        	<h3>Báo cáo quỹ</h3>
+	        	<h4>Tháng: <span th:text="${baocaoquy.month}"></span></h4>
+	        	<h5>Ngày báo cáo: <span th:text="${baocaoquy.ngayBaoCao}"></span></h5>
 	        	<div class="content_baocao">
-		        	<div class="khoanthu">
-		        		<table class="table_thu">
-		        			<tr>
-		        				<th>No</th>
-		        				<th>Ngày hạch toán</th>
-		        				<th>Số chứng từ</th>
-		        				<th>Đối tượng</th>
-		        				<th>Diễn giải</th>
-		        				<th>Số tiền</th>
-		        			</tr>
-		        			<tr>
-		        				<td>1</td>
-		        				<td>23/5/2021</td>
-		        				<td>PT1001</td>
-		        				<td>Công ty TNHH Bình An</td>
-		        				<td>Trả tiền hàng</td>
-		        				<td>3000000</td>
-		        			</tr>
-		        			<tr>
-		        				<td>2</td>
-		        				<td>24/5/2021</td>
-		        				<td>PT1002</td>
-		        				<td>Công ty TNHH Tân Bình</td>
-		        				<td>Trả tiền hàng</td>
-		        				<td>2000000</td>
-		        			</tr>
-		        		</table>
-		        		<h4>
-		        			Tổng thu: 
-		        			<span id="tongthu">5000000</span>
-		        			VNĐ
-		        		</h4>
-		        	</div>
-		        	<div class="khoanchi">
-	        		<table class="table_chi">
-	        			<tr>
-	        				<th>No</th>
-	        				<th>Ngày hạch toán</th>
-	        				<th>Số chứng từ</th>
-	        				<th>Đối tượng</th>
-	        				<th>Diễn giải</th>
-	        				<th>Số tiền</th>
-	        			</tr>
-	        			<tr>
-		        			<td>1</td>
-		        			<td>23/5/2021</td>
-		        			<td>PC1001</td>
-		        			<td>Công ty TNHH Bình An</td>
-		       				<td>Trả tiền hàng</td>
-		       				<td>3000000</td>
-		       			</tr>
-		       			<tr>
-		        			<td>2</td>
-		        			<td>12/5/2021</td>
-		        			<td>PC1002</td>
-		        			<td>Công ty TNHH Bình An</td>
-		        			<td>Trả tiền hàng</td>
-		        			<td>8000000</td>
+		        	<table>	        		
+		        		<tr>
+		        			<th>No</th>
+		        			<th>Ngày hạch toán</th>
+		        			<th>Số chứng từ</th>
+		        			<th>Đối tượng</th>
+		        			<th>Diễn giải</th>
+		        			<th>Số tiền</th>
+		        			<th>Ghi chú</th>
 		        		</tr>
-	        		</table>
-	        		<h4>	
-	        			Tổng chi:
-	        			<span id="tongchi">11000000</span>
-	        			VNĐ
-	        		</h4>
-	        	</div>
+		        		<tr>
+		        			<th>I</th>
+		        			<th colspan="4">Tổng thu</th>
+		        			<th th:text="${baocaoquy.tongthu}"></th>
+		        			<th></th>
+		        		</tr>
+		        		<tr th:each="phieuthu, itemStat: ${baocaoquy.listPhieuThu}">
+		        			<td th:text="${itemStat.index+1}"></td>
+		        			<td th:text="${phieuthu.ngayHachToan}"></td>
+		        			<td th:text="${phieuthu.soPhieuThu}"></td>
+		        			<td th:text="${phieuthu.tenDoiTuong}"></td>
+		        			<td th:text="${phieuthu.dienGiai}"></td>
+		        			<td th:text="${phieuthu.soTien}"></td>
+		        			<td></td>
+		        		</tr>
+		        		<tr>
+		        			<th>II</th>
+		        			<th colspan="4">Tổng chi</th>
+		        			<th th:text="${baocaoquy.tongthu}"></th>
+		        			<th></th>
+		        		</tr>
+		        		<tr th:each="phieuchi, itemStat: ${baocaoquy.listPhieuChi}">
+		        			<td th:text="${itemStat.index+1}"></td>
+		        			<td th:text="${phieuchi.ngayHachToan}"></td>
+		        			<td th:text="${phieuchi.soPhieuChi}"></td>
+		        			<td th:text="${phieuchi.tenDoiTuong}"></td>
+		        			<td th:text="${phieuchi.dienGiai}"></td>
+		        			<td th:text="${phieuchi.soTien}"></td>
+		        			<td></td>
+		        		</tr>
+		        		<tr>
+		        			<th>III</th>
+		        			<th colspan="4">Tồn quỹ</th>
+		        			<th th:text="${baocaoquy.tonquy}"></th>
+		        			<th></th>
+		        		</tr>
+		        	</table>
+		        	</div>	    
 	        	</div>
 	        </div>
 	    </div>
-	</div>
 </body>
 </html>

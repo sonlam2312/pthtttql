@@ -21,14 +21,15 @@
 	    <div class="main_content">
 	        <div th:replace="fragments::header_Signined"></div>
 	        <div class="info">
-	        	<form th:action="@{/phieuchi_add}" method="post" th:object="${phieuchi}">
-	        	<h3>Phiếu chi tiền</h3>	 
+	        	<form th:action="@{/phieuchi_update}" method="get" th:object="${phieuchi}">
+	        	<input type="hidden" name="id" th:field="*{id}"/>
+	        	<h3>Sửa phiếu chi tiền</h3>	 
 	        	<div class="row t0">
 	        		<div class="loaichi">
 	        			<label for="loaichi">Loại chi:</label>
 						<select name="loaichi" id="loaichi" th:field="*{loaiChi}">
 						  <option value="tamung">Chi tạm ứng</option>
-						  <option value="traluong">Trả lương</option>
+						  <option value="thueluong">Trả lương</option>
 						  <option value="trathue">Trả thuế</option>
 						  <option value="tranhacungcap">Trả nhà cung cấp</option>
 						  <option value="chikhac">Chi khác</option>
@@ -130,7 +131,13 @@
                                 <label for="sophieuchi">Số phiếu chi:</label>
                               </td>
                               <td><input type="text" name="sophieuchi" th:field="*{soPhieuChi}"> </td>
-                            </tr>                      
+                            </tr>   
+                            <tr>
+	        					<td></td>
+	        					<td>
+	        						<input type="hidden" th:field="*{chungTuMua.id}"/>
+	        					</td>
+	        				</tr>                   
                           </table> 
 	        		</div>
 	        	</div>

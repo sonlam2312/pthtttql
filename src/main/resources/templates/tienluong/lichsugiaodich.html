@@ -11,7 +11,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" th:href="@{/css/fragment.css}">
     <link rel="stylesheet" th:href="@{/css/index.css}">
-    <link rel="stylesheet" th:href="@{/css/quy/phieuchi.css}">
+    <link rel="stylesheet" th:href="@{/css/banhang/lichsugiaodich.css}">
     <script th:src="@{/js/fragment.js}"></script>
 </head>
 <body>
@@ -20,25 +20,20 @@
 	    <div class="main_content">
 	        <div th:replace="fragments::header_Signined"></div>
 	        <div class="info">
-	        	<h3>Chi tạm ứng</h3>
-	        	<div class="header_phieuchi">	        		
-	        		<div class="taophieuchi">
-	        			<form th:action="@{/form_phieuchi}">
-	        				<button class="btn btn-save">Tạo mới</button>
-	        			</form>
-	        		</div>   
-	        		<div class="search_phieuchi">
-	        			<form th:action="@{/search_phieuchi}" method="get">
-	        				<input type="text" name="txt_phieuchi" placeholder="Số phiếu chi"/>
+	        	<h3>Lịch sử giao dịch</h3>
+	        	<div class="header_phieuthu">	        			        		 
+	        		<div class="search_phieuthu">
+	        			<form th:action="@{/search_phieuthuchi}" method="get">
+	        				<input type="text" name="txt_phieuthuchi" placeholder="Số chứng từ"/>
 	        				<button class="btn btn-search">
 	        					<i class="fa fa-search"></i>
 	        				</button>
 	        			</form>
 	        		</div>  	        		   		
 	        	</div>
-	        	<div class="content_phieuchi">
-	        		<h3>Danh sách phiếu chi tạm ứng cho nhân viên</h3>
-	        		<table id="table_phieuchi">
+	        	<div class="content_phieuthu">
+	        		<h3>Danh sách các lần giao dịch</h3>
+	        		<table id="table_phieuthu">
 	        			<tr>
 	        				<th>No</th>
 	        				<th>Ngày hạch toán</th>
@@ -46,23 +41,25 @@
 	        				<th>Số chứng từ</th>        		
 	        				<th>Diễn giải</th>
 	        				<th>Số tiền</th>
-	        				<th>Mã đối tượng</th>
 	        				<th>Đối tượng</th>
-	        				<th></th>
 	        			</tr>
-	        			<tr  th:each="phieuchi, itemStat:${listPhieuChi}">
+	        			<tr th:each="phieuthu,itemStat:${listPhieuThu}">
+	        				<td th:text="${itemStat.index+1}"></td>
+	        				<td th:text="${phieuthu.ngayHachToan}"></td>
+	        				<td th:text="${phieuthu.ngayChungTu}"></td>
+	        				<td th:text="${phieuthu.soPhieuThu}"></td>
+	        				<td th:text="${phieuthu.dienGiai}"></td>       
+	        				<td th:text="${phieuthu.soTien}"></td>
+	        				<td th:text="${phieuthu.tenDoiTuong}"></td>
+	        			</tr>
+	        			<tr th:each="phieuchi,itemStat:${listPhieuChi}">
 	        				<td th:text="${itemStat.index+1}"></td>
 	        				<td th:text="${phieuchi.ngayHachToan}"></td>
 	        				<td th:text="${phieuchi.ngayChungTu}"></td>
 	        				<td th:text="${phieuchi.soPhieuChi}"></td>
 	        				<td th:text="${phieuchi.dienGiai}"></td>       
 	        				<td th:text="${phieuchi.soTien}"></td>
-	        				<td th:text="${phieuchi.maDoiTuong}"></td>
 	        				<td th:text="${phieuchi.tenDoiTuong}"></td>
-	        				<td>
-	        					<a th:href="@{/edit_phieuchi?id_phieuchi={id_phieuchi}(id_phieuchi=${phieuchi.id})}" class="btn btn-primary">Sửa</a>
-	        					<a th:href="@{/delete_phieuchi?id_phieuchi={id_phieuchi}(id_phieuchi=${phieuchi.id})}" class="btn btn-danger">Xóa</a>
-	        				</td>
 	        			</tr>
 	        		</table>
 	        	</div>

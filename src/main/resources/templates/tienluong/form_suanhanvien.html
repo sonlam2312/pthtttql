@@ -20,9 +20,12 @@
 	    <div class="main_content">
 	        <div th:replace="fragments::header_Signined"></div>
 	        <div class="info">
-	        	<form th:action="@{/add_nhanvien}" method="post" th:object="${nhanvien}">
-	        		<h3>Tạo thông tin nhân viên</h3>
+	        	<form th:action="@{/update_nhanvien}" method="get" th:object="${nhanvien}">
+	        		<h3>Sửa thông tin nhân viên</h3>
 	        		<table>
+	        			<tr style="display:none;">
+	        				<td><input type="hidden" name="id" th:field="*{id}"/></td>
+	        			</tr>
 	        			<tr>
 	        				<td>
 	        					<label for="manhanvien">Mã nhân viên:</label>
