@@ -20,8 +20,9 @@
 	    <div class="main_content">
 	        <div th:replace="admin/fragment::header_Signined"></div>
 	        <div class="info">
-	        	<form th:action="@{/add_taikhoan}" method="post" th:object="${taikhoan}">
-	        		<h3>Tạo tài khoản</h3>
+	        	<form th:action="@{/update_taikhoan}" method="get" th:object="${taikhoan}">
+	        		<h3>Sửa tài khoản</h3>
+	        		<input type="hidden" name="id" th:field="*{id}"/>
 	        		<table>
 	        			<tr>
 	        				<td>
@@ -33,10 +34,10 @@
 	        			</tr>
 	        			<tr>
 	        				<td>
-	        					<label for="password">Password:</label>
+	        					<label for="text">Password:</label>
 	        				</td>
 	        				<td>
-	        					<input type="text" name="password" th:field="*{password}"/>
+	        					<input type="text" name="password"  th:field="*{password}"/>
 	        				</td>
 	        			</tr>
 	        			<tr>
@@ -44,7 +45,7 @@
 	        					<label for="manv">Mã nhân viên:</label>
 	        				</td>
 	        				<td>
-	        					<input type="text" name="manv" th:field="*{nhanVien.maNhanVien}"/>
+	        					<input type="text" name="manv"  th:field="*{nhanVien.maNhanVien}"/>
 	        				</td>
 	        			</tr>
 	        			<tr>

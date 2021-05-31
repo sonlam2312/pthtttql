@@ -44,15 +44,15 @@
 	        				<th>Phòng ban</th>
 	        				<th>Số tài khoản</th>
 	        			</tr>     
-	        			<tr>
-	        				<td>1</td>
-	        				<td>NV1001</td>
-	        				<td>Nguyễn Văn An</td>
-	        				<td>Thanh Xuân, Hà Nội</td>
-	        				<td>091234567</td>
-	        				<td>Nhân viên</td>
-	        				<td>Phòng bảo vệ</td>
-	        				<td>1200546753123</td>	 
+	        			<tr th:each="nhanvien, itemStat:${listNhanVien}">
+	        				<td th:text="${itemStat.index+1}"></td>
+	        				<td th:text="${nhanvien.maNhanVien}"></td>
+	        				<td th:text="${nhanvien.tenNhanVien}"></td>
+	        				<td th:text="${nhanvien.diaChi}"></td>
+	        				<td th:text="${nhanvien.SDT}"></td>
+	        				<td th:text="${nhanvien.chucVu}"></td>
+	        				<td th:text="${nhanvien.phongBan}"></td>
+	        				<td th:text="${nhanvien.taiKhoanNganHang}"></td>	 
 	        			</tr>     			
 	        		</table>
 	        	</div>

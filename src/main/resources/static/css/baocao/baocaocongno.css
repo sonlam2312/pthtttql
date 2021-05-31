@@ -1,8 +1,9 @@
-.wrapper .main_content .info h3{
+.wrapper .main_content .info h3, h5{
+	text-align:center;
 	margin: 20px 0;
 }
 .wrapper .main_content .info .content_baocao{
-	width:990px;
+	width:1000px;
 	display: flex;
 	justify-content: space-between;
 }
@@ -17,7 +18,7 @@
   background-color: #ddd;
 }
 .wrapper .main_content .info .content_baocao table th{
-  padding: 6px 6px;
+  padding: 5px 5px;
   text-align: center;
   background-color: #2196f3;
   border: 1px solid #fff;
@@ -25,5 +26,5 @@
 }
 
 .wrapper .main_content .info .content_baocao table td{
-	padding:6px;
+	padding:5px;
 }

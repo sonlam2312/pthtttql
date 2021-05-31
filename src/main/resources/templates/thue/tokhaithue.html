@@ -71,14 +71,14 @@
                         		<tr>
                         			<td>1</td>
                         			<td>Giá trị và thuế GTGT của hàng hóa, dịch vụ mua vào trong kì</td>
-                        			<td>320000000</td>
-                        			<td>32000000</td>
+                        			<td th:text="${tongHangMua}"></td>
+                        			<td th:text="${tongGTGTmua}"></td>
                         		</tr>
                         		<tr>
                         			<td>2</td>
                         			<td>Tổng số thuế GTGT được khấu trừ trong kì này</td>
                         			<td>0</td>
-                        			<td>32000000</td>
+                        			<td th:text="${tongGTGTmua}"></td>
                         		</tr>
                         		<tr>
                         			<td>II</td>
@@ -87,26 +87,26 @@
                         		<tr>
                         			<td>1</td>
                         			<td>Hàng hóa, dịch vụ bán ra không chị thuế GTGT</td>
-                        			<td>0</td>
-                        			<td>0</td>
+                        			<td th:text="${hangGTGT0}"></td>
+                        			<td th:text="${tongGTGT0}"></td>
                         		</tr>
                         		<tr>
                         			<td>2</td>
                         			<td>Hàng hóa, dịch vụ bán ra trong kì chịu thuế GTGT</td>
-                        			<td>64000000</td>
-                        			<td>6400000</td>
+                        			<td th:text="${hangGTGT}"></td>
+                        			<td th:text="${tongGTGT}"></td>
                         		</tr>
                         		<tr>
                         			<td>a</td>
                         			<td>Hàng hóa, dịch vụ bán ra trong kì chịu thuế 5%</td>
-                        			<td>32000000</td>
-                        			<td>3200000</td>
+                        			<td th:text="${hangGTGT5}"></td>
+                        			<td th:text="${tongGTGT5}"></td>
                         		</tr>
                         		<tr>
                         			<td>b</td>
                         			<td>Hàng hóa, dịch vụ bán ra trong kì chịu thuế 10%</td>
-                        			<td>32000000</td>
-                        			<td>3200000</td>
+                        			<td th:text="${hangGTGT10}"></td>
+                        			<td th:text="${tongGTGT10}"></td>
                         		</tr>
                         	</table>  
                         	<div class="kiten">

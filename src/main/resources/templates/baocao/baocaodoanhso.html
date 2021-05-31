@@ -11,7 +11,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" th:href="@{/css/fragment.css}">
     <link rel="stylesheet" th:href="@{/css/index.css}">
-    <link rel="stylesheet" th:href="@{/css/baocao/baocaoquy.css}">
+    <link rel="stylesheet" th:href="@{/css/baocao/baocaodoanhso.css}">
     <script th:src="@{/js/fragment.js}"></script>
 </head>
 <body>
@@ -20,35 +20,29 @@
 	    <div class="main_content">
 	        <div th:replace="fragments::header_Signined"></div>
 	        <div class="info">	
-	        	<h3>Báo cáo doanh số theo sản phẩm</h3>
+	        	<h3>Báo cáo doanh số mua bán hang</h3>
+	        	<h5>Tháng:<span th:text="${month}"></span></h5>
 	        	<div class="content_baocao">
 		        	<div class="khoanmua">
 		        		<table class="table_mua">
 		        			<tr>
 		        				<th>No</th>
-		        				<th>Hàng hóa</th>
-		        				<th>Số lượng</th>
-		        				<th>Giá</th>
+		        				<th>Mã NCC</th>
+		        				<th>Nhà cung cấp</th>
+		        				<th>Địa chỉ</th>
 		        				<th>Số tiền</th>
 		        			</tr>
-		        			<tr>
-		        				<td>1</td>
-		        				<td>Laptop</td>
-		        				<td>100</td>
-		        				<td>2000000</td>
-		        				<td>200000000</td>
-		        			</tr>
-		        			<tr>
-		        				<td>2</td>
-		        				<td>Bàn phím</td>
-		        				<td>10</td>
-		        				<td>200000</td>
-		        				<td>2000000</td>
+		        			<tr th:each="doanhso,itemStat:${doanhsomua}">
+		        				<td th:text="${itemStat.index+1}"></td>
+			        			<td th:text="${doanhso.maDoiTuong}"></td>
+			        			<td th:text="${doanhso.tenDoiTuong}"></td>
+			        			<td th:text="${doanhso.diaChi}"></td>
+			        			<td th:text="${doanhso.soTien}"></td>
 		        			</tr>
 		        		</table>
 		        		<h4>
 		        			Tổng mua: 
-		        			<span id="tongmua">22000000</span>
+		        			<span id="tongmua" th:text="${tongmua}"></span>
 		        			VNĐ
 		        		</h4>
 		        	</div>
@@ -56,29 +50,22 @@
 	        		<table class="table_ban">
 	        			<tr>
 		        			<th>No</th>
-		        			<th>Hàng hóa</th>
-		        			<th>Số lượng</th>
-		        			<th>Giá</th>
-		       				<th>Số tiền</th>
-		       			</tr>
-		       			<tr>
-		       				<td>1</td>
-		       				<td>Laptop</td>
-		       				<td>100</td>
-		       				<td>2000000</td>
-		       				<td>200000000</td>
-	        			</tr>
-	        			<tr>
-		        			<td>2</td>
-		        			<td>Bàn phím</td>
-		        			<td>10</td>
-		       				<td>200000</td>
-		       				<td>2000000</td>
-		       			</tr>
+		        			<th>Mã NCC</th>
+		        			<th>Nhà cung cấp</th>
+		        			<th>Địa chỉ</th>
+		        			<th>Số tiền</th>
+		        		</tr>
+		       			<tr th:each="doanhso,itemStat:${doanhsoban}">
+		       				<td th:text="${itemStat.index+1}"></td>
+		        			<td th:text="${doanhso.maDoiTuong}"></td>
+		        			<td th:text="${doanhso.tenDoiTuong}"></td>
+		        			<td th:text="${doanhso.diaChi}"></td>
+		        			<td th:text="${doanhso.soTien}"></td>
+		        		</tr>
 	        		</table>
 	        		<h4>	
 	        			Tổng bán:
-	        			<span id="tongban">11000000</span>
+	        			<span id="tongban" th:text="${tongban}"></span>
 	        			VNĐ
 	        		</h4>
 	        	</div>

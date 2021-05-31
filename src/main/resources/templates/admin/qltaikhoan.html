@@ -38,14 +38,14 @@
 	        				<th>Nhân viên</th>
 	        				<th></th>
 	        			</tr>     
-	        			<tr>
-	        				<td>1</td>
-	        				<td>nguyenvana</td>
-	        				<td>1234</td>
-	        				<td>Nguyễn Văn A</td>
+	        			<tr th:each="taikhoan, itemStat:${listTaiKhoan}">
+	        				<td th:text="${itemStat.index+1}"></td>
+	        				<td th:text="${taikhoan.username}"></td>
+	        				<td th:text="${taikhoan.password}"></td>
+	        				<td th:text="${taikhoan.nhanVien.tenNhanVien}"></td>
 	        				<td>
-	        					<button class="btn btn-primary">Sửa</button>
-	        					<button class="btn btn-danger">Xóa</button>
+	        					<a th:href="@{/edit_taikhoan?id_taikhoan={idtaikhoan}(idtaikhoan=${taikhoan.id})}" class="btn btn-primary">Sửa</a>
+	        					<a th:href="@{/delete_taikhoan?id_taikhoan={idtaikhoan}(idtaikhoan=${taikhoan.id})}" class="btn btn-danger">Xóa</a>
 	        				</td>        				 
 	        			</tr>     			
 	        		</table>

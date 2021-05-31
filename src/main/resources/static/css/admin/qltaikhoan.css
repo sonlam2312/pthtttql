@@ -21,7 +21,7 @@
 .wrapper .main_content .info .content_taikhoan #table_taikhoan{
 	margin-top:10px;
  	border-collapse: collapse;
- 	width:950px;
+ 	width:980px;
 }
 .wrapper .main_content .info .content_taikhoan #table_taikhoan tr:nth-child(even){
   background-color: #f2f2f2;

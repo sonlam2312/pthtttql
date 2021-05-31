@@ -1,0 +1,44 @@
+.wrapper .main_content .info h3, h4, h5{
+	margin: 20px 0;
+	text-align: center;
+}
+.wrapper .main_content .info .content_baocao{
+	width:990px;
+	display: flex;
+	justify-content: space-between;
+}
+.wrapper .main_content .info .content_baocao table, td, th{
+	border:1px solid gray;
+	width:480px;
+ 	border-collapse: collapse;
+}
+.wrapper .main_content .info .content_baocao table tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+.wrapper .main_content .info .content_baocao table tr:hover{
+  background-color: #ddd;
+}
+
+.wrapper .main_content .info .content_baocao table tr th{
+    padding: 6px 6px;
+	background:rgba(0,0,0,0.18);
+	color:black;
+}
+.wrapper .main_content .info .content_baocao table tr th:first-child{
+	width:14px;
+}
+.wrapper .main_content .info .content_baocao table tr td:first-child{
+	width:14px;
+}
+.wrapper .main_content .info .content_baocao table tr:first-child th{
+  padding: 6px 6px;
+  text-align: center;
+  background-color: #2196f3;
+  border: 1px solid #fff;
+  color: white;
+}
+
+.wrapper .main_content .info .content_baocao table td{
+	text-align:center;
+	padding:4px;
+}

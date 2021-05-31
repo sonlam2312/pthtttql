@@ -45,20 +45,22 @@
 	        				<th>Tờ khai</th>
 	        				<th>Loại thuế</th>        		
 	        				<th>Kỳ</th>	   
-	        				<th>Tình trạng</th>
+	        				<th>Người lập</th>
+	        				<th>Ngày lập</th>
 	        				<th></th>
 	        			</tr>
-	        			<tr>
-	        				<td>1</td>
-	        				<td>MST1231</td>
-	        				<td>Tờ khai thuế tháng 9/2021</td>
-	        				<td>VAT</td>
-	        				<td>9/2021</td>       
-	        				<td>Chưa xử lý</td>
+	        			<tr th:each="khaithue,itemStat:${listKhaiThue}">
+	        				<td th:text="${itemStat.index+1}"></td>
+	        				<td th:text="${khaithue.mauSo}"></td>
+	        				<td th:text="${khaithue.tenToKhai}"></td>
+	        				<td th:text="${khaithue.loaiThue}"></td>
+	        				<td th:text="${khaithue.ki}"></td>  
+	        				<td th:text="${khaithue.nguoiLapDon}"></td> 
+	        				<td th:text="${khaithue.ngayKi}"></td>  
 	        				<td>
-	        					<button class="btn btn-primary">Xem</button>
-	        					<button class="btn btn-danger">Xóa</button>
-	        				</td>
+	        					<a th:href="@{/xem_tokhai?id_tokhai={id_tokhai}(id_tokhai=${khaithue.id})}" class="btn btn-primary">Xem</a>
+	        					<a th:href="@{/delete_tokhai?id_tokhai={id_tokhai}(id_tokhai=${khaithue.id})}" class="btn btn-danger">Xóa</a>
+	        				</td>    
 	        			</tr>
 	        		</table>
 	        	</div>

@@ -9,37 +9,16 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
-@Entity
 @Table
+@Entity
 @Data
 public class Account {
 	@Id
 	@GeneratedValue
 	private int id;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	private String username;
 	private String password;
 	@OneToOne
-	@JoinColumn(name = "id_nhanvien")
+	@JoinColumn(name="id_nhanvien")
 	private NhanVien nhanVien;
 }

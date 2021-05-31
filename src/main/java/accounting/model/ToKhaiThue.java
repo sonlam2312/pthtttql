@@ -20,7 +20,6 @@ public class ToKhaiThue {
 	private String tenToKhai;
 	private String loaiThue = "GTGT";
 	private String ki;
-	private String tinhTrang;
 	private String nguoiLapDon;
 	private Date ngayKi;
 }
