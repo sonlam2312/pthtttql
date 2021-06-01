@@ -38,7 +38,7 @@ public class HomeController {
 		List<Account> a = accountRepo.findByUsernameAndPassword(username, password);
 		if(a.isEmpty()) {
 			model.addAttribute("message", "Tài khoản hoặc mật khẩu không hợp lệ");
-			url =  "login";
+			return "login";
 		}else {		
 			url = "home";
 		}
