@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import accounting.model.Account;
 import accounting.repository.AccountRepo;
@@ -24,7 +25,7 @@ public class HomeController {
 		model.addAttribute("account", a);
 		return "login";
 	}
-	@GetMapping("/login")
+	@PostMapping("/login")
 	public String checkLogin(@ModelAttribute("account") Account account, Model model, HttpSession session) {
 		String url = "";
 		String username = account.getUsername();
@@ -39,10 +40,10 @@ public class HomeController {
 			model.addAttribute("message", "Tài khoản hoặc mật khẩu không hợp lệ");
 			url =  "login";
 		}else {		
-			url = "index";
+			url = "home";
 		}
 		session.setAttribute("username", username);
-		return url;
+		return "redirect:/"+url;
 	}
 	@GetMapping("/home")
 	public String home() {
